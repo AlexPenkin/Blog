@@ -5,8 +5,8 @@ const path = require('path');
 const jade = require('jade');
 //
 const app = express();
-const publicFold = path.join('/public');
-const views = path.join('/views');
+const publicFold = path.join(__dirname + '/public');
+const views = path.join(__dirname + '/views');
 //Template engine initialization
 app.set('view engine', 'jade');
 app.set('views', views);
