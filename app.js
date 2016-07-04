@@ -2,7 +2,14 @@
 //modules
 const express = require('express');
 const path = require('path');
-const jade = require('jade');
+const mongoose = require('mongoose');
+// database
+mongoose.connect('mongodb://localhost/blog');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log('Mongo work!');
+});
 //
 const app = express();
 const publicFold = path.join(__dirname + '/public');

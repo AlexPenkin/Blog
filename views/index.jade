@@ -1,24 +1,24 @@
 block mainInfo
-    doctype html
-    html(lang="ru")
-        head
-            title= Блог
-            script(type='text/javascript', src= 'https://code.jquery.com/jquery-2.2.4.min.js')
-            script(type='text/javascript', src= 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
-            link(rel= 'stylesheet',href= 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
-            link(rel= 'stylesheet',href= './css/normalize.css')
-            link(rel= 'stylesheet',href= './css/style.css')
-        body
-            block header
-                div.head
-                    nav.nav
-                        a.navbar-brand Alex Penkin
-                        div.menu
-                            a.menuLink Блог
-                            a.menuLink Портфолио
-                            a.menuLink Чатик
-                            a.menuLink Обо мне
-                        div.userMenu
-                            a.menuLink Войти
-            block blog
-                div.blogWrap.col-lg-6.col-md-6.col-sm-12.sol-xs-12.col-md-offset-3.col-lg-offset-3
+  doctype html
+  html(lang="ru")
+    head
+      title= Блог
+      script(type='text/javascript', src= 'https://code.jquery.com/jquery-2.2.4.min.js')
+      script(type='text/javascript', src= 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+      link(rel= 'stylesheet',href= 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+      link(rel= 'stylesheet',href= './css/normalize.css')
+      link(rel= 'stylesheet',href= './css/style.css')
+    body
+      block header
+        div.head
+          nav.nav
+            a.navbar-brand Alex Penkin
+            div.menu
+              a.menuLink Блог
+              a.menuLink Портфолио
+              a.menuLink Чатик
+              a.menuLink Обо мне
+            div.userMenu
+              a.menuLink Войти
+      block blog
+        div.blogWrap.col-lg-6.col-md-6.col-sm-12.sol-xs-12.col-md-offset-3.col-lg-offset-3
