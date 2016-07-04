@@ -14,6 +14,8 @@ body, html {
     margin-bottom: 20px;
     border: 1px solid transparent;
     display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
     flex-direction: row;
     white-space: nowrap;
     color: black;
@@ -23,8 +25,9 @@ body, html {
     flex-direction: row;
     max-height: 50px;
     align-items: center;
-    margin-left: 10%;
-    min-width: 0px;
+    margin-left: 60px;
+    margin-right: auto;
+    min-width: 600px;
     position: relative;
     clear: both;
 
@@ -48,8 +51,7 @@ body, html {
     flex-direction: row;
     max-height: 50px;
     align-items: center;
-    margin-left: auto;
-    margin-right: 6%;
+  s
     position: relative;
 }
 .userMenu a {
@@ -58,7 +60,21 @@ body, html {
     color: white;
 }
 .blogWrap {
-background-color: gray;
 height: 100%;
-
+}
+.blogPost {
+  min-height: 400px;
+  border: solid thin hsl(60, 33%, 50%);
+  margin-top: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px hsl(60, 33%, 50%);
+}
+.blogPost:hover {
+  box-shadow: 0 0 15px hsl(60, 33%, 50%);
+  transition: 1s;
+}
+.aa {
+  width: 100px;
+  height: 100px;
+  background-color: red;
 }
