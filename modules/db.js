@@ -1,4 +1,4 @@
-function db() {
+module.exports = function db() {
   const mongoose = require('mongoose');
   mongoose.connect('mongodb://localhost/blog');
   var db = mongoose.connection;
@@ -7,7 +7,7 @@ function db() {
     console.log('Mongo work!!!');
   });
   var post = mongoose.model('Post', {
-    head: String,
+    title: String,
     date: {
       type: Date,
       default: Date.now
@@ -19,5 +19,3 @@ function db() {
     text: String
   });
 }
-
-module.exports = db;
