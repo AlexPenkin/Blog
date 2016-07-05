@@ -6,16 +6,19 @@ module.exports = function db() {
   db.once('open', function() {
     console.log('Mongo work!!!');
   });
-  var post = mongoose.model('Post', {
-    title: String,
-    date: {
-      type: Date,
-      default: Date.now
+  var Schema = mongoose.Schema;
+  var Post = new Schema({
+    title: {
+      type: String,
+      unique: true
     },
+    date: String,
     tags: [String],
     preText: String,
     preImgUrl: String,
     autor: String,
     text: String
   });
+  this.Blog = mongoose.model('Blog', Post);
+
 }

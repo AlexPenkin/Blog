@@ -12,7 +12,19 @@ $(document).ready(function() {
 
   })
 });
-
+var date = new Date();
+var year = date.getFullYear();
+var month = date.getMonth() + 1;
+var day = date.getDate();
+var hours = date.getHours();
+var minutes = date.getMinutes();
+if (minutes < 10) {
+  minutes = '0' + minutes;
+}
+if (month  < 10) {
+  month  = '0' + month ;
+}
+var formattedDate = `Posted ${day}.${month}.${year} в ${hours}:${minutes}`;
 function httpGet(url) {
 
   return new Promise(function(resolve, reject) {
@@ -21,17 +33,14 @@ function httpGet(url) {
         method: "POST",
         data: {
           title: $("#title").val(),
-          date: $("#date").val(),
+          date: formattedDate,
           tags: $("#tags").val(),
           preText: $("#preText").val(),
           preImgUrl: $("#preImgUrl").val(),
-          autor: $("#autor").val(),
+          autor: $("#autor").val() || "Alexander Penkin",
           text: tinymce.activeEditor.getContent({
             format: 'raw'
           }),
-          error: function() {
-            reject("error");
-          }
         }
       })
       .done(function(data) {

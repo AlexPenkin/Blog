@@ -4,9 +4,21 @@ const express = require('express');
 const path = require('path');
 const db = require('./modules/db');
 const session = require('express-session');
-const bodyParser = require('body-parser')
-  // database
-db();
+const bodyParser = require('body-parser');
+
+// database
+//db();
+var mongo = new db();
+
+function getAllPosts(model) {
+  model.find({}).sort({_id:-1}).exec( function(err, postsdb) {
+     posts = [];
+    postsdb.forEach(function(post) {
+      posts.push(post);
+    });
+    })
+}
+
 //
 const app = express();
 const publicFold = path.join(__dirname + '/public');
@@ -27,12 +39,21 @@ app.use(session({
     maxAge: 60000
   }
 }))
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({
+  extended: true
+})); // for parsing application/x-www-form-urlencoded
 
+
+var posts = getAllPosts(mongo.Blog);
+//
 app.route('/')
   .get(function(req, res, next) {
+    getAllPosts(mongo.Blog)
     let session = req.session;
     var testObj = {
       sesId: session.id,
+      posts: posts,
     }
     res.render('index.jade', testObj);
   })
@@ -42,7 +63,25 @@ app.route('/makePost')
     res.render('makePost.jade', {});
   })
   .post(function(req, res, next) {
-    console.log('ss');
-    res.status(500).send('Sorry, we cannot find that!');
+    let arrOfTags = req.body.tags.split(/,\s*/);
+    var blogPost = new mongo.Blog({
+      title: req.body.title,
+      date: req.body.date,
+      tags: arrOfTags,
+      preText: req.body.preText,
+      preImgUrl: req.body.preImgUrl,
+      autor: req.body.autor,
+      text: req.body.text
+    });
+    blogPost.save(function(err) {
+      if (err) {
+        console.log(err)
+      } else {
+        console.log('saved');
+        getAllPosts(mongo.Blog);
 
+      };
+    })
+    getAllPosts(mongo.Blog);
+    res.status(200).send('All ok');
   })
