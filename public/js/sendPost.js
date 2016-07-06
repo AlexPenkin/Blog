@@ -1,7 +1,7 @@
 'use strict'
 $(document).ready(function() {
 
-  $(document).on('click', '#show', () => {
+  $(document).on('click', '#send', () => {
     var text = tinymce.activeEditor.getContent({
       format: 'raw'
     });
@@ -24,7 +24,7 @@ if (minutes < 10) {
 if (month  < 10) {
   month  = '0' + month ;
 }
-var formattedDate = `Posted ${day}.${month}.${year} в ${hours}:${minutes}`;
+var formattedDate = `Опубликовано ${day}.${month}.${year} в ${hours}:${minutes}`;
 function httpGet(url) {
 
   return new Promise(function(resolve, reject) {

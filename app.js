@@ -47,6 +47,7 @@ app.use(bodyParser.urlencoded({
 
 var posts = getAllPosts(mongo.Blog);
 //
+
 app.route('/')
   .get(function(req, res, next) {
     getAllPosts(mongo.Blog)

@@ -1,12 +1,33 @@
 block header
   div.head
     nav.nav
-      a(href = '/').navbar-brand Alex Penkin
+      a(href = '/').navbar-brand Alexander Penkin
       div.menu
-        a.menuLink Блог
+        a(href = '/').menuLink Блог
         a.menuLink Портфолио
         a.menuLink Чатик
         a.menuLink Обо мне
         a(href = '/makePost').menuLink Add Post
       div.userMenu
         a.menuLink Войти
+
+  div.drawer.drawer--top
+    header(role="banner")
+      span.HeadName Alexander Penkin
+      button(type="button").drawer-toggle.drawer-hamburger
+        span.sr-only toggle navigation
+        span.drawer-hamburger-icon
+
+      nav(role="navigation").drawer-nav
+        div.menu
+          a(href = '/').menuLink Блог
+          a.menuLink Портфолио
+          a.menuLink Чатик
+          a.menuLink Обо мне
+          a(href = '/makePost').menuLink Add Post
+        div.userMenu
+          a.menuLink Войти
+script.
+  $(document).ready(function() {
+    $('.drawer').drawer();
+  });

@@ -5,9 +5,9 @@ block blog
     each val in posts
       div.blogPost
         div.title.col-lg-12.col-md-12.col-sm-12.col-xs-12
-          span.titleText= val.title
+          span.titleText !{val.title}
         div.autorAndDate.col-lg-12.col-md-12.col-sm-12.col-xs-12  
-          p.titleAutor Автор: !{val.autor}
+          a(href = '/aboutMe').titleAutor Автор: !{val.autor}
           p.titleData= val.date
         div.tags.col-lg-12.col-md-12.col-sm-12.col-xs-12  
           
