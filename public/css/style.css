@@ -8,6 +8,7 @@ body, html {
   background-color: hsl(20, 100%, 65%);
   overflow: hidden;
   margin-bottom: 10px;
+  z-index: 101;
 }
 .nav {
   position: relative;
@@ -20,6 +21,7 @@ body, html {
   margin: 0 auto;
   color: black;
   white-space: nowrap;
+  z-index: 100;
 }
 .menu {
   display: flex;
@@ -182,11 +184,11 @@ a {
   height: 400px;
   background-color: gray;
   position: absolute;
-  background-repeat: space !important;
+
   top: 0;
   z-index: -1;
 }
- .drawer-hamburger-icon:after, .drawer-hamburger-icon:before {
+.drawer-hamburger-icon, .drawer-hamburger-icon:after, .drawer-hamburger-icon:before {
   background-color: white !important;
 }
 .postTitle {
@@ -213,4 +215,12 @@ figure {
 .fullText {
   white-space: normal;
   word-break: normal;
+}
+.headWrap {
+  height: 400px;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  
 }
