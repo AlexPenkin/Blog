@@ -11,12 +11,14 @@ const bodyParser = require('body-parser');
 var mongo = new db();
 
 function getAllPosts(model) {
-  model.find({}).sort({_id:-1}).exec( function(err, postsdb) {
-     posts = [];
+  model.find({}).sort({
+    _id: -1
+  }).exec(function(err, postsdb) {
+    posts = [];
     postsdb.forEach(function(post) {
       posts.push(post);
     });
-    })
+  })
 }
 
 //
@@ -70,7 +72,7 @@ app.route('/makePost')
       date: req.body.date,
       tags: arrOfTags,
       preText: req.body.preText,
-      preImgUrl: req.body.preImgUrl,
+      headImg: req.body.headImg,
       autor: req.body.autor,
       text: req.body.text
     });
@@ -84,5 +86,26 @@ app.route('/makePost')
       };
     })
     getAllPosts(mongo.Blog);
-    res.status(200).send('All ok');
+
+  })
+var obj = {};
+//route of full info post
+app.route('/loadPost')
+  .get(function(req, res, next) {
+    var query = mongo.Blog.findOne({
+      _id: req.query.urlPost
+    })
+    var queryExec = query.exec(function(err, post) {
+      if (err) {
+        console.log(err)
+      } else {
+        }
+    }).then(res => {
+      return res;
+    }).then(resa => {res.render('post.jade', resa);
+  res.status(200);});
+
+
+    //console.log(obj);
+    //res.render('post.jade', obj);
   })

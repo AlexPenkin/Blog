@@ -5,7 +5,7 @@ block blog
     each val in posts
       div.blogPost
         div.title.col-lg-12.col-md-12.col-sm-12.col-xs-12
-          span.titleText !{val.title}
+          a.titleText(href = '/loadPost?urlPost=#{val._id}'):  span.titleText !{val.title}
         div.autorAndDate.col-lg-12.col-md-12.col-sm-12.col-xs-12  
           a(href = '/aboutMe').titleAutor Автор: !{val.autor}
           p.titleData= val.date
@@ -15,7 +15,7 @@ block blog
           hr
           span !{val.preText}
         div.readMore.col-lg-12.col-md-12.col-sm-12.col-xs-12
-          a Продолжение >>
+          a.titleText(href = '/loadPost?urlPost=#{val._id}'): Продолжение >>
           hr 
         div.commentsAndTags.col-lg-12.col-md-12.col-sm-12.col-xs-12
           div.comments

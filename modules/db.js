@@ -15,7 +15,7 @@ module.exports = function db() {
     date: String,
     tags: [String],
     preText: String,
-    preImgUrl: String,
+    headImg: String,
     autor: String,
     text: String
   });

@@ -36,7 +36,7 @@ function httpGet(url) {
           date: formattedDate,
           tags: $("#tags").val(),
           preText: $("#preText").val(),
-          preImgUrl: $("#preImgUrl").val(),
+          headImg: $("#headImg").val(),
           autor: $("#autor").val() || "Alexander Penkin",
           text: tinymce.activeEditor.getContent({
             format: 'raw'
