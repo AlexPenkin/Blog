@@ -20,5 +20,11 @@ module.exports = function db() {
     text: String
   });
   this.Blog = mongoose.model('Blog', Post);
+  this.User = mongoose.model('User',{
+    username: String,
+    password: String,
+    email: String,
+    gender: String
+});
 
 }

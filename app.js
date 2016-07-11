@@ -5,6 +5,9 @@ const path = require('path');
 const db = require('./modules/db');
 const session = require('express-session');
 const bodyParser = require('body-parser');
+const crypt = require('./modules/crypt.js')
+var passport = require('passport'),
+  LocalStrategy = require('passport-local').Strategy;
 
 // database
 //db();
@@ -41,8 +44,14 @@ app.use(session({
     maxAge: 60000
   }
 }))
-app.use(bodyParser.json({limit: "50mb"}));
-app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
+app.use(bodyParser.json({
+  limit: "50mb"
+}));
+app.use(bodyParser.urlencoded({
+  limit: "50mb",
+  extended: true,
+  parameterLimit: 50000
+}));
 
 var posts = getAllPosts(mongo.Blog);
 //
@@ -105,9 +114,25 @@ app.route('/loadPost')
 
   })
 
+// route login page
+app.route('/login')
+  .get(function(req, res, next) {
+    res.render('login.jade', {});
+  })
+  .post(function(req, res, next) {
+    console.log("test");
+    console.log(req.body.username);
+    res.status(200).end();
+    res.redirect('/login');
+  })
+
+
+//crypting
+
+console.log(crypt('lol'));
+
 // authentification
-var passport = require('passport'),
-  LocalStrategy = require('passport-local').Strategy;
+
 
 passport.use(new LocalStrategy(
   function(username, password, done) {

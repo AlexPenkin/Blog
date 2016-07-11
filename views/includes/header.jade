@@ -9,7 +9,7 @@ block header
         a.menuLink Обо мне
         a(href = '/makePost').menuLink Add Post
       div.userMenu
-        a.menuLink Войти
+        a(href = '/login').menuLink Войти
 
   div.drawer.drawer--top
     header(role="banner")
@@ -21,12 +21,12 @@ block header
       nav(role="navigation").drawer-nav
         div.menu
           a(href = '/').menuLink Блог
-          a.menuLink Портфолио
+          //a.menuLink Портфолио
           a.menuLink Чатик
           a.menuLink Обо мне
           a(href = '/makePost').menuLink Add Post
         div.userMenu
-          a.menuLink Войти
+          a(href = '/login').menuLink Войти
 script.
   $(document).ready(function() {
     $('.drawer').drawer();
