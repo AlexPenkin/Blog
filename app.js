@@ -41,11 +41,8 @@ app.use(session({
     maxAge: 60000
   }
 }))
-app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({
-  extended: true
-})); // for parsing application/x-www-form-urlencoded
-
+app.use(bodyParser.json({limit: "50mb"}));
+app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
 
 var posts = getAllPosts(mongo.Blog);
 //
@@ -98,14 +95,39 @@ app.route('/loadPost')
     var queryExec = query.exec(function(err, post) {
       if (err) {
         console.log(err)
-      } else {
-        }
+      } else {}
     }).then(res => {
       return res;
-    }).then(resa => {res.render('post.jade', resa);
-  res.status(200);});
+    }).then(resa => {
+      res.render('post.jade', resa);
+      res.status(200);
+    });
 
-
-    //console.log(obj);
-    //res.render('post.jade', obj);
   })
+
+// authentification
+var passport = require('passport'),
+  LocalStrategy = require('passport-local').Strategy;
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    User.findOne({
+      username: username
+    }, function(err, user) {
+      if (err) {
+        return done(err);
+      }
+      if (!user) {
+        return done(null, false, {
+          message: 'Incorrect username.'
+        });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, {
+          message: 'Incorrect password.'
+        });
+      }
+      return done(null, user);
+    });
+  }
+));

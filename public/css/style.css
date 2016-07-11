@@ -5,7 +5,7 @@ body, html {
 .head {
   width: 100%;
   height: 50px;
-  background-color: hsl(20, 100%, 65%);
+  background-color: black;
   overflow: hidden;
   margin-bottom: 10px;
   z-index: 101;
@@ -19,7 +19,7 @@ body, html {
   max-width: 1200px;
   flex-direction: row;
   margin: 0 auto;
-  color: black;
+  color: white;
   white-space: nowrap;
   z-index: 100;
 }
@@ -41,14 +41,14 @@ body, html {
   padding: 0px 5%;
   font-size: 18px;
   white-space: nowrap;
-  color: black;
+  color: white;
   cursor: pointer;
   position: relative;
   display: inline-block;
   font-family: Open Sans;
 }
 .navbar-brand {
-  color: black;
+  color: white;
   cursor: pointer;
   padding-right: 6%;
 }
@@ -138,7 +138,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: hsl(20, 100%, 65%) !important;
+    background-color: black !important;
   }
   .menu {
     display: flex;
@@ -156,6 +156,8 @@ a {
   }
   header {
     text-align: center;
+    height: 55px;
+    background-color: black;
   }
   .HeadName {
     display: inline-block;
@@ -163,7 +165,13 @@ a {
     margin-left: 40px;
     font-size: 20px;
     color: white;
+    z-index: 9999;
   }
+  .HeadName:hover{
+    color: white;
+    text-decoration: none;
+  }
+
   .drawer-hamburger {
     position: relative !important;
     float: right;
@@ -189,7 +197,7 @@ a {
   z-index: -1;
 }
 .drawer-hamburger-icon, .drawer-hamburger-icon:after, .drawer-hamburger-icon:before {
-  background-color: white !important;
+  background-color: white
 }
 .postTitle {
   color: white;
@@ -222,5 +230,27 @@ figure {
   position: absolute;
   overflow: hidden;
   top: 0;
-  
+  z-index: -1;
+
+}
+.postTags {
+
+
+}
+.awesomeTag {
+  border: solid thin #7cde9c;;
+  border-radius: 50px;
+  padding: 10px;
+  display: inline-block;
+  margin: 0 10px;
+  color: #7cde9c;;
+  transition: background 0.7s, color 0.1s;
+}
+.awesomeTag:hover {
+  background: #7cde9c;;
+  color: white;
+}
+.awesomeTag:active {
+  background: #7cae9c;
+  color: white;
 }
