@@ -21,7 +21,10 @@ module.exports = function db() {
   });
   this.Blog = mongoose.model('Blog', Post);
   this.User = mongoose.model('User',{
-    username: String,
+    username: {
+      type: String,
+      unique: true
+    },
     password: String,
     email: String,
     gender: String

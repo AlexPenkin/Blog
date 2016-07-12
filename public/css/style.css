@@ -211,6 +211,9 @@ a {
   justify-content: flex-end;
   flex-direction: column;
 }
+.postTitle p {
+  text-shadow: 2px 2px 4px #000000;
+}
 .dateAutor {
   font-size: 15px;
   margin-bottom: 50px;
@@ -278,11 +281,17 @@ top: 0;
   background-color: transparent;
   border-radius: 5px;
   border: solid thin #7cde9c;
-  padding: 10px 0;
-  width: 100px;
+  padding: 10px 20px;
+  width: auto;
   transition: background 0.7s, color 0.1s;
 }
 .awesomeBut:hover {
   background: #7cde9c;;
   color: white;
+}
+.gendersRadio {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
