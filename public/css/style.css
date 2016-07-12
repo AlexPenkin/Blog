@@ -64,6 +64,7 @@ body, html {
   font-size: 18px;
   white-space: nowrap;
   color: white;
+  margin-left: 10px;
 }
 .blogWrap {
   max-height: 100%;
@@ -153,6 +154,7 @@ a {
   }
   .userMenu {
     justify-content: center;
+    flex-direction: column;
   }
   header {
     text-align: center;
