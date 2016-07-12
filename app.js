@@ -6,13 +6,14 @@ const db = require('./modules/db');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const crypt = require('./modules/crypt.js');
-var passport = require('passport'),
-  LocalStrategy = require('passport-local').Strategy;
-
+const passport = require('./modules/passport.js');
+String.prototype.capitalizeFirstLetter = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+}
 // database
 //db();
 var mongo = new db();
-
+module.exports.mongo = mongo;
 function getAllPosts(model) {
   model.find({}).sort({
     _id: -1
@@ -66,6 +67,7 @@ app.route('/')
     var testObj = {
       sesId: session.id,
       posts: posts,
+      user: req.user
     }
     res.render('index.jade', testObj);
     console.log(req.user);
@@ -73,7 +75,7 @@ app.route('/')
 
 app.route('/makePost')
   .get(function(req, res, next) {
-    res.render('makePost.jade', {});
+    res.render('makePost.jade', {user: req.user});
   })
   .post(function(req, res, next) {
     let arrOfTags = req.body.tags.split(/,\s*/);
@@ -112,6 +114,7 @@ app.route('/loadPost')
     }).then(res => {
       return res;
     }).then(resa => {
+      resa.user = req.user;
       res.render('post.jade', resa);
       res.status(200);
     });
@@ -131,6 +134,7 @@ app.route('/login')
 
     console.log("test");
     console.log(req.body.username);
+    req.user.username;
     res.status(200).end();
     res.redirect('/login');
   })
@@ -164,42 +168,12 @@ app.route('/signUp')
 
   })
 
+app.route('/logOut')
+  .get(function(req, res, next) {
+    req.logout();
+    res.redirect('/');
+  })
 
 //crypting
 
 console.log(crypt('log'));
-
-// authentification
-
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-    mongo.User.findOne({
-      username: username
-    }, function(err, user) {
-      if (err) {
-        return done(err);
-      }
-      if (!user) {
-        console.log('Incorrect username.');
-        return done(null, false, {
-          message: 'Incorrect username.'
-
-        });
-      }
-      if (user.password != crypt(password)) {
-        console.log('Incorrect password.');
-        return done(null, false, {
-          message: 'Incorrect password.'
-        });
-      }
-      return done(null, user);
-    });
-  }
-));
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
-
-passport.deserializeUser(function(user, done) {
-  done(null, user);
-});

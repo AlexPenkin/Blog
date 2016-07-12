@@ -7,10 +7,15 @@ block header
         //a.menuLink Портфолио
         a.menuLink Чатик
         a.menuLink Обо мне
-        a(href = '/makePost').menuLink Add Post
+        if user && user.username == 'Admin'
+          a(href = '/makePost').menuLink Add Post
       div.userMenu
-        a(href = '/login').menuLink Войти
-        a(href = '/signUp').menuLink Зарегистрироваться
+        if user
+          a().menuLink #{user.username}
+          a(href = '/logOut').menuLink Выйти
+        else 
+          a(href = '/login').menuLink Войти
+          a(href = '/signUp').menuLink Зарегистрироваться
 
   div.drawer.drawer--top
     header(role="banner")
@@ -25,10 +30,16 @@ block header
           //a.menuLink Портфолио
           a.menuLink Чатик
           a.menuLink Обо мне
-          a(href = '/makePost').menuLink Add Post
+          if user && user.username == 'Admin'
+            a(href = '/makePost').menuLink Add Post
+          
         div.userMenu
+        if user
+          a().menuLink #{user.username}
+          a(href = '/logOut').menuLink Выйти
+        else 
           a(href = '/login').menuLink Войти
-          a(href = '/signUp').menuLink Регистрация
+          a(href = '/signUp').menuLink Зарегистрироваться
 script.
   $(document).ready(function() {
     $('.drawer').drawer();
