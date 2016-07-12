@@ -174,6 +174,13 @@ app.route('/logOut')
     res.redirect('/');
   })
 
+
+  app.get("/:page?", function(req, res) {
+      var page = req.params.page;
+      if (page != undefined) res.redirect("/");
+
+  });
+
 //crypting
 
-console.log(crypt('log'));
+//console.log(crypt('log'));

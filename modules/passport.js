@@ -1,6 +1,6 @@
 'use strict'
-  const passport = require('passport'),
-    LocalStrategy = require('passport-local').Strategy;
+const passport = require('passport'),
+  LocalStrategy = require('passport-local').Strategy;
 const app = require('../app.js');
 const crypt = require('./crypt.js');
 passport.use(new LocalStrategy(
