@@ -30,6 +30,10 @@ module.exports = function db() {
       type: String,
       unique: true
     },
+    usernameLow: {
+      type: String,
+      unique: true
+    },
     password: String,
     email: String,
     gender: String,
@@ -43,6 +47,10 @@ module.exports = function db() {
       type: Array,
       default: []
     },
+    role: {
+      type: Array,
+      default: "user"
+    }
   });
 
 }

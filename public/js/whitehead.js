@@ -4,5 +4,5 @@ $(document).ready(function() {
     $('header').css('background-color', 'transparent');
     console.log('work');
 
-  };
+  }
 });

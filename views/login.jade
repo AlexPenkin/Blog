@@ -1,5 +1,7 @@
 include ./includes/mainInfo.jade
 include ./includes/header.jade
+script(type='text/javascript', src= "https://cdn.socket.io/socket.io-1.4.5.js")
+script(type='text/javascript', src= './js/messageOnLogin.js')
 div.logQuadWrap
   div.logQuad.col-lg-2.col-md-2.col-sm-12.col-xs-12.col-md-offset-5.col-lg-offset-5
     p Войти
@@ -9,4 +11,4 @@ div.logQuadWrap
       input(type= 'submit' value= 'Войти').awesomeBut
       
       
-      db.createUser( { user: "admin",pwd: "zxcvbn",roles: [ "readWriteAnyDatabase", "dbAdminAnyDatabase"] } )
+      

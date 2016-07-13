@@ -7,13 +7,15 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const crypt = require('./modules/crypt.js');
 const passport = require('./modules/passport.js');
+
 String.prototype.capitalizeFirstLetter = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
-}
-// database
-//db();
+  }
+  // database
+  //db();
 var mongo = new db();
 module.exports.mongo = mongo;
+
 function getAllPosts(model) {
   model.find({}).sort({
     _id: -1
@@ -29,12 +31,15 @@ function getAllPosts(model) {
 const app = express();
 const publicFold = path.join(__dirname + '/public');
 const views = path.join(__dirname + '/views');
+const server = require('http').Server(app);
+const io = require('socket.io')(server);
+module.exports.io = io;
 //Template engine initialization
 app.set('view engine', 'jade');
 app.set('views', views);
 //
 var d = new Date();
-app.listen('8888', () => console.log(`App worked on port 8888 ${d.toLocaleString()}`));
+server.listen('8888', () => console.log(`App worked on port 8888 ${d.toLocaleString()}`));
 app.use(express.static(publicFold));
 //session
 app.use(session({
@@ -70,12 +75,13 @@ app.route('/')
       user: req.user
     }
     res.render('index.jade', testObj);
-    console.log(req.user);
   })
 
 app.route('/makePost')
   .get(function(req, res, next) {
-    res.render('makePost.jade', {user: req.user});
+    res.render('makePost.jade', {
+      user: req.user
+    });
   })
   .post(function(req, res, next) {
     let arrOfTags = req.body.tags.split(/,\s*/);
@@ -101,6 +107,10 @@ app.route('/makePost')
 
   })
 var obj = {};
+
+
+
+
 //route of full info post
 app.route('/loadPost')
   .get(function(req, res, next) {
@@ -131,13 +141,10 @@ app.route('/login')
     failureRedirect: '/login',
     failureFlash: false
   }), function(req, res, next) {
-
-    console.log("test");
-    console.log(req.body.username);
-    req.user.username;
     res.status(200).end();
-    res.redirect('/login');
-  })
+
+    //res.redirect('/login');
+  });
 
 // route sign up pagebreak
 
@@ -149,6 +156,7 @@ app.route('/signUp')
     console.log("sign");
     var newUser = new mongo.User({
       username: req.body.username,
+      usernameLow: req.body.username.toLowerCase(),
       password: crypt(req.body.password),
       email: req.body.email,
       gender: req.body.gender
@@ -160,26 +168,25 @@ app.route('/signUp')
       } else {
         console.log('saved');
 
-      };
-    })
-    console.log(req.body.gender);
+      }
+    });
     res.status(200).end();
     res.redirect('/signUp');
 
-  })
+  });
 
 app.route('/logOut')
   .get(function(req, res, next) {
     req.logout();
     res.redirect('/');
-  })
-
-
-  app.get("/:page?", function(req, res) {
-      var page = req.params.page;
-      if (page != undefined) res.redirect("/");
-
   });
+
+
+app.get("/:page?", function(req, res) {
+  var page = req.params.page;
+  if (page != undefined) res.redirect("/");
+
+});
 
 //crypting
 
