@@ -11,7 +11,7 @@ block header
           a(href = '/makePost').menuLink Add Post
       div.userMenu
         if user
-          a().menuLink #{user.username}          
+          a().menuLink.userName #{user.username}          
           a(href = '/logOut').menuLink Выйти
         else 
           a(href = '/login').menuLink Войти
@@ -35,7 +35,7 @@ block header
           
         div.userMenu
         if user
-          a().menuLink #{user.username}
+          a().menuLink.userName #{user.username}
           a(href = '/logOut').menuLink Выйти
         else 
           a(href = '/login').menuLink Войти

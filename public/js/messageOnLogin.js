@@ -1,6 +1,6 @@
 var socket = io();
-socket.on('message', function (data) {
+
+socket.on('loginMessage', function (data) {
     console.log(data);
     alert(data.message);
-
   });

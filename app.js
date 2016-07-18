@@ -32,8 +32,12 @@ const app = express();
 const publicFold = path.join(__dirname + '/public');
 const views = path.join(__dirname + '/views');
 const server = require('http').Server(app);
+
+//web sockets
 const io = require('socket.io')(server);
 module.exports.io = io;
+
+
 //Template engine initialization
 app.set('view engine', 'jade');
 app.set('views', views);
@@ -47,7 +51,7 @@ app.use(session({
   saveUninitialized: true,
   resave: true,
   cookie: {
-    maxAge: 60000
+    maxAge: 900000
   }
 }))
 app.use(bodyParser.json({
@@ -67,7 +71,8 @@ var posts = getAllPosts(mongo.Blog);
 
 app.route('/')
   .get(function(req, res, next) {
-    getAllPosts(mongo.Blog)
+
+    getAllPosts(mongo.Blog);
     let session = req.session;
     var testObj = {
       sesId: session.id,
@@ -114,9 +119,15 @@ var obj = {};
 //route of full info post
 app.route('/loadPost')
   .get(function(req, res, next) {
-    var query = mongo.Blog.findOne({
+    var reqId = {
       _id: req.query.urlPost
-    })
+    };
+    mongo.Blog.update(reqId, {
+      $inc: {
+        viewsNum: 1
+      }
+    }, function() {});
+    var query = mongo.Blog.findOne(reqId);
     var queryExec = query.exec(function(err, post) {
       if (err) {
         console.log(err)
@@ -144,6 +155,65 @@ app.route('/login')
     res.status(200).end();
 
     //res.redirect('/login');
+  });
+
+//likes
+app.route('/addLike')
+  .get(function(req, res, next) {
+
+  })
+  .post(function(req, res, next) {
+
+    var reqId = {
+      _id: req.body.postId
+    };
+
+    mongo.Blog.update(reqId, {
+      $push: {
+        'likes.users': req.body.user
+      },
+      $inc: {
+        'likes.numOfLikes': 1
+      }
+    }, function() {});
+    mongo.Blog.findOne(reqId, function(err, post) {
+      console.log(post);
+      res.send({
+        likes: post.likes.numOfLikes
+      })
+    });
+
+
+  });
+
+app.route('/removeLike')
+  .get(function(req, res, next) {
+
+  })
+  .post(function(req, res, next) {
+    var reqId = {
+      _id: req.body.postId
+    };
+
+
+
+    mongo.Blog.update(reqId, {
+      $pull: {
+        'likes.users': req.body.user
+      },
+      $inc: {
+        'likes.numOfLikes': -1
+      }
+    }, function() {});
+    mongo.Blog.findOne(reqId, function(err, post) {
+      console.log(post);
+      res.send({
+        likes: post.likes.numOfLikes
+      })
+    })
+
+
+
   });
 
 // route sign up pagebreak

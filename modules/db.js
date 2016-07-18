@@ -19,6 +19,13 @@ module.exports = function db() {
     autor: String,
     text: String,
     likes: {
+      numOfLikes: {
+        type: Number,
+        default: 0
+      },
+      users: [String]
+    },
+    viewsNum: {
       type: Number,
       default: 0
     },
@@ -43,12 +50,12 @@ module.exports = function db() {
     },
     avatar: String,
     numOfPosts: Number,
-    posts:{
+    posts: {
       type: Array,
       default: []
     },
     role: {
-      type: Array,
+      type: String,
       default: "user"
     }
   });

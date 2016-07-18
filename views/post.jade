@@ -1,6 +1,7 @@
 include ./includes/mainInfo.jade
 include ./includes/header.jade
 script(type='text/javascript', src='./js/offset.js')
+script(type='text/javascript', src= './js/like.js')
 div.headWrap
   div(style={background: "url(#{headImg}) no-repeat scroll center center/cover"}).headPost#headPost
 div.blogWrap.col-lg-6.col-md-6.col-sm-12.col-xs-12.col-md-offset-3.col-lg-offset-3
@@ -8,16 +9,24 @@ div.blogWrap.col-lg-6.col-md-6.col-sm-12.col-xs-12.col-md-offset-3.col-lg-offset
     p !{title}
     p.offset 
     p.dateAutor #{autor} | #{date}
+    p.views Прсмотров: #{viewsNum}
   div.fullText.col-lg-12.col-md-12.col-sm-12.col-xs-12   
     | !{text}
     hr
     p Может понравится:
     hr
   div.postTags.fullText.col-lg-12.col-md-12.col-sm-12.col-xs-12    tags:
+  
     each tag in tags 
       a(): div.awesomeTag= tag
-    hr    
+    hr  
+  button.like.notLiked  #{likes.numOfLikes} 
   div.postTags.fullText.col-lg-12.col-md-12.col-sm-12.col-xs-12 Comments:
+  
+  script.
+    var postId = "#{_id}";
+    var likeUsers = '#{likes.users}'.split(',')
+
 
 
 
