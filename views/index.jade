@@ -22,4 +22,4 @@ block blog
             a Комментарии ()
           div.tags
             each tag in val.tags
-              a  #!{tag}
+              a(href= '/tags?tag=#{tag}')  #!{tag}

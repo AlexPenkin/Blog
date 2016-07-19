@@ -4,9 +4,7 @@ $(document).ready(function() {
   function isLiked() {
     if (isLogged()) {
       for (var i = 0; i < likeUsers.length; i++) {
-
         if (likeUsers[i] == user.trim()) {
-
           likeButton.removeClass('notLiked');
           likeButton.addClass('liked');
           return true;
@@ -62,17 +60,19 @@ $(document).ready(function() {
       addLike().subscribe(function(data) {
         console.log(data);
         likeButton.html(data.data.likes);
+        likeButton.removeClass('notLiked');
+        likeButton.addClass('liked');
       });
-      likeButton.removeClass('notLiked');
-      likeButton.addClass('liked');
+
 
     } else {
       removeLike().subscribe(function(data) {
         console.log(data);
         likeButton.html(data.data.likes);
+        likeButton.removeClass('liked');
+        likeButton.addClass('notLiked');
       });;
-      likeButton.removeClass('liked');
-      likeButton.addClass('notLiked');
+
 
     }
 

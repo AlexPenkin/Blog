@@ -32,6 +32,7 @@ const app = express();
 const publicFold = path.join(__dirname + '/public');
 const views = path.join(__dirname + '/views');
 const server = require('http').Server(app);
+//var favicon = require('serve-favicon');
 
 //web sockets
 const io = require('socket.io')(server);
@@ -54,6 +55,7 @@ app.use(session({
     maxAge: 900000
   }
 }))
+//app.use(express.favicon(publicFold +'/img/favicon.png'));
 app.use(bodyParser.json({
   limit: "50mb"
 }));
@@ -132,15 +134,12 @@ app.route('/loadPost')
       if (err) {
         console.log(err)
       } else {}
-    }).then(res => {
-      return res;
     }).then(resa => {
       resa.user = req.user;
       res.render('post.jade', resa);
       res.status(200);
-    });
-
-  })
+    })
+  });
 
 // route login page
 app.route('/login')
@@ -250,6 +249,30 @@ app.route('/logOut')
     req.logout();
     res.redirect('/');
   });
+
+//tags
+  app.route('/tags')
+    .get(function(req, res, next) {
+      let tag = req.query.tag;
+      console.log(tag);
+      var query = mongo.Blog.find({tags:{$in: [tag]}}).sort({
+        _id: -1
+      });
+      var queryExec = query.exec(function(err, posts) {
+        if (err) {
+          console.log(err)
+        } else {}
+      }).then(resa => {
+        console.log(resa);
+        var testObj = {
+          sesId: session.id,
+          posts: resa,
+          user: req.user
+        }
+        res.render('index.jade', testObj);
+        res.status(200);
+      })
+    });
 
 
 app.get("/:page?", function(req, res) {
