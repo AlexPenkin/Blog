@@ -332,3 +332,39 @@ top: 0;
   background: white;
   border: solid thin red;
 }
+.chatUserInputs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.chatWrap {
+
+}
+.chatUserMessages {
+  border: solid thin black;
+  min-height: 200px;
+  display: inline-block;
+  position: relative;
+}
+.chatInput{
+  width: 100%;
+}
+.chatUserInputs{
+  padding: 0;
+}
+.chatSend {
+width: 100px;
+}
+#onlineUsers {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+bottom {
+  border:none;
+  outline: none;
+}
+input {
+  border:none;
+  outline: none;
+}

@@ -13,20 +13,20 @@ passport.use(new LocalStrategy(
         return done(err);
       }
       if (!user) {
-        app.io.emit('loginMessage', {message: 'Incorrect username.'});
+
         console.log('Incorrect username.');
         return done(null, false, {
           message: 'Incorrect username.'
         });
       }
       if (user.password != crypt(password)) {
-        app.io.emit('loginMessage', {message: 'Incorrect password.'});
+
         console.log('Incorrect password.');
         return done(null, false, {
           message: 'Incorrect password.'
         });
       }
-      app.io.emit('loginMessage', {message: 'Well Done!'});
+      
       return done(null, user);
     });
   }

@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const crypt = require('./modules/crypt.js');
 const passport = require('./modules/passport.js');
 
+
 String.prototype.capitalizeFirstLetter = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
   }
@@ -32,12 +33,21 @@ const app = express();
 const publicFold = path.join(__dirname + '/public');
 const views = path.join(__dirname + '/views');
 const server = require('http').Server(app);
-//var favicon = require('serve-favicon');
+server.on('request', function(request, response) {
+    if (request.url === '/favicon.ico') {
+      //console.log('favicon requested');
+      return;
+      response.writeHead(200);
+    }
+  })
+  //var favicon = require('serve-favicon');
 
 //web sockets
 const io = require('socket.io')(server);
 module.exports.io = io;
 
+//chatLogic
+const chat = require('./modules/socketChat.js');
 
 //Template engine initialization
 app.set('view engine', 'jade');
@@ -48,14 +58,14 @@ server.listen('8888', () => console.log(`App worked on port 8888 ${d.toLocaleStr
 app.use(express.static(publicFold));
 //session
 app.use(session({
-  secret: 'keyboard cat',
-  saveUninitialized: true,
-  resave: true,
-  cookie: {
-    maxAge: 900000
-  }
-}))
-//app.use(express.favicon(publicFold +'/img/favicon.png'));
+    secret: 'keyboard cat',
+    saveUninitialized: true,
+    resave: true,
+    cookie: {
+      maxAge: 900000
+    }
+  }))
+  //app.use(express.favicon(publicFold +'/img/favicon.png'));
 app.use(bodyParser.json({
   limit: "50mb"
 }));
@@ -82,6 +92,7 @@ app.route('/')
       user: req.user
     }
     res.render('index.jade', testObj);
+
   })
 
 app.route('/makePost')
@@ -221,28 +232,29 @@ app.route('/signUp')
   .get(function(req, res, next) {
     res.render('signUp.jade', {});
   })
-  .post(function(req, res, next) {
-    console.log("sign");
-    var newUser = new mongo.User({
-      username: req.body.username,
-      usernameLow: req.body.username.toLowerCase(),
-      password: crypt(req.body.password),
-      email: req.body.email,
-      gender: req.body.gender
-    });
 
-    newUser.save(function(err) {
-      if (err) {
-        console.log(err)
-      } else {
-        console.log('saved');
-
-      }
-    });
-    res.status(200).end();
-    res.redirect('/signUp');
-
+.post(function(req, res, next) {
+  console.log("sign");
+  var newUser = new mongo.User({
+    username: req.body.username,
+    usernameLow: req.body.username.toLowerCase(),
+    password: crypt(req.body.password),
+    email: req.body.email,
+    gender: req.body.gender
   });
+
+  newUser.save(function(err) {
+    if (err) {
+      console.log(err)
+    } else {
+      console.log('saved');
+
+    }
+  });
+  res.status(200).end();
+  res.redirect('/signUp');
+
+});
 
 app.route('/logOut')
   .get(function(req, res, next) {
@@ -251,29 +263,43 @@ app.route('/logOut')
   });
 
 //tags
-  app.route('/tags')
-    .get(function(req, res, next) {
-      let tag = req.query.tag;
-      console.log(tag);
-      var query = mongo.Blog.find({tags:{$in: [tag]}}).sort({
-        _id: -1
-      });
-      var queryExec = query.exec(function(err, posts) {
-        if (err) {
-          console.log(err)
-        } else {}
-      }).then(resa => {
-        console.log(resa);
-        var testObj = {
-          sesId: session.id,
-          posts: resa,
-          user: req.user
-        }
-        res.render('index.jade', testObj);
-        res.status(200);
-      })
+app.route('/tags')
+  .get(function(req, res, next) {
+    let tag = req.query.tag;
+    var query = mongo.Blog.find({
+      tags: {
+        $in: [tag]
+      }
+    }).sort({
+      _id: -1
     });
+    var queryExec = query.exec(function(err, posts) {
+      if (err) {
+        console.log(err)
+      } else {}
+    }).then(resa => {
+      var testObj = {
+        sesId: session.id,
+        posts: resa,
+        user: req.user
+      }
+      res.render('index.jade', testObj);
+      res.status(200);
+    })
+  });
 
+app.route('/chat')
+  .get(function(req, res, next) {
+    if (req.user) {
+      let jadeObj = {
+        sesId: session.id,
+        user: req.user
+      }
+      res.render('chat.jade', jadeObj);
+    } else {
+      res.redirect('/login');
+    }
+  });
 
 app.get("/:page?", function(req, res) {
   var page = req.params.page;

@@ -5,13 +5,13 @@ block header
       div.menu
         a(href = '/').menuLink Блог
         //a.menuLink Портфолио
-        a.menuLink Чатик
+        a(href = '/chat').menuLink Чатик
         a.menuLink Обо мне
         if user && user.username == 'Admin'
           a(href = '/makePost').menuLink Add Post
       div.userMenu
         if user
-          a().menuLink.userName #{user.username}          
+          a().menuLink.userName#username #{user.username}          
           a(href = '/logOut').menuLink Выйти
         else 
           a(href = '/login').menuLink Войти
@@ -28,14 +28,14 @@ block header
         div.menu
           a(href = '/').menuLink Блог
           //a.menuLink Портфолио
-          a.menuLink Чатик
+          a(href = '/chat').menuLink Чатик
           a.menuLink Обо мне
           if user && user.username == 'Admin'
             a(href = '/makePost').menuLink Add Post
           
         div.userMenu
         if user
-          a().menuLink.userName #{user.username}
+          a().menuLink.userName#username #{user.username}
           a(href = '/logOut').menuLink Выйти
         else 
           a(href = '/login').menuLink Войти
