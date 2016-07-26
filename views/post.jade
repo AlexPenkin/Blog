@@ -1,5 +1,6 @@
 include ./includes/mainInfo.jade
 include ./includes/header.jade
+script(type='text/javascript', src= 'https://cdnjs.cloudflare.com/ajax/libs/rxjs-jquery/1.1.6/rx.jquery.min.js')
 script(type='text/javascript', src='./js/offset.js')
 script(type='text/javascript', src= './js/like.js')
 div.headWrap
@@ -16,41 +17,57 @@ div.blogWrap.col-lg-6.col-md-6.col-sm-12.col-xs-12.col-md-offset-3.col-lg-offset
     p Может понравится:
     hr
   div.postTags.fullText.col-lg-12.col-md-12.col-sm-12.col-xs-12    tags:
-  
+
     each tag in tags 
       a(href= '/tags?tag=#{tag}'): div.awesomeTag= tag
     hr  
   button.like.notLiked  #{likes.numOfLikes} 
-  div.postTags.fullText.col-lg-12.col-md-12.col-sm-12.col-xs-12 Comments:
-  
-  script.
-    var postId = "#{_id}";
-    var likeUsers = '#{likes.users}'.split(',')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  div.postTags.fullText.col-lg-12.col-md-12.col-sm-12.col-xs-12
+    div#disqus_thread
 
 
 script.
+  var postId = "#{_id}";
+  var likeUsers = '#{likes.users}'.split(','),
+  title = '#{title}',
+  PAGE_URL = window.location.href;
+  console.log(title);
+  var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = postId; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    this.page.title = title;
+  };
 
-  
+  (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//allai.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //  var headMar = document.querySelector('.head');
 //  headMar.style.margin = "0px";

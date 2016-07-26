@@ -10,7 +10,7 @@ block blog
           a(href = '/aboutMe').titleAutor Автор: !{val.autor}
           p.titleData= val.date
         div.tags.col-lg-12.col-md-12.col-sm-12.col-xs-12  
-          
+
         div.preText.col-lg-12.col-md-12.col-sm-12.col-xs-12
           hr
           span !{val.preText}
@@ -18,8 +18,19 @@ block blog
           a.titleText(href= '/loadPost?urlPost=#{val._id}') Продолжение >>
           hr 
         div.commentsAndTags.col-lg-12.col-md-12.col-sm-12.col-xs-12
-          div.comments
-            a Комментарии ()
+          div.comments            
+            a(href= 'http://192.168.0.120:8888/'+'loadPost?urlPost=#{val._id}#disqus_thread', data-disqus-identifier = "#{val._id}") 
           div.tags
             each tag in val.tags
-              a(href= '/tags?tag=#{tag}')  #!{tag}
+              a(href= '/tags?tag=#{tag}')  #!{tag}     
+script.
+  DISQUSWIDGETS = undefined;
+script#dsq-count-scr(src= "http://allai.disqus.com/count.js?ver<%=DateTime.Now.Ticks.ToString()%>")
+script.
+  if (DISQUSWIDGETS){
+    DISQUSWIDGETS.getCount({reset:true});
+    console.dir(DISQUSWIDGETS)
+  } else {
+    console.log('DISQUSWIDGETS not defined');
+  }
+  

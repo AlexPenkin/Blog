@@ -4,7 +4,7 @@ block header
       a(href = '/').navbar-brand Alexander Penkin
       div.menu
         a(href = '/').menuLink Блог
-        //a.menuLink Портфолио
+        a(href = '/portfolio').menuLink Портфолио
         a(href = '/chat').menuLink Чатик
         a.menuLink Обо мне
         if user && user.username == 'Admin'
@@ -27,7 +27,7 @@ block header
       nav(role="navigation").drawer-nav
         div.menu
           a(href = '/').menuLink Блог
-          //a.menuLink Портфолио
+          a(href = '/portfolio').menuLink Портфолио
           a(href = '/chat').menuLink Чатик
           a.menuLink Обо мне
           if user && user.username == 'Admin'

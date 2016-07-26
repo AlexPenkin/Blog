@@ -155,15 +155,19 @@ app.route('/loadPost')
 // route login page
 app.route('/login')
   .get(function(req, res, next) {
+    var backURL = req.header('Referer') || '/';
+    console.log('test');
+    console.log(backURL);
     res.render('login.jade', {});
+
   })
   .post(passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/login',
     failureFlash: false
   }), function(req, res, next) {
-    res.status(200).end();
 
+    res.status(200).end();
     //res.redirect('/login');
   });
 
@@ -297,9 +301,21 @@ app.route('/chat')
       }
       res.render('chat.jade', jadeObj);
     } else {
+      res.set("from", "chat");
       res.redirect('/login');
     }
   });
+
+  //Portfolio
+
+  app.route('/portfolio')
+    .get(function(req, res, next) {
+      let jadeObj = {
+        sesId: session.id,
+        user: req.user
+      }
+      res.render('portfolio.jade', jadeObj);
+    })
 
 app.get("/:page?", function(req, res) {
   var page = req.params.page;

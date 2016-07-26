@@ -257,9 +257,9 @@ figure {
 
 }
 .postTags {
-
-
+margin-top: 50px;
 }
+
 .awesomeTag {
   border: solid thin #7cde9c;;
   border-radius: 50px;
@@ -360,11 +360,30 @@ width: 100px;
   right: 0;
   bottom: 0;
 }
-bottom {
-  border:none;
-  outline: none;
+.portWrap {
+  border: solid thin black;
+  min-height: 92%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
 }
-input {
-  border:none;
-  outline: none;
+.portItem {
+  margin: 15px 14px;
+  border: solid thin black;
+  height: 380px;
+  min-width: 270px;
+  float: left;
+}
+.movingBorder {
+  position: absolute;
+  border: solid 1px orange;
+  z-index: -1;
+}
+
+button,
+button:active,
+button:focus {
+    outline: none;
 }
