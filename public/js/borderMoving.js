@@ -41,10 +41,9 @@ movingBorder.prototype.move = function(t) {
   this.isMove = true;
   var borItem = document.getElementById('movingBorder'),
     borItemOffsetLeft = borItem.offsetLeft,
-    tOffsetLeft = t.offsetLeft;
-  console.log(borItem.style.left);
-  console.log(borItem.offsetLeft);
-  console.log(t.offsetLeft);
+    tOffsetLeft = t.offsetLeft,
+    borItemOffsetTop = borItem.offsetTop,
+    tOffsetTop = t.offsetTop;
   var self = this;
   this.timer = setInterval(function() {
     if (borItemOffsetLeft > tOffsetLeft - 5) {
@@ -57,8 +56,17 @@ movingBorder.prototype.move = function(t) {
       borItem.style.left = borItemOffsetLeft + 'px';
       console.log(1);
       if (borItemOffsetLeft <= tOffsetLeft - 5) {
+          while (borItemOffsetLeft < tOffsetLeft) {
+            borItemOffsetTop += 1;
+          }
+
+        } else {
+          while (borItemOffsetLeft < tOffsetLeft) {
+            borItemOffsetTop -= 1;
+          }
+        }
         self.stop();
-      }
+
     } else {
       if (t.offsetLeft - borItem.offsetLeft < 10) {
         borItemOffsetLeft += 1;
