@@ -1,10 +1,57 @@
 'use strict'
-var blocks,
-  wrapper,
-  source;
+var blocks = document.querySelectorAll('.portItem'),
+  wrapper = document.querySelector('.portWrap'),
+  source,
+  i;
 
+console.log('aa');
 
-function writeDimension(elem) {
+function movingBorder() {
+  this.borderOn = blocks[0];
+  this.width = this.borderOn.offsetWidth + 10;
+  this.height = this.borderOn.offsetHeight + 10;
+  this.left = this.borderOn.offsetLeft - 5;
+  this.top = this.borderOn.offsetTop - 5;
+
+  this.isMove = false;
+
+}
+
+movingBorder.prototype.init = function() {
+  var border = document.createElement("div");
+  border.style.width = this.width + 'px';
+  border.style.height = this.height + 'px';
+  border.style.left = this.left + 'px';
+  border.style.top = this.top + 'px';
+  border.className = 'movingBorder';
+  border.id = 'movingBorder';
+  wrapper.appendChild(border);
+}
+
+var border = new movingBorder();
+border.init();
+for (i = 0; i < blocks.length; i++) {
+  blocks[i].addEventListener('mouseenter', function() {
+    console.log(border);
+    console.log(this.getBoundingClientRect().left - (border.left * 2));
+    console.log(this.getBoundingClientRect().left);
+    console.log(border.left);
+
+    var myAnimation = anime({
+      targets: ['#movingBorder'],
+      translateX: this.offsetLeft - 29,
+      translateY: this.offsetTop - 15,
+      duration: 500,
+      loop: false,
+      easing: 'easeOutCubic'
+    });
+    border.borderOn = blocks[i];
+    console.log(i);
+  })
+}
+console.log(anime.easings);
+i = 0;
+/*function writeDimension(elem) {
   elem.innerHTML = ('top: ' + elem.getBoundingClientRect().top) + '<br>' +
     ('right: ' + elem.getBoundingClientRect().right) + '<br>' +
     ('top: ' + elem.getBoundingClientRect().bottom) + '<br>' +
@@ -103,4 +150,4 @@ function ready() {
     }
     border.move(target);
   });
-};
+};*/

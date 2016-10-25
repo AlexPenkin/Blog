@@ -1,10 +1,8 @@
 include ./includes/mainInfo.jade
 include ./includes/header.jade
-script(type='text/javascript', src= 'https://cdnjs.cloudflare.com/ajax/libs/rxjs-jquery/1.1.6/rx.jquery.min.js')
-script(type='text/javascript', src='./js/offset.js')
-script(type='text/javascript', src= './js/like.js')
+
 div.headWrap
-  div(style={background: "url(#{headImg}) no-repeat scroll center center/cover"}).headPost#headPost
+  div(style={background: "url(#{'./img/' + headImg}) no-repeat scroll center center/cover"}).headPost#headPost
 div.blogWrap.col-lg-6.col-md-6.col-sm-12.col-xs-12.col-md-offset-3.col-lg-offset-3
   div.postTitle.col-lg-12.col-md-12.col-sm-12.col-xs-12 
     p !{title}
@@ -44,8 +42,10 @@ script.
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
   })();
-
-
+  
+script(type='text/javascript', src= 'https://cdnjs.cloudflare.com/ajax/libs/rxjs-jquery/1.1.6/rx.jquery.min.js')
+script(type='text/javascript', src='./js/offset.js')
+script(type='text/javascript', src= './js/like.js')
 
 
 

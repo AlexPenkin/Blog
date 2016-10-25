@@ -1,5 +1,4 @@
 'use strict'
-
 $(document).ready(function() {
   function isLiked() {
     if (isLogged()) {
@@ -13,9 +12,7 @@ $(document).ready(function() {
     }
   }
 
-  function isLogged() {
-
-
+  function isLogged() {  
     if (user === undefined) return false;
     else return true
   }
@@ -34,7 +31,6 @@ $(document).ready(function() {
   }
 
   function removeLike() {
-
     if (!isLogged()) return;
     return $.ajaxAsObservable({
       url: '/removeLike',
@@ -46,7 +42,6 @@ $(document).ready(function() {
       }
     });
   }
-
   var user = $('.userName').html() || undefined;
   if (!isLogged()) return;
   var likeButton = $('.like');
@@ -55,29 +50,18 @@ $(document).ready(function() {
   stream.map((response) => {
     return response
   }).subscribe(function(data) {
-    console.log(data.target.className);
     if (data.target.className == 'like notLiked') {
       addLike().subscribe(function(data) {
-        console.log(data);
         likeButton.html(data.data.likes);
         likeButton.removeClass('notLiked');
         likeButton.addClass('liked');
       });
-
-
     } else {
       removeLike().subscribe(function(data) {
-        console.log(data);
         likeButton.html(data.data.likes);
         likeButton.removeClass('liked');
         likeButton.addClass('notLiked');
-      });;
-
-
+      });
     }
-
   });
-  //  likeButton
-
-
 });
