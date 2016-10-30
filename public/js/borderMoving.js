@@ -3,18 +3,13 @@ var blocks = document.querySelectorAll('.portItem'),
   wrapper = document.querySelector('.portWrap'),
   source,
   i;
-
-console.log('aa');
-
 function movingBorder() {
   this.borderOn = blocks[0];
   this.width = this.borderOn.offsetWidth + 10;
   this.height = this.borderOn.offsetHeight + 10;
   this.left = this.borderOn.offsetLeft - 5;
   this.top = this.borderOn.offsetTop - 5;
-
   this.isMove = false;
-
 }
 
 movingBorder.prototype.init = function() {
@@ -32,11 +27,6 @@ var border = new movingBorder();
 border.init();
 for (i = 0; i < blocks.length; i++) {
   blocks[i].addEventListener('mouseenter', function() {
-    console.log(border);
-    console.log(this.getBoundingClientRect().left - (border.left * 2));
-    console.log(this.getBoundingClientRect().left);
-    console.log(border.left);
-
     var myAnimation = anime({
       targets: ['#movingBorder'],
       translateX: this.offsetLeft - 29,
@@ -45,11 +35,9 @@ for (i = 0; i < blocks.length; i++) {
       loop: false,
       easing: 'easeOutCubic'
     });
-    border.borderOn = blocks[i];
-    console.log(i);
+    border.borderOn = this;    
   })
 }
-console.log(anime.easings);
 i = 0;
 /*function writeDimension(elem) {
   elem.innerHTML = ('top: ' + elem.getBoundingClientRect().top) + '<br>' +

@@ -281,6 +281,10 @@ margin-top: 50px;
   /*border: solid 1px gray;*/
   text-align: center;
   display: inline-block;
+  
+  opacity: 0;
+
+  transition: all 1s;
 }
 .logQuad input{
   /*border: solid 1px gray;*/
@@ -309,7 +313,7 @@ top: 0;
 }
 .gendersRadio {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
@@ -380,6 +384,13 @@ width: 100px;
   position: absolute;
   border: solid 1px orange;
   z-index: -1;
+}
+#Auth {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  overflow: hidden;
 }
 
 button,

@@ -2,13 +2,18 @@ include ./includes/mainInfo.jade
 include ./includes/header.jade
 
 
-block porfolio
+block porfolio  
   div.portWrap#portWrap.col-lg-8.col-md-8.col-sm-12.col-xs-12.col-md-offset-2.col-lg-offset-2
+    div.portItem#s.col-lg-2.col-md-2.col-sm-6.col-xs-12
     div.portItem.col-lg-2.col-md-2.col-sm-6.col-xs-12
     div.portItem.col-lg-2.col-md-2.col-sm-6.col-xs-12
     div.portItem.col-lg-2.col-md-2.col-sm-6.col-xs-12
     div.portItem.col-lg-2.col-md-2.col-sm-6.col-xs-12
     div.portItem.col-lg-2.col-md-2.col-sm-6.col-xs-12
-    div.portItem.col-lg-2.col-md-2.col-sm-6.col-xs-12
-script(type='text/javascript', src='./js/anime.min.js')
-script(type='text/javascript', src='./js/borderMoving.js')
+script(src="https://unpkg.com/react@15/dist/react.min.js" defer)
+script(src="https://unpkg.com/react-dom@15/dist/react-dom.min.js" defer)
+
+script(type='text/javascript', src='./js/anime.min.js' defer)
+script(src="./js/browser.min.js" defer)
+script(src='./js/login.js' type="text/babel" defer)  
+script(type='text/javascript', src='./js/borderMoving.js' defer)
