@@ -47,7 +47,7 @@ const io = require('socket.io')(server);
 module.exports.io = io;
 
 //chatLogic
-const chat = require('./modules/socketChat.js');
+// const chat = require('./modules/socketChat.js');
 
 //Template engine initialization
 app.set('view engine', 'jade');
@@ -292,19 +292,19 @@ app.route('/tags')
     })
   });
 
-app.route('/chat')
-  .get(function(req, res, next) {
-    if (req.user) {
-      let jadeObj = {
-        sesId: session.id,
-        user: req.user
-      }
-      res.render('chat.jade', jadeObj);
-    } else {
-      res.set("from", "chat");
-      res.redirect('/login');
-    }
-  });
+// app.route('/chat')
+//   .get(function(req, res, next) {
+//     if (req.user) {
+//       let jadeObj = {
+//         sesId: session.id,
+//         user: req.user
+//       }
+//       res.render('chat.jade', jadeObj);
+//     } else {
+//       res.set("from", "chat");
+//       res.redirect('/login');
+//     }
+//   });
 
   //Portfolio
 

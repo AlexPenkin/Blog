@@ -23,6 +23,7 @@ block blog
           div.tags
             each tag in val.tags
               a(href= '/tags?tag=#{tag}')  #!{tag}     
+          div#root              
 script.
   DISQUSWIDGETS = undefined;
 script#dsq-count-scr(src= "http://allai.disqus.com/count.js?ver<%=DateTime.Now.Ticks.ToString()%>")

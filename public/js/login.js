@@ -73,7 +73,7 @@ class Auth extends React.Component {
     return(
       <div className="authWrap" style={this.state.css.authWrap}>
          <div className="signBlock logQuad col-lg-4 col-md-2 col-sm-12 col-xs-12 col-md-offset-5 col-lg-offset-4" style={this.state.css.authBlock} >
-            < p > Регистрация < /p>
+            < p > Регистрация {this.state.value.username} < /p>
             <input type=" input " placeholder=" Логин " name="username" className="form-control" onChange={this.handleChange} value={this.state.value.username} />
             <input type=" password " placeholder=" Пароль " name="password" className=" form-control  " onChange={this.handleChange} value={this.state.value.password} />
             <input type=" email " placeholder=" email " name="email" className=" form-control " onChange={this.handleChange} value={this.state.value.email} />

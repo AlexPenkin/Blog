@@ -2,14 +2,17 @@
   font-family: LoraRegular;
   src: url(fonts/OpenSans-Regular.ttf);
 }
+
 @font-face {
   font-family: PTSansBold;
   src: url(fonts/PTSansBold.ttf);
 }
+
 @font-face {
   font-family: AmazingGroteskRegular;
   src: url(fonts/AmazingGroteskRegular.otf);
 }
+
 @font-face {
   font-family: AmazingGroteskbold;
   src: url(fonts/AmazingGroteskBold.otf);
@@ -20,6 +23,7 @@ body, html {
   height: 100%;
   font-family: LoraRegular;
 }
+
 .head {
   width: 100%;
   height: 50px;
@@ -28,6 +32,7 @@ body, html {
   margin-bottom: 10px;
   z-index: 101;
 }
+
 .nav {
   position: relative;
   min-height: 50px;
@@ -41,6 +46,7 @@ body, html {
   white-space: nowrap;
   z-index: 100;
 }
+
 .menu {
   display: flex;
   flex-direction: row;
@@ -51,10 +57,12 @@ body, html {
   width: 500px;
   margin-right: auto;
 }
+
 .menuMobile {
   display: flex;
   flex-direction: column;
 }
+
 .menu a {
   padding: 0px 5%;
   font-size: 18px;
@@ -65,11 +73,13 @@ body, html {
   display: inline-block;
   font-family: Open Sans;
 }
+
 .navbar-brand {
   color: white;
   cursor: pointer;
   padding-right: 6%;
 }
+
 .userMenu {
   min-width: 1px;
   display: flex;
@@ -78,15 +88,18 @@ body, html {
   align-items: center;
   position: relative;
 }
+
 .userMenu a {
   font-size: 18px;
   white-space: nowrap;
   color: white;
   margin-left: 10px;
 }
+
 .blogWrap {
   max-height: 100%;
 }
+
 .blogPost {
   min-height: 100px;
   border: solid thin hsl(0, 0%, 88%);
@@ -97,22 +110,27 @@ body, html {
   display: inline-block;
   width: 100%;
 }
+
 .postWrap {
   height: 80%;
   margin-top: 50px;
 }
+
 .meta {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
   word-wrap: normal;
 }
+
 .meta input {
   margin: 10px 0px;
 }
+
 a {
   cursor: pointer;
 }
+
 .title {
   min-height: 50px;
   color: hsl(0, 100%, 5%);
@@ -124,31 +142,38 @@ a {
   overflow: hidden;
   text-align: center;
 }
+
 .readMore {
   margin: 20px 0;
   text-decoration: underline;
   color: green;
   height: 40px;
 }
+
 .titleData {
   font-size: 12px;
 }
+
 .autorAndDate {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
 }
+
 .commentsAndTags {
   display: flex;
   justify-content: space-between;
 }
+
 .titleAutor {
   margin: 20px 0 15px;
 }
+
 #send {
   margin-top: 20px;
 }
+
 @media (max-width: 768px) {
   .head {
     display: none !important;
@@ -187,66 +212,75 @@ a {
     color: white;
     z-index: 9999;
   }
-  .HeadName:hover{
+  .HeadName:hover {
     color: white;
     text-decoration: none;
   }
-
   .drawer-hamburger {
     position: relative !important;
     float: right;
     margin-right: 10px;
   }
 }
+
 @media (min-width: 769px) and (max-width: 5000px) {
   .drawer {
     display: none !important;
   }
 }
-.title a{
+
+.title a {
   text-decoration: none;
   color: black;
 }
+
 .headPost {
   width: 100%;
   height: 400px;
   background-color: gray;
   position: absolute;
-
+  filter: brightness(70%);
   top: 0;
   z-index: -1;
 }
+
 .drawer-hamburger-icon, .drawer-hamburger-icon:after, .drawer-hamburger-icon:before {
   background-color: white
 }
+
 .postTitle {
   color: white;
   font-size: 25px;
   height: 345px;
   display: flex;
   text-align: center;
-
   justify-content: flex-end;
   flex-direction: column;
 }
+
 .postTitle p {
   text-shadow: 2px 2px 4px #000000;
 }
+
 .dateAutor {
   font-size: 15px;
   margin-bottom: 50px;
 }
+
 .fullText img {
   width: 100%;
   height: auto;
 }
+
 figure {
   margin: 0;
 }
+
 .fullText {
   white-space: normal;
   word-break: normal;
 }
+
 .headWrap {
   height: 400px;
   width: 100%;
@@ -254,14 +288,15 @@ figure {
   overflow: hidden;
   top: 0;
   z-index: -1;
-
 }
+
 .postTags {
-margin-top: 50px;
+  margin-top: 50px;
 }
 
 .awesomeTag {
-  border: solid thin #7cde9c;;
+  border: solid thin #7cde9c;
+  ;
   border-radius: 50px;
   padding: 10px;
   display: inline-block;
@@ -269,36 +304,41 @@ margin-top: 50px;
   color: #7cde9c;
   transition: background 0.7s, color 0.1s;
 }
+
 .awesomeTag:hover {
-  background: #7cde9c;;
+  background: #7cde9c;
+  ;
   color: white;
 }
+
 .awesomeTag:active {
   background: #7cae9c;
   color: white;
 }
+
 .logQuad {
   /*border: solid 1px gray;*/
   text-align: center;
   display: inline-block;
-  
   opacity: 0;
-
   transition: all 1s;
 }
-.logQuad input{
+
+.logQuad input {
   /*border: solid 1px gray;*/
   display: inline-block;
   margin: 15px 0;
 }
+
 .logQuadWrap {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   position: absolute;
-top: 0;
+  top: 0;
 }
+
 .awesomeBut {
   background-color: transparent;
   border-radius: 5px;
@@ -307,21 +347,26 @@ top: 0;
   width: auto;
   transition: background 0.7s, color 0.1s;
 }
+
 .awesomeBut:hover {
-  background: #7cde9c;;
+  background: #7cde9c;
+  ;
   color: white;
 }
+
 .gendersRadio {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
+
 .views {
   margin-top: -35px;
   font-size: 15px;
   margin-bottom: 55px;
 }
+
 .liked {
   width: 40px;
   height: 40px;
@@ -329,6 +374,7 @@ top: 0;
   background: red;
   border: solid thin red;
 }
+
 .notLiked {
   width: 40px;
   height: 40px;
@@ -336,55 +382,65 @@ top: 0;
   background: white;
   border: solid thin red;
 }
+
 .chatUserInputs {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.chatWrap {
 
-}
+.chatWrap {}
+
 .chatUserMessages {
   border: solid thin black;
   min-height: 200px;
   display: inline-block;
   position: relative;
 }
-.chatInput{
+
+.chatInput {
   width: 100%;
 }
-.chatUserInputs{
+
+.chatUserInputs {
   padding: 0;
 }
+
 .chatSend {
-width: 100px;
+  width: 100px;
 }
+
 #onlineUsers {
   position: absolute;
   right: 0;
   bottom: 0;
 }
+
 .portWrap {
-  border: solid thin black;
-  min-height: 92%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  position: relative;
+  margin-top: -10px;
 }
+
 .portItem {
-  margin: 15px 14px;
+  /*margin: 1px 14px;
   border: solid thin black;
-  height: 380px;
-  min-width: 270px;
-  float: left;
+  max-height: 380px;
+  width: 30%;
+  float: left;*/
+  margin: 0px !important;
+  padding: 0px !important;
 }
+
+.portItem>img {
+  width: 100%;
+  height: auto;
+}
+
 .movingBorder {
   position: absolute;
   border: solid 1px orange;
   z-index: -1;
 }
+
 #Auth {
   position: absolute;
   width: 100%;
@@ -393,8 +449,6 @@ width: 100px;
   overflow: hidden;
 }
 
-button,
-button:active,
-button:focus {
-    outline: none;
+button, button:active, button:focus {
+  outline: none;
 }
