@@ -2,10 +2,8 @@ include ./includes/mainInfo.jade
 include ./includes/header.jade
 
 
-block porfolio  
-  div.portWrap#portWrap
-    div.portItem 
-script(type='text/javascript', src= './js/bundle.js' async defer)   
-script(type='text/javascript', src='./js/anime.min.js' async defer)
-script(src="./js/browser.min.js" async defer)
-script(src='./js/login.js' type="text/babel" async defer)  
+block porfolio
+  div#portWrapR.row
+
+script(type='text/javascript', src= './js/bundle.js' defer)
+//-script(src="./js/browser.min.js" defer)

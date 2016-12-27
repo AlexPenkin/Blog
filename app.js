@@ -7,7 +7,8 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const crypt = require('./modules/crypt.js');
 const passport = require('./modules/passport.js');
-
+const compression = require('compression');
+const fs = require('fs');
 
 String.prototype.capitalizeFirstLetter = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
@@ -27,20 +28,35 @@ function getAllPosts(model) {
     });
   })
 }
+var options = {
+  key: fs.readFileSync('./public/server.key'),
+  cert: fs.readFileSync('./public/server.crt')
+};
+
+const cluster = require('cluster');
+const numCPUs = require('os').cpus().length;
+
 
 //
 const app = express();
 const publicFold = path.join(__dirname + '/public');
 const views = path.join(__dirname + '/views');
-const server = require('http').Server(app);
-server.on('request', function(request, response) {
-    if (request.url === '/favicon.ico') {
-      //console.log('favicon requested');
-      return;
-      response.writeHead(200);
-    }
-  })
+var server;
+
   //var favicon = require('serve-favicon');
+  if (cluster.isMaster) {
+    // Fork workers.
+    for (var i = 0; i < numCPUs; i++) {
+      cluster.fork();
+    }
+
+    cluster.on('exit', (worker, code, signal) => {
+      console.log(`worker ${worker.process.pid} died`);
+    });
+  } else {
+    require('http').createServer(app).listen(3000);
+
+  }
 
 //web sockets
 const io = require('socket.io')(server);
@@ -54,7 +70,8 @@ app.set('view engine', 'jade');
 app.set('views', views);
 //
 var d = new Date();
-server.listen('8888', () => console.log(`App worked on port 8888 ${d.toLocaleString()}`));
+app.use(compression());
+
 app.use(express.static(publicFold));
 //session
 app.use(session({

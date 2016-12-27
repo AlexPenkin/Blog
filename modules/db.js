@@ -4,7 +4,7 @@ module.exports = function db() {
     var db = mongoose.connection;
     db.on('error', console.error.bind(console, 'connection error:'));
     db.once('open', function() {
-      console.log('Mongo connected and work.');
+      
     });
     var Schema = mongoose.Schema;
     var Post = new Schema({

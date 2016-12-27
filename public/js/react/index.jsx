@@ -6,8 +6,10 @@ import AwesomeComponent from './AwesomeComponent.jsx';
 class App extends React.Component {
   render () {
     return (
-      <div>
-        <p> </p>
+      <div className='portWrapReact row'>
+        <AwesomeComponent />
+        <AwesomeComponent />
+        <AwesomeComponent />
         <AwesomeComponent />
       </div>
     );
@@ -16,5 +18,5 @@ class App extends React.Component {
 
 ReactDOM.render(
   <App />,
-  document.getElementById('portWrap')
+  document.getElementById('portWrapR')
 );
