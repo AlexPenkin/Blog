@@ -20778,6 +20778,7 @@
 	            shouldShowBox: 'mouseleave'
 	        };
 	        _this.setState = _this.setState.bind(_this);
+	        _this.first = true;
 	
 	        return _this;
 	    }
@@ -20785,22 +20786,41 @@
 	    _createClass(AwesomeComponent, [{
 	        key: 'propagateEventHover',
 	        value: function propagateEventHover(e) {
+	            var _this2 = this;
+	
 	            var a = e.type;
-	
 	            this.setState(function (prevState, props) {
-	
 	                return {
-	                    shouldShowBox: a };
+	                    shouldShowBox: a,
+	                    left: _reactDom2.default.findDOMNode(_this2).clientWidth / 2,
+	                    top: _reactDom2.default.findDOMNode(_this2).height / 2
+	                };
 	            });
 	        }
+	        // componentDidUpdate() {
+	        //   if (this.first ){
+	        //     this.first = false
+	        //     this.setState((prevState, props) => {
+	        //
+	        //         return {
+	        //             shouldShowBox: 'mouseleave',
+	        //             left: ReactDOM.findDOMNode(this).clientWidth / 2,
+	        //             top: ReactDOM.findDOMNode(this).height / 2
+	        //         };
+	        //     })
+	        //   }
+	        //
+	        // }
+	
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	
 	            return _react2.default.createElement(
 	                'div',
 	                { onMouseEnter: this.propagateEventHover, onMouseLeave: this.propagateEventHover, className: 'portItem col m12 l3' },
 	                _react2.default.createElement(_imgPort2.default, { source: '/img/portfolio/megabitPort.jpg' }),
-	                _react2.default.createElement(_bubbleDiv2.default, { title: 'MEGABIT', defenition: 'Russian Federal Web Market Many work for that', trigger: this.state.shouldShowBox })
+	                _react2.default.createElement(_bubbleDiv2.default, { title: 'MEGABIT', size: _reactDom2.default.findDOMNode(this), defenition: 'Russian Federal Web Market Many work for that', trigger: this.state })
 	            );
 	        }
 	    }]);
@@ -20911,17 +20931,16 @@
 	
 	        var _this = _possibleConstructorReturn(this, (BubbleDiv.__proto__ || Object.getPrototypeOf(BubbleDiv)).call(this, props));
 	
-	        _this.style = {
+	        _this.state = {
 	            bubbleDivStyle: {
 	                width: '0px',
 	                height: '0px',
 	                backgroundColor: 'rgba(89, 89, 89, 0.7)',
 	                position: 'absolute',
-	                top: '50%',
-	                left: '50%',
-	                // display: 'flex',
-	                // justifyContent: 'center',
-	                // alignItems: 'center',
+	
+	                display: 'flex',
+	                justifyContent: 'center',
+	                alignItems: 'center',
 	                // marginLeft: '50%',
 	                // marginTop: '50%',
 	                color: 'white',
@@ -20935,6 +20954,7 @@
 	        };
 	        _this.speed = 100;
 	        _this.expander = _this.expander.bind(_this);
+	        _this.getPosition = _this.getPosition.bind(_this);
 	
 	        return _this;
 	    }
@@ -20946,12 +20966,12 @@
 	                obj = {},
 	                sizeParWidth = el.parentNode.clientWidth,
 	                sizeSelfWidth = el.offsetWidth,
-	                sizeParHeight = el.parentNode.clientHeight,
+	                sizeParHeight = el.parentNode.offsetHeight,
 	                sizeSelfHeight = el.offsetHeight;
 	
 	            obj = {
-	                top: sizeParHeight / 2,
-	                left: sizeParWidth / 2,
+	                top: (sizeParHeight - sizeSelfHeight) / 2,
+	                left: (sizeParWidth - sizeSelfWidth) / 2,
 	                sizeParWidth: sizeParWidth,
 	                sizeSelfWidth: sizeSelfWidth,
 	                sizeParHeight: sizeParHeight,
@@ -20961,11 +20981,43 @@
 	            return obj[value];
 	        }
 	    }, {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            var _this2 = this;
+	
+	            setTimeout(function () {
+	                console.log(_this2.getPosition('top'));
+	                _this2.setState(function (prevState, props) {
+	                    return {
+	                        bubbleDivStyle: {
+	                            width: '0px',
+	                            height: '0px',
+	                            backgroundColor: 'rgba(89, 89, 89, 0.7)',
+	                            position: 'absolute',
+	                            left: _this2.getPosition('left'),
+	                            top: _this2.getPosition('top'),
+	                            display: 'flex',
+	                            justifyContent: 'center',
+	                            alignItems: 'center',
+	                            // marginLeft: '50%',
+	                            // marginTop: '50%',
+	                            color: 'white',
+	                            flexDirection: 'column',
+	                            overflow: 'hidden',
+	                            fontSize: '16px',
+	                            whiteSpace: 'nowrap',
+	                            opacity: '0',
+	                            transition: 'all .5s'
+	                        }
+	
+	                    };
+	                });
+	            }, 1);
+	        }
+	    }, {
 	        key: 'expander',
 	        value: function expander() {
 	            var el = _reactDom2.default.findDOMNode(this);
-	            this.style.bubbleDivStyle.left = this.getPosition('sizeParWidth');
-	            this.style.bubbleDivStyle.top = this.getPosition('sizeParHeight');
 	            this.fadeOut = (0, _animejs2.default)({
 	                targets: el,
 	
@@ -21033,13 +21085,13 @@
 	                //     easing: 'easeOutExpo'
 	                // },
 	                left: {
-	                    value: this.getPosition('left') + 'px',
+	                    value: this.getPosition('sizeParWidth') / 2 + 'px',
 	                    delay: 0,
 	                    duration: this.speed,
 	                    easing: 'easeOutExpo'
 	                },
 	                top: {
-	                    value: this.getPosition('top') + 'px',
+	                    value: this.getPosition('sizeParHeight') / 2 + 'px',
 	                    delay: 0,
 	                    duration: this.speed,
 	                    easing: 'easeOutExpo'
@@ -21052,12 +21104,13 @@
 	                }
 	            });
 	
-	            if (this.props.trigger == 'mouseenter') {
-	                this.fadeIn.pause();
-	                this.fadeOut.restart();
-	            } else if (this.props.trigger == 'mouseleave') {
-	                this.fadeOut.pause();
-	                this.fadeIn.restart();
+	            if (this.props.trigger.shouldShowBox == 'mouseenter') {
+	                this.fadeOut.play();
+	
+	                console.log(this.getPosition('top'));
+	            } else if (this.props.trigger.shouldShowBox == 'mouseleave') {
+	                console.log(this.getPosition('top'));
+	
 	                this.fadeIn.play();
 	            }
 	        }
@@ -21071,7 +21124,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { style: this.style.bubbleDivStyle },
+	                { style: this.state.bubbleDivStyle },
 	                _react2.default.createElement(
 	                    'span',
 	                    null,

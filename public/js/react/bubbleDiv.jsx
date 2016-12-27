@@ -5,17 +5,16 @@ class BubbleDiv extends React.Component {
 
     constructor(props) {
         super(props);
-        this.style = {
+        this.state = {
             bubbleDivStyle: {
                 width: '0px',
                 height: '0px',
                 backgroundColor: 'rgba(89, 89, 89, 0.7)',
                 position: 'absolute',
-                top: '50%',
-                left: '50%',
-                // display: 'flex',
-                // justifyContent: 'center',
-                // alignItems: 'center',
+
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
                 // marginLeft: '50%',
                 // marginTop: '50%',
                 color: 'white',
@@ -29,20 +28,20 @@ class BubbleDiv extends React.Component {
         }
         this.speed = 100;
         this.expander = this.expander.bind(this);
+        this.getPosition = this.getPosition.bind(this);
 
     }
-
     getPosition(value) {
         let el = ReactDOM.findDOMNode(this),
             obj = {},
             sizeParWidth = el.parentNode.clientWidth,
             sizeSelfWidth = el.offsetWidth,
-            sizeParHeight = el.parentNode.clientHeight,
+            sizeParHeight = el.parentNode.offsetHeight,
             sizeSelfHeight = el.offsetHeight;
 
         obj = {
-            top: (sizeParHeight / 2),
-            left: (sizeParWidth / 2),
+            top: (sizeParHeight - sizeSelfHeight) / 2,
+            left: (sizeParWidth - sizeSelfWidth) / 2,
             sizeParWidth: sizeParWidth,
             sizeSelfWidth: sizeSelfWidth,
             sizeParHeight: sizeParHeight,
@@ -52,10 +51,41 @@ class BubbleDiv extends React.Component {
         return obj[value]
     }
 
+    componentDidMount() {
+
+        setTimeout(() => {
+          console.log(this.getPosition('top'));
+            this.setState((prevState, props) => {
+                return {
+                    bubbleDivStyle: {
+                        width: '0px',
+                        height: '0px',
+                        backgroundColor: 'rgba(89, 89, 89, 0.7)',
+                        position: 'absolute',
+                        left: this.getPosition('left'),
+                        top: this.getPosition('top'),
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        // marginLeft: '50%',
+                        // marginTop: '50%',
+                        color: 'white',
+                        flexDirection: 'column',
+                        overflow: 'hidden',
+                        fontSize: '16px',
+                        whiteSpace: 'nowrap',
+                        opacity: '0',
+                        transition: 'all .5s'
+                    }
+
+                };
+            })
+        }, 1)
+
+    }
+
     expander() {
         let el = ReactDOM.findDOMNode(this);
-        this.style.bubbleDivStyle.left = this.getPosition('sizeParWidth');
-        this.style.bubbleDivStyle.top = this.getPosition('sizeParHeight');
         this.fadeOut = anime({
             targets: el,
 
@@ -123,13 +153,13 @@ class BubbleDiv extends React.Component {
             //     easing: 'easeOutExpo'
             // },
             left: {
-                value: `${this.getPosition('left')}px`,
+                value: `${this.getPosition('sizeParWidth') / 2}px`,
                 delay: 0,
                 duration: this.speed,
                 easing: 'easeOutExpo'
             },
             top: {
-                value: `${this.getPosition('top')}px`,
+                value: `${this.getPosition('sizeParHeight') / 2}px`,
                 delay: 0,
                 duration: this.speed,
                 easing: 'easeOutExpo'
@@ -142,13 +172,13 @@ class BubbleDiv extends React.Component {
             }
         });
 
-        if (this.props.trigger == 'mouseenter') {
-            this.fadeIn.pause();
-            this.fadeOut.restart();
+        if (this.props.trigger.shouldShowBox == 'mouseenter') {
+              this.fadeOut.play();
 
-        } else if (this.props.trigger == 'mouseleave') {
-            this.fadeOut.pause();
-            this.fadeIn.restart();
+                      console.log(this.getPosition('top'));
+        } else if (this.props.trigger.shouldShowBox == 'mouseleave') {
+                    console.log(this.getPosition('top'));
+
             this.fadeIn.play();
 
         }
@@ -160,7 +190,7 @@ class BubbleDiv extends React.Component {
     }
     render() {
         return (
-            <div style={this.style.bubbleDivStyle}>
+            <div style={this.state.bubbleDivStyle}>
                 <span>{this.props.title}</span>
                 <br></br>
                 <span>{this.props.defenition}</span>
