@@ -23,6 +23,7 @@ body, html {
   height: 100%;
   font-family: LoraRegular;
   overflow-x: hidden;
+
 }
 
 .head {
@@ -528,16 +529,27 @@ figure {
   max-height: 380px;
   width: 30%;
   float: left;*/
-  min-height: 300px;
+
   margin: 0px !important;
   padding: 0px !important;
   position: relative;
-  
-}
 
+}
+.portItem:hover .bubbleDiv {
+  -webkit-transform: scale(1) !important;
+          transform: scale(1) !important;
+  opacity: 1 !important;
+  visibility: visible;
+}
+.portItem > div {
+  -webkit-transition: all .4s;
+  transition: all .4s;
+
+}
 .portItem>img {
   width: 100%;
   height: auto;
+  display: block;
   /*position: absolute;*/
 }
 

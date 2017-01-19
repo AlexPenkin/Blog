@@ -42,9 +42,9 @@ class AwesomeComponent extends React.Component {
     render() {
 
         return (
-            <div onMouseEnter={this.propagateEventHover} onMouseLeave={this.propagateEventHover} className='portItem col m12 l3'>
+            <div onMouseEnter={this.propagateEventHover} onMouseLeave={this.propagateEventHover} className='portItem col col-md-3 col-xl-3 col-sm-12'>
                 <ImagePort source='/img/portfolio/megabitPort.jpg'/>
-                <BubbleDivStyle title='MEGABIT' size={ReactDOM.findDOMNode(this)} defenition='Russian Federal Web Market Many work for that' trigger={this.state}/>
+                <BubbleDivStyle  title = {this.props.title} size={ReactDOM.findDOMNode(this)} defenition= {this.props.defenition} trigger={this.state}/>
             </div>
         );
     }
