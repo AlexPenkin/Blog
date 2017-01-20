@@ -3,24 +3,27 @@ import ReactDOM from 'react-dom';
 import AwesomeComponent from './AwesomeComponent.jsx';
 import PortfolioDetails from './PortfolioDetails.jsx';
 import NotFound from './NotFound.jsx';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import {Router, Route, IndexRoute, Link, hashHistory} from 'react-router'
 
 // ...
 class App extends React.Component {
     render() {
         return (
-            <div className='portWrapReact row'>
-                <AwesomeComponent title='MEGABIT' defenition='Russian Federal Web Market Many work for that'/>
-                <AwesomeComponent title='MEGABIT' defenition='Russian Federal Web Market Many work for that'/>
-                <AwesomeComponent title='MEGABIT' defenition='Russian Federal Web Market Many work for that'/>
-            </div>
+            <ReactCSSTransitionGroup  transitionName="example" transitionAppear={true} transitionLeave={true}>
+                <div key = 'two' className='portWrapReact row'>
+                    <AwesomeComponent title='MEGABIT' defenition='Russian Federal Web Market Many work for that'/>
+                    <AwesomeComponent title='MEGABIT' defenition='Russian Federal Web Market Many work for that'/>
+                    <AwesomeComponent title='MEGABIT' defenition='Russian Federal Web Market Many work for that'/>
+                </div>
+            </ReactCSSTransitionGroup>
         );
     }
 }
 
 ReactDOM.render(
     <Router history={hashHistory}>
-    <Route path="/" component={App} />
+    <Route path="/" component={App}/>
     <Route path="/details" component={PortfolioDetails}/>
 </Router>, document.getElementById('portWrapR'));
 // import React from 'react'

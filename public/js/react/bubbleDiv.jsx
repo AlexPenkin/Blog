@@ -105,10 +105,9 @@ class BubbleDiv extends React.Component {
                         animationFillMode: 'forwards',
                          transition: 'all .4s ease-in-out'
                     }
-
                 };
             })
-        }, 1)
+        }, 10)
     }
 
 

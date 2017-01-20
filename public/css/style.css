@@ -470,3 +470,34 @@ figure {
 button, button:active, button:focus {
   outline: none;
 }
+
+
+
+.example-appear {
+  opacity: 0.01;
+  transform: translateX(500px);
+}
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.example-appear.example-appear-active {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: all .2s ease-in;
+}
+.example-leave {
+  opacity: 1;
+  transform: translateX(0px);
+    transition: all 1000ms ease-in;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transform: translateX(500px);
+  transition: all 1000ms ease-in;
+}
