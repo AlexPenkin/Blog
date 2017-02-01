@@ -1,19 +1,21 @@
 block header
   div.head
     nav.nav
-      a(href = '/').navbar-brand Alexander Penkin
+      //- a(href = '/').navbar-brand Alexander Penkin
       div.menu
         a(href = '/').menuLink Блог
-        a(href = '/portfolio').menuLink Портфолио      
+        a(href = '/portfolio').menuLink Портфолио
         a.menuLink Обо мне
         if user && user.username == 'Admin'
           a(href = '/makePost').menuLink Add Post
+      div.logo AlexPenkin   
       div.userMenu
         if user
-          a().menuLink.userName#username #{user.username}          
+          a().menuLink.userName#username #{user.username}
           a(href = '/logOut').menuLink Выйти
-        else 
+        else
           a(href = '/login').menuLink Войти
+          a(href = '/login').menuLink Контакты
           a(href = '/signUp').menuLink Зарегистрироваться
 
   div.drawer.drawer--top
@@ -31,12 +33,12 @@ block header
           a.menuLink Обо мне
           if user && user.username == 'Admin'
             a(href = '/makePost').menuLink Add Post
-          
+
         div.userMenu
         if user
           a().menuLink.userName#username #{user.username}
           a(href = '/logOut').menuLink Выйти
-        else 
+        else
           a(href = '/login').menuLink Войти
           a(href = '/signUp').menuLink Зарегистрироваться
 script.

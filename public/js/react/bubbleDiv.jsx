@@ -55,7 +55,7 @@ class BubbleDiv extends React.Component {
                     height: `${(this.getPosition('sizeParHeight'))}px`,
                     backgroundColor: 'rgba(89, 89, 89, 0.7)',
                     position: 'absolute',
-                    transform: `scale(0)`,
+                    transform: `scale(0) translateZ(0px)`,
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
