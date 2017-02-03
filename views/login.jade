@@ -1,11 +1,11 @@
 include ./includes/mainInfo.jade
 include ./includes/header.jade
 
-script(type='text/javascript', src= './js/messageOnLogin.js')
+
 div.logQuadWrap
   div.logQuad.col-lg-2.col-md-2.col-sm-12.col-xs-12.col-md-offset-5.col-lg-offset-5
     p Войти
-    form(action="/login" method="post") 
+    form(action="/login" method="post")
       input(type ='input' placeholder = "Логин или почта" name= 'username').form-control
       input(type ='password' placeholder = "Пароль" name= 'password').form-control
       input(type= 'submit' value= 'Войти').awesomeBut

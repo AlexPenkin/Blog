@@ -1,36 +1,87 @@
-/*@font-face {
-  font-family: LoraRegular;
-  src: url(fonts/OpenSans-Regular.ttf);
+@font-face {
+	font-family: 'Lora';
+	src: url('/fonts/Lora-Regular.eot');
+	src: url('/fonts/Lora-Regular.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/Lora-Regular.woff') format('woff'),
+		url('/fonts/Lora-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-  font-family: PTSansBold;
-  src: url(fonts/PTSansBold.ttf);
+	font-family: 'Open Sans Light';
+	src: url('/fonts/OpenSans-Light.eot');
+	src: url('/fonts/OpenSans-Light.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/OpenSans-Light.woff') format('woff'),
+		url('/fonts/OpenSans-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
 }
 
 @font-face {
-  font-family: AmazingGroteskRegular;
-  src: url(fonts/AmazingGroteskRegular.otf);
+	font-family: 'Lora';
+	src: url('/fonts/Lora-Italic.eot');
+	src: url('/fonts/Lora-Italic.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/Lora-Italic.woff') format('woff'),
+		url('/fonts/Lora-Italic.ttf') format('truetype');
+	font-weight: normal;
+	font-style: italic;
 }
 
 @font-face {
-  font-family: AmazingGroteskbold;
-  src: url(fonts/AmazingGroteskBold.otf);
-}*/
+	font-family: 'Lora';
+	src: url('/fonts/Lora-Bold.eot');
+	src: url('/fonts/Lora-Bold.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/Lora-Bold.woff') format('woff'),
+		url('/fonts/Lora-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('/fonts/OpenSans.eot');
+	src: url('/fonts/OpenSans.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/OpenSans.woff') format('woff'),
+		url('/fonts/OpenSans.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Open Sans Italic';
+	src: url('/fonts/OpenSans-Italic.eot');
+	src: url('/fonts/OpenSans-Italic.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/OpenSans-Italic.woff') format('woff'),
+		url('/fonts/OpenSans-Italic.ttf') format('truetype');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Open Sans Bold';
+	src: url('/fonts/OpenSans-Bold.eot');
+	src: url('/fonts/OpenSans-Bold.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/OpenSans-Bold.woff') format('woff'),
+		url('/fonts/OpenSans-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
 @font-face {
 	font-family: 'SF Collegiate';
-	src: url(fonts/'SFCollegiate.eot');
-	src: url(fonts/'SFCollegiate.eot?#iefix') format('embedded-opentype'),
-		url(fonts/'SFCollegiate.woff') format('woff'),
-		url(fonts/'SFCollegiate.ttf') format('truetype');
+	src: url('/fonts/SFCollegiate.eot');
+	src: url('/fonts/SFCollegiate.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/SFCollegiate.woff') format('woff'),
+		url('/fonts/SFCollegiate.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
 body, html {
   width: 100%;
-  height: 100%;
+
   font-family: LoraRegular;
   overflow-x: hidden;
+  font-family: 'Open Sans' !important;
 
 }
 
@@ -64,6 +115,10 @@ body, html {
  font-family: 'SF Collegiate';
  -webkit-transform: translateY(-4px);
          transform: translateY(-4px);
+ -webkit-user-select: none;
+    -moz-user-select: none;
+     -ms-user-select: none;
+         user-select: none;
 }
 
 .nav {
@@ -164,6 +219,7 @@ body, html {
 
 .blogWrap {
   max-height: 100%;
+	/*margin-top: 45px;*/
 }
 
 .blogPost {
@@ -276,11 +332,10 @@ a {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    background-color: black !important;
+    /*justify-content: center;*/
+    /*background-color: black !important;*/
   }
+
   .menu {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -293,6 +348,7 @@ a {
     color: red !important;
     margin: 0;
     width: auto;
+		border: none;
   }
   .menu a {
     margin: 10px 0;
@@ -305,20 +361,38 @@ a {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+		border: none;
   }
   header {
     text-align: center;
-    height: 55px;
-    background-color: black;
+    height: 120px;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
+		color: black;
+		box-sizing: border-box;
+    padding: 30px 0;
+		-webkit-box-pack: center;
+		    -ms-flex-pack: center;
+		        justify-content: center;
+    /*background-color: black;*/
   }
   .HeadName {
     display: inline-block;
     padding-top: 15px;
-    margin-left: 40px;
+    /*margin-left: 40px;*/
     font-size: 20px;
-    color: white;
-    z-index: 9999;
+    color: black;
+		text-decoration: none;
+    z-index: 10;
   }
+	.logo {
+		font-family: 'SF Collegiate' !important;
+		font-size: 40px;
+	}
   .HeadName:hover {
     color: white;
     text-decoration: none;
@@ -328,7 +402,20 @@ a {
     float: right;
     margin-right: 10px;
   }
+	.drawer-toggle {
+		position: absolute;
+	}
+	.drawer--top.drawer-open .drawer-nav {
+		z-index: 10000;
+	}
+	.drawer--top .drawer-hamburger, .drawer--top.drawer-open .drawer-hamburger {
+		/*right: 20px;*/
+		top: 0px;
+		z-index: 10001;
+		position: absolute !important;
+	}
 }
+
 
 @media (min-width: 769px) and (max-width: 5000px) {
   .drawer {
@@ -346,15 +433,15 @@ a {
   height: 400px;
   background-color: gray;
   position: absolute;
-  -webkit-filter: brightness(70%);
-          filter: brightness(70%);
+  -webkit-filter: brightness(33%);
+          filter: brightness(33%);
   top: 0;
   z-index: -1;
 }
 
-.drawer-hamburger-icon, .drawer-hamburger-icon:after, .drawer-hamburger-icon:before {
+/*.drawer-hamburger-icon, .drawer-hamburger-icon:after, .drawer-hamburger-icon:before {
   background-color: white
-}
+}*/
 
 .postTitle {
   color: white;
@@ -394,6 +481,7 @@ figure {
 .fullText {
   white-space: normal;
   word-break: normal;
+	margin-top: 45px;
 }
 
 .headWrap {
@@ -401,7 +489,7 @@ figure {
   width: 100%;
   position: absolute;
   overflow: hidden;
-  top: 0;
+  top: 120px;
   z-index: -1;
 }
 
@@ -436,8 +524,9 @@ figure {
   /*border: solid 1px gray;*/
   text-align: center;
   display: inline-block;
-  opacity: 0;
+
   -webkit-transition: all 1s;
+
   transition: all 1s;
 }
 
@@ -456,7 +545,7 @@ figure {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: absolute;
+  /*position: absolute;*/
   top: 0;
 }
 
@@ -624,28 +713,28 @@ button, button:active, button:focus {
 
 
 
-.example-appear {
+.blog-appear {
   opacity: 0.01;
   -webkit-transform: translateX(500px);
           transform: translateX(500px);
 }
-.example-enter {
+.blog-enter {
   opacity: 0.01;
 }
 
-.example-enter.example-enter-active {
+.blog-enter.blog-enter-active {
   opacity: 1;
   -webkit-transition: opacity 500ms ease-in;
   transition: opacity 500ms ease-in;
 }
-.example-appear.example-appear-active {
+.blog-appear.blog-appear-active {
   opacity: 1;
   -webkit-transform: translateX(0px);
           transform: translateX(0px);
   -webkit-transition: all .2s ease-in;
   transition: all .2s ease-in;
 }
-.example-leave {
+.blog-leave {
   opacity: 1;
   -webkit-transform: translateX(0px);
           transform: translateX(0px);
@@ -653,12 +742,11 @@ button, button:active, button:focus {
     transition: all 1000ms ease-in;
 }
 
-.example-leave.example-leave-active {
+.blog-leave.blog-leave-active {
   opacity: 0.01;
   -webkit-transform: translateX(500px);
           transform: translateX(500px);
-  -webkit-transition: all 1000ms ease-in;
-  transition: all 1000ms ease-in;
+
 }
 
 /*# sourceMappingURL=prod.css.map*/

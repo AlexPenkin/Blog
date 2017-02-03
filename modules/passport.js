@@ -26,7 +26,7 @@ passport.use(new LocalStrategy(
           message: 'Incorrect password.'
         });
       }
-      
+
       return done(null, user);
     });
   }

@@ -6,10 +6,11 @@ block header
         a(href = '/').menuLink Блог
         a(href = '/portfolio').menuLink Портфолио
         a.menuLink Обо мне
+
+      div.logo AlexPenkin
+      div.userMenu
         if user && user.username == 'Admin'
           a(href = '/makePost').menuLink Add Post
-      div.logo AlexPenkin   
-      div.userMenu
         if user
           a().menuLink.userName#username #{user.username}
           a(href = '/logOut').menuLink Выйти
@@ -20,7 +21,7 @@ block header
 
   div.drawer.drawer--top
     header(role="banner")
-      a(href= '/').HeadName Alexander Penkin
+      a(href= '/').HeadName.logo AlexPenkin
       button(type="button").drawer-toggle.drawer-hamburger
         span.sr-only toggle navigation
         span.drawer-hamburger-icon

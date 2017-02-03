@@ -13,7 +13,7 @@ var config = {
             // ./public directory is being served
             host: 'localhost',
             port: 3001,
-            proxy: 'http://192.168.0.105:3000/'
+            proxy: 'http://localhost:3000/'
         }),
         new webpack.DefinePlugin({
             'process.env': {

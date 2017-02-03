@@ -1,8 +1,7 @@
 include ./includes/mainInfo.jade
 include ./includes/header.jade
 script(type='text/javascript', src="//cdn.tinymce.com/4/tinymce.min.js")
-script(type='text/javascript', src="./js/tinyMce.js")
-script(type='text/javascript', src="./js/sendPost.js")
+
 block makePost
   div.meta.col-md-6.col-md-offset-3.col-lg-6.col-lg-offset-3.col-sm-12.col-xs-12
     p Заполни все поля, кроме даты - она опциональна. По умолчанию ставится дата создания.
@@ -10,9 +9,13 @@ block makePost
     input(type= 'input', name = 'data' placeholder = 'Optional!!! Data')#data.form-control
     input(type= 'input', name = 'tags' placeholder = 'tags through a comma')#tags.form-control
     input(type= 'input', name = 'preText' placeholder = 'text on pre and head')#preText.form-control
-    input(type= 'input', name = 'preImgUrl' placeholder = 'img on the header')#headImg.form-control
+    div
+      input(type= 'file', name = 'preImgUrl' placeholder = 'img on the header')#headImg.form-control
+      span img on the header
     input(type= 'input', name = 'autor' placeholder = 'autor')#autor.form-control
   div.postWrap.col-md-6.col-md-offset-3.col-lg-6.col-lg-offset-3.col-sm-12.col-xs-12
     textarea.tinymce#texteditor
     button#send.btn.btn-default Send Article
     span#test
+script(type='text/javascript', src="./js/tinyMce.js")
+script(type='text/javascript', src="./js/sendUpdatePost.js")

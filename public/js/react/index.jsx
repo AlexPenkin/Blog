@@ -10,11 +10,11 @@ import {Router, Route, IndexRoute, Link, hashHistory} from 'react-router'
 class App extends React.Component {
     render() {
         return (
-            <ReactCSSTransitionGroup  transitionName="example" transitionAppear={true} transitionLeave={true}>
+            <ReactCSSTransitionGroup transitionAppear={true} transitionName="blog" transitionLeave={true} transitionEnterTimeout={11500} transitionAppearTimeout={11000} transitionLeaveTimeout={500}>
                 <div key = 'two' className='portWrapReact row'>
-                    <AwesomeComponent title='MEGABIT' defenition='Russian Federal Web Market Many work for that'/>
-                    <AwesomeComponent title='MEGABIT' defenition='Russian Federal Web Market Many work for that'/>
-                    <AwesomeComponent title='MEGABIT' defenition='Russian Federal Web Market Many work for that'/>
+                  <AwesomeComponent title='MEGABIT' defenition='Russian Federal Web Market Many work for that'/>
+                  <AwesomeComponent title='MEGABIT' defenition='Russian Federal Web Market Many work for that'/>
+                  <AwesomeComponent title='MEGABIT' defenition='Russian Federal Web Market Many work for that'/>
                 </div>
             </ReactCSSTransitionGroup>
         );

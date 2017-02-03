@@ -1,0 +1,41 @@
+include ./includes/mainInfo.jade
+include ./includes/header.jade
+script(type='text/javascript', src="//cdn.tinymce.com/4/tinymce.min.js")
+
+block makePost
+  div.meta.col-md-6.col-md-offset-3.col-lg-6.col-lg-offset-3.col-sm-12.col-xs-12
+    p Заполни все поля, кроме даты - она опциональна. По умолчанию ставится дата создания.
+    input(type= 'input', name = 'title' value = '#{post.title}')#title.form-control
+    input(type= 'input', name = 'data' value = '#{post.date}')#data.form-control
+    input(type= 'input', name = 'tags' value = '#{post.tags}')#tags.form-control
+    input(type= 'input', name = 'preText' value = '#{post.preText}')#preText.form-control
+    div
+      input(type= 'file', name = 'preImgUrl' placeholder = 'img on the header')#headImg.form-control
+      span img on the header
+    input(type= 'input', name = 'autor' value = '#{post.autor}')#autor.form-control
+  div.postWrap.col-md-6.col-md-offset-3.col-lg-6.col-lg-offset-3.col-sm-12.col-xs-12
+    textarea.tinymce#texteditor
+    button#send.btn.btn-default Send Article
+    span#test
+// script(type='text/javascript', src="./js/tinyMce.js")
+script.
+  var _id = '#{post._id}';
+script(type='text/javascript', src="./js/sendUpdatePost.js")
+script.
+  console.log(`#{post.text}`)
+  var editor =  tinymce.init({
+      selector: 'textarea',
+      browser_spellcheck: true,
+      init_instance_callback: function (editor) {
+        editor.insertContent(`#{post.text}`)
+    },
+      plugins: [
+        "save advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
+        "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+        "table contextmenu directionality emoticons template textcolor paste fullpage textcolor colorpicker textpattern"
+      ],
+
+      toolbar1: " save newdocument fullpage | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
+      toolbar2: "cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo | link unlink anchor image media code | insertdatetime preview | forecolor backcolor",
+      toolbar3: "table | hr removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | spellchecker | visualchars visualblocks nonbreaking template pagebreak restoredraft",
+    });

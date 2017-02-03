@@ -8,10 +8,16 @@ $(document).ready(function() {
     //alert(text);
     $('#test').append(text);
     var b;
-    httpGet('/makePost').then(res => alert(res));
+    httpGet('/makePost').then(res => {
+      console.log('sasad');
+      var file = document.getElementById('headImg').files[0];
+      console.log(file.name);
+      upload(file, file.name)
+    }).catch(res=> console.log(res + 'err'));
 
   })
 });
+
 var date = new Date();
 var year = date.getFullYear();
 var month = date.getMonth() + 1;
@@ -44,6 +50,7 @@ function httpGet(url) {
         }
       })
       .done(function(data) {
+        alert('ok')
         resolve("success");
       })
       .fail(function() {
@@ -52,4 +59,27 @@ function httpGet(url) {
 
   });
 
+}
+
+
+function upload(file, name) {
+  var xhr = new XMLHttpRequest();
+  // обработчики можно объединить в один,
+  // если status == 200, то это успех, иначе ошибка
+
+  xhr.onload = xhr.onerror = function() {
+    if (this.status == 200) {
+      console.log(file.type);
+      document.getElementById('headImg').value = '';
+      console.log("success");
+    } else {
+      console.log("error " + this.status);
+    }
+  };
+
+  xhr.open("POST", "/uploadHeader");
+  xhr.setRequestHeader('name', encodeURIComponent(document.getElementById('headImg').files[0].name));
+  xhr.setRequestHeader('title', encodeURIComponent($("#title").val()));
+  xhr.setRequestHeader('autor', ncodeURIComponent($("#autor").val() || "Alexander Penkin"));
+  xhr.send(file);
 }

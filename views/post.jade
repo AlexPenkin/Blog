@@ -2,24 +2,26 @@ include ./includes/mainInfo.jade
 include ./includes/header.jade
 
 div.headWrap
-  div(style={background: "url(#{'./img/' + headImg}) no-repeat scroll center center/cover"}).headPost#headPost
+  div(style={background: "url('.#{headImg}') no-repeat scroll center center/cover"}).headPost#headPost
 div.blogWrap.col-lg-6.col-md-6.col-sm-12.col-xs-12.col-md-offset-3.col-lg-offset-3
-  div.postTitle.col-lg-12.col-md-12.col-sm-12.col-xs-12 
+  div.postTitle.col-lg-12.col-md-12.col-sm-12.col-xs-12
     p !{title}
-    p.offset 
+    p.offset
     p.dateAutor #{autor} | #{date}
     p.views Прсмотров: #{viewsNum}
-  div.fullText.col-lg-12.col-md-12.col-sm-12.col-xs-12   
+  div.fullText.col-lg-12.col-md-12.col-sm-12.col-xs-12
     | !{text}
     hr
     p Может понравится:
     hr
   div.postTags.fullText.col-lg-12.col-md-12.col-sm-12.col-xs-12    tags:
 
-    each tag in tags 
+    each tag in tags
       a(href= '/tags?tag=#{tag}'): div.awesomeTag= tag
-    hr  
-  button.like.notLiked  #{likes.numOfLikes} 
+    hr
+  if user && user.username == 'Admin'      
+    a(href="/updatePost?urlPost=#{id}") Править
+  //button.like.notLiked  #{likes.numOfLikes}
   div.postTags.fullText.col-lg-12.col-md-12.col-sm-12.col-xs-12
     div#disqus_thread
 
@@ -42,10 +44,11 @@ script.
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
   })();
-  
-script(type='text/javascript', src= 'https://cdnjs.cloudflare.com/ajax/libs/rxjs-jquery/1.1.6/rx.jquery.min.js')
+
+
 script(type='text/javascript', src='./js/offset.js')
-script(type='text/javascript', src= './js/like.js')
+
+
 
 
 

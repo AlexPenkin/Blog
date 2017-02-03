@@ -18,12 +18,17 @@ export default class PortfolioDetails extends Component {
     render() {
         return (
           <ReactCSSTransitionGroup
-    transitionName="example"
+            component="div"
+    transitionName="blog"
     transitionAppear={true}
     transitionLeave={true}
 
-    transitionApperTimeout={500} transitionLeaveTimeout={300}>
-            <div key = {1} >
+    transitionAppear={true}
+        transitionLeave={true}
+        transitionEnterTimeout={500}
+        transitionAppearTimeout={500}
+        transitionLeaveTimeout={500}>
+            <div key = {'12232ss'} >
                 <span><Link to="/">Works!!!</Link></span>
             </div>
               </ReactCSSTransitionGroup>

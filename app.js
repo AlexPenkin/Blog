@@ -9,6 +9,9 @@ const crypt = require('./modules/crypt.js');
 const passport = require('./modules/passport.js');
 const compression = require('compression');
 const fs = require('fs');
+const mkdirp = require('mkdirp');
+module.exports.mkdirp = mkdirp;
+module.exports.fs = fs;
 
 String.prototype.capitalizeFirstLetter = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
@@ -38,25 +41,27 @@ const numCPUs = require('os').cpus().length;
 
 
 //
-const app = express();
+var app;
+module.exports.app = app = express();
 const publicFold = path.join(__dirname + '/public');
 const views = path.join(__dirname + '/views');
 var server;
-
+app.use(passport.initialize());
+app.use(passport.session());
   //var favicon = require('serve-favicon');
-  if (cluster.isMaster) {
-    // Fork workers.
-    for (var i = 0; i < numCPUs; i++) {
-      cluster.fork();
-    }
-
-    cluster.on('exit', (worker, code, signal) => {
-      console.log(`worker ${worker.process.pid} died`);
-    });
-  } else {
+  // if (cluster.isMaster) {
+  //   // Fork workers.
+  //   for (var i = 0; i < numCPUs; i++) {
+  //     cluster.fork();
+  //   }
+  //
+  //   cluster.on('exit', (worker, code, signal) => {
+  //     console.log(`worker ${worker.process.pid} died`);
+  //   });
+  // } else {
     require('http').createServer(app).listen(3000);
 
-  }
+  // }
 
 //web sockets
 const io = require('socket.io')(server);
@@ -76,11 +81,12 @@ app.use(express.static(publicFold));
 //session
 app.use(session({
     secret: 'keyboard cat',
-    saveUninitialized: true,
-    resave: true,
-    cookie: {
-      maxAge: 900000
-    }
+    // saveUninitialized: true,
+    // resave: true,
+    cookie: { maxAge: 60000000000 },
+                   rolling: true,
+                   resave: true,
+                   saveUninitialized: false
   }))
   //app.use(express.favicon(publicFold +'/img/favicon.png'));
 app.use(bodyParser.json({
@@ -100,11 +106,10 @@ var posts = getAllPosts(mongo.Blog);
 
 app.route('/')
   .get(function(req, res, next) {
-
+    console.log(req.user);
     getAllPosts(mongo.Blog);
-    let session = req.session;
     var testObj = {
-      sesId: session.id,
+
       posts: posts,
       user: req.user
     }
@@ -120,12 +125,13 @@ app.route('/makePost')
   })
   .post(function(req, res, next) {
     let arrOfTags = req.body.tags.split(/,\s*/);
+    console.log(req.body);
     var blogPost = new mongo.Blog({
       title: req.body.title,
       date: req.body.date,
       tags: arrOfTags,
       preText: req.body.preText,
-      headImg: req.body.headImg,
+      headImg: `undefined`,
       autor: req.body.autor,
       text: req.body.text
     });
@@ -134,13 +140,63 @@ app.route('/makePost')
         console.log(err)
       } else {
         console.log('saved');
-        getAllPosts(mongo.Blog);
+        res.status(200).send('textSaved');
+        ;
 
       };
     })
-    getAllPosts(mongo.Blog);
+
+
 
   })
+  app.route('/updatePost')
+    .get(function(req, res, next) {
+      var reqId = {
+        _id: req.query.urlPost
+      };
+      var findPost = new Promise(function(resolve, reject) {
+        mongo.Blog.findOne({'_id': req.query.urlPost}, function (err, post) {
+          if (err) {
+            reject(err);
+          }
+          else {
+            console.log(req.query);
+          resolve (post);
+          }
+        })
+      });
+      var post;
+      findPost.then(resp => {
+
+        post = resp;
+        console.log(post);
+        res.render('updatePost.jade', {
+          user: req.user,
+          post: post
+        });
+      }).catch(err => console.log(err))
+
+    })
+    .post(function(req, res, next) {
+      let arrOfTags = req.body.tags.split(/,\s*/);
+      console.log(req.body);
+      mongo.Blog.update({_id: req.body.id},{$set :{
+        title: req.body.title,
+        date: req.body.date,
+        tags: arrOfTags,
+        preText: req.body.preText,
+        headImg: `undefined`,
+        autor: req.body.autor,
+        text: req.body.text
+      }}, function(err, upd){
+        if (err) console.log(err);
+        else console.log(upd);
+        res.status(200).send('ok');
+      });
+
+
+
+    })
 var obj = {};
 
 
@@ -163,6 +219,7 @@ app.route('/loadPost')
         console.log(err)
       } else {}
     }).then(resa => {
+      resa.id = req.query.urlPost;
       resa.user = req.user;
       res.render('post.jade', resa);
       res.status(200);
@@ -180,11 +237,9 @@ app.route('/login')
   })
   .post(passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/login',
-    failureFlash: false
+    failureRedirect: '/login'
   }), function(req, res, next) {
-
-    res.status(200).end();
+    res.status(200);
     //res.redirect('/login');
   });
 
@@ -300,7 +355,6 @@ app.route('/tags')
       } else {}
     }).then(resa => {
       var testObj = {
-        sesId: session.id,
         posts: resa,
         user: req.user
       }
@@ -328,12 +382,11 @@ app.route('/tags')
   app.route('/portfolio')
     .get(function(req, res, next) {
       let jadeObj = {
-        sesId: session.id,
         user: req.user
       }
       res.render('portfolio.jade', jadeObj);
     })
-
+var uploadHeader = require(__dirname + '/routes/uploadHeader.js');
 app.get("/:page?", function(req, res) {
   var page = req.params.page;
   if (page != undefined) res.redirect("/");

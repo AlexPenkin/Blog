@@ -19,12 +19,14 @@ block blog
           hr
         div.commentsAndTags.col-lg-12.col-md-12.col-sm-12.col-xs-12
           div.comments
-            a(href= 'http://192.168.0.120:8888/'+'loadPost?urlPost=#{val._id}#disqus_thread', data-disqus-identifier = "#{val._id}")
+            a(href= '/loadPost?urlPost=#{val._id}#disqus_thread', data-disqus-identifier = "#{val._id}")
           div.tags
             each tag in val.tags
-              a(href= '/tags?tag=#{tag}')  #!{tag}
+              if (tag)
+                a(href= '/tags?tag=#{tag}')  #!{tag}
           div#root
 script.
+  console.log(#{val})
   DISQUSWIDGETS = undefined;
 script#dsq-count-scr(src= "http://allai.disqus.com/count.js?ver<%=DateTime.Now.Ticks.ToString()%>")
 script.
