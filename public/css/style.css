@@ -286,33 +286,46 @@ a {
   }
   header {
     text-align: center;
-    height: 120px;
+    height: 60px;
 		display: flex;
 		align-items: center;
 		color: black;
 		box-sizing: border-box;
-    padding: 30px 0;
+    /*padding: 30px 0;*/
 		justify-content: center;
     /*background-color: black;*/
   }
   .HeadName {
-    display: inline-block;
-    padding-top: 15px;
+    display: flex;
+		align-items: center;
+		justify-content: center;
+    /*padding-top: 15px;*/
     /*margin-left: 40px;*/
     font-size: 20px;
     color: black;
 		text-decoration: none;
     z-index: 10;
+		height: 60px;
+		/*overflow: hidden;*/
   }
 	.logo {
 		font-family: 'SF Collegiate' !important;
 		font-size: 40px;
-		transform: translateY(0px)
+
+		/*transform: translateY(6px)*/
 	}
   .HeadName:hover {
-    color: white;
+    color: black;
     text-decoration: none;
   }
+	.headWrap {
+		top: 60px !important;
+	}
+	.drawer drawer--top drawer-close {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
   .drawer-hamburger {
     position: relative !important;
     float: right;
@@ -326,7 +339,7 @@ a {
 	}
 	.drawer--top .drawer-hamburger, .drawer--top.drawer-open .drawer-hamburger {
 		/*right: 20px;*/
-		top: 0px;
+		top: 4px;
 		z-index: 10001;
 		position: absolute !important;
 	}
@@ -342,6 +355,8 @@ a {
 .title a {
   text-decoration: none;
   color: black;
+	overflow: auto;
+
 }
 
 .headPost {
@@ -370,6 +385,10 @@ a {
 
 .postTitle p {
   text-shadow: 2px 2px 4px #000000;
+}
+.postTitle p:nth-child(1) {
+	overflow: auto;
+	word-break: break-word;
 }
 
 .dateAutor {
@@ -590,6 +609,16 @@ figure {
 
 button, button:active, button:focus {
   outline: none;
+}
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape)
+and (-webkit-min-device-pixel-ratio: 1)  {
+ .menu, .userMenu {
+	width: 335px;
+	 margin: 0;
+ }
 }
 
 

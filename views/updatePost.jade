@@ -1,7 +1,6 @@
 include ./includes/mainInfo.jade
 include ./includes/header.jade
 script(type='text/javascript', src="//cdn.tinymce.com/4/tinymce.min.js")
-
 block makePost
   div.meta.col-md-6.col-md-offset-3.col-lg-6.col-lg-offset-3.col-sm-12.col-xs-12
     p Заполни все поля, кроме даты - она опциональна. По умолчанию ставится дата создания.
@@ -22,12 +21,16 @@ script.
   var _id = '#{post._id}';
 script(type='text/javascript', src="./js/sendUpdatePost.js")
 script.
-  console.log(`#{post.text}`)
+
   var editor =  tinymce.init({
       selector: 'textarea',
+      element_format : 'html',
+      entity_encoding : "numeric",
       browser_spellcheck: true,
+      /*paste_as_text: true,*/
       init_instance_callback: function (editor) {
-        editor.insertContent(`#{post.text}`)
+        editor.setContent('');
+        editor.setContent(`#{post.text}`.replace(/&amp;/g, "&").replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/&quot;/g, '"'))
     },
       plugins: [
         "save advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",

@@ -80,6 +80,6 @@ function upload(file, name) {
   xhr.open("POST", "/uploadHeader");
   xhr.setRequestHeader('name', encodeURIComponent(document.getElementById('headImg').files[0].name));
   xhr.setRequestHeader('title', encodeURIComponent($("#title").val()));
-  xhr.setRequestHeader('autor', ncodeURIComponent($("#autor").val() || "Alexander Penkin"));
+  xhr.setRequestHeader('autor', encodeURIComponent($("#autor").val() || "Alexander Penkin"));
   xhr.send(file);
 }
