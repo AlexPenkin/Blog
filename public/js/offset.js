@@ -1,6 +1,8 @@
 'use strict'
 $(document).ready(function() {
+  console.log('ready');
   var ismobile=navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i)
+  console.log(ismobile);
   function throttle(func, ms) {
 
     var isThrottled = false,
@@ -36,9 +38,9 @@ $(document).ready(function() {
 
   // var off = throttle(, 5);
   var headPost = document.querySelector('#headPost');
-  if(!ismobile) {
+
       window.onscroll = move;
-  }
+  
 
 
 })

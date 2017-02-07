@@ -48,8 +48,9 @@ class BubbleDiv extends React.Component {
     }
 
     componentDidMount() {
-      window.addEventListener('resize', () =>   this.setState((prevState, props) => {
-            return {
+
+      window.addEventListener('resize', () =>  { this.setState((prevState, props) => {
+            setTimeout(() => {return {
                 bubbleDivStyle: {
                     width: `${(this.getPosition('sizeParWidth'))}px`,
                     height: `${(this.getPosition('sizeParHeight'))}px`,
@@ -75,11 +76,9 @@ class BubbleDiv extends React.Component {
                      transition: 'all .5s ease-in-out'
                 }
 
-            };
-        }))
+            } }, 20);
+        })})
         setTimeout(() => {
-          console.log(this.getPosition('top'));
-            console.log(this.getPosition('left'));
             this.setState((prevState, props) => {
                 return {
                     bubbleDivStyle: {
@@ -107,7 +106,7 @@ class BubbleDiv extends React.Component {
                     }
                 };
             })
-        }, 10)
+        }, 20)
     }
 
 
@@ -118,7 +117,7 @@ class BubbleDiv extends React.Component {
     render() {
         return (
             <div className='bubbleDiv' style={this.state.bubbleDivStyle}>
-                <span><Link to="/details">{this.props.title}</Link></span>
+                <span><Link to={"/details/" + this.props.title}>{this.props.title}</Link></span>
                 <br></br>
                 <span>{this.props.defenition}</span>
             </div>
