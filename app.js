@@ -12,6 +12,7 @@ const fs = require('fs');
 const mkdirp = require('mkdirp');
 module.exports.mkdirp = mkdirp;
 module.exports.fs = fs;
+var port = process.env.PORT || 3000
 
 String.prototype.capitalizeFirstLetter = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
@@ -59,7 +60,7 @@ app.use(passport.session());
   //     console.log(`worker ${worker.process.pid} died`);
   //   });
   // } else {
-    require('http').createServer(app).listen(3000);
+    require('http').createServer(app).listen(port);
 
   // }
 
