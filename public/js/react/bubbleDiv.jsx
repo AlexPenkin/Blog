@@ -76,7 +76,7 @@ class BubbleDiv extends React.Component {
                      transition: 'all .5s ease-in-out'
                 }
 
-            } }, 20);
+            } }, 200);
         })})
         setTimeout(() => {
             this.setState((prevState, props) => {
@@ -106,7 +106,7 @@ class BubbleDiv extends React.Component {
                     }
                 };
             })
-        }, 20)
+        }, 200)
     }
 
 
