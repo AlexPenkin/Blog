@@ -42,7 +42,4 @@ block header
         else
           a(href = '/login').menuLink Войти
           a(href = '/signUp').menuLink Зарегистрироваться
-script.
-  $(document).ready(function() {
-    $('.drawer').drawer();
-  });
+script(type='text/javascript', src= '/js/drawerInit.js' defer)
