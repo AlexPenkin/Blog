@@ -7,7 +7,7 @@ body, html {
     min-height: 100vh;
     overflow: auto;
     position: relative;
-
+    background-color: #fafafa;
 
     font-family: Open Sans !important
 }
@@ -18,6 +18,7 @@ body, html {
     overflow: hidden;
     margin-bottom: 10px;
     z-index: 101;
+    background-color:white;
     text-transform: uppercase
 }
 
@@ -110,16 +111,22 @@ body, html {
 .blogWrap {
     max-height: 100%
 }
+.blogPostWrap {
+    max-height: 100%;
+    background-color: white;
+
+}
 
 .blogPost {
     min-height: 100px;
     border: thin solid #e0e0e0;
-    margin: 10px 0;
-    border-radius: 5px;
-    box-shadow: 0 0 10px #e0e0e0;
+    margin: 0px 0 10px;
+    border-radius: 2px;
+    box-shadow: 0 0 10px #eaeaea;
     padding: 20px 0;
     display: inline-block;
-    width: 100%
+    width: 100%;
+    background-color: white;
 }
 
 .postWrap {
@@ -287,7 +294,8 @@ a {
     display: flex;
     text-align: center;
     justify-content: flex-end;
-    flex-direction: column
+    flex-direction: column;
+    z-index: 3;
 }
 
 .postTitle p {
@@ -325,7 +333,7 @@ figure {
     position: absolute;
     overflow: hidden;
     top: 120px;
-    z-index: -1
+    z-index: 1;
 }
 
 .headWrap>div {
@@ -611,12 +619,12 @@ will-change: transform
 }
 .prevButton {
   left: 10px;
-  bottom: 240px;
+  bottom: 80px;
   z-index: 2;
 }
 .nextButton {
   right: 156px;
-  bottom: 240px;
+  bottom: 80px;
  }
 .prevButton a {
   position: absolute;
