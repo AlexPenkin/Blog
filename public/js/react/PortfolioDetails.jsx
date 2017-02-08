@@ -23,20 +23,19 @@ cemrus : {
 },
 
 }
- class PortBigImg extends Component {
-  constructor(props) {
-      super(props);
-      this.bk = portsDetailsObj[this.props.id.toLowerCase()].imgBackgroundColor
-  }
-  render() {
-
+ function PortBigImg (props) {
+var id = props.id.toLowerCase();
       return (
-        <ReactCSSTransitionGroup  className = 'portBigImg'  component="div"  transitionName="img" transitionLeave={true} transitionEnterTimeout={1000}  transitionLeaveTimeout={1000}>
-          <div key = {this.props.id + 'img'} style = {{backgroundColor: portsDetailsObj[this.props.id.toLowerCase()].imgBackgroundColor }} className = 'portBigImgCh'>{this.props.id}</div>
-        </ReactCSSTransitionGroup>
+        <ReactCSSTransitionGroup className = 'portBigImg'    component="div"  transitionName="img" transitionLeave={true} transitionEnterTimeout={1000}  transitionLeaveTimeout={1000}>
+          <div style = {{backgroundColor: portsDetailsObj[props.id.toLowerCase()].imgBackgroundColor }} className = 'portBigImgCh' key = {props.id + 'img'}>
+              <span className = 'nextButton' > <Link to = {'details/' + portsDetailsObj[id].next}>След</Link> </span>
+            <span className = 'prevButton' ><Link to = {'details/' + portsDetailsObj[id].prev}>Пред</Link> </span>
+            <div   className = 'portBigImgCh2'>{props.id}</div>
+          </div>
+      </ReactCSSTransitionGroup>
       )
 
-    }
+
 }
 // function PortBigImg (props){
 //   var background = portsDetailsObj[props.id.toLowerCase()].imgBackgroundColor;
@@ -53,12 +52,15 @@ cemrus : {
 
 
 function PortText (props){
-    var id = props.id.toLowerCase();
+  var id = props.id.toLowerCase();
   console.log(props.id);
   return (
     <ReactCSSTransitionGroup   className = 'portText'  component="div"  transitionName="text" transitionLeave={true} transitionEnterTimeout={1000}  transitionLeaveTimeout={1000}>
-    <div   key = {props.id + 'text'} className = 'portTextCh'>{portsDetailsObj[id].text}</div>
-      </ReactCSSTransitionGroup>
+      <div key = {props.id + 'text'}>
+
+        <div className = 'portTextCh'>{portsDetailsObj[id].text}</div>
+    </div>
+    </ReactCSSTransitionGroup>
 )
 }
 
@@ -68,8 +70,6 @@ function PortfolioDetailsPro (props){
     return (
 
       <div className = 'portWrapper'>
-          <span> <Link to = {'details/' + portsDetailsObj[id].next}>След</Link> </span>
-          <span><Link to = {'details/' + portsDetailsObj[id].prev}>Пред</Link> </span>
           <PortBigImg id = {props.id}/>
           <PortText id = {props.id}/>
       </div>
@@ -100,9 +100,9 @@ export default class PortfolioDetails extends Component {
 
                     <span style = {{position: 'absolute', top: '-33px'}}><Link to="/">Назад</Link></span>
 
-                    <div className = 'portWrapper'>
+
                       <PortfolioDetailsPro id = {this.props.params.portId} />
-                    </div>
+
 
 
               </ReactCSSTransitionGroup>
