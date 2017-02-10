@@ -1,25 +1,65 @@
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 100;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-ultralight-webfont.woff");
+}
 
+/** Thin */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 200;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-thin-webfont.woff");
+}
+
+/** Regular */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
+/** Medium */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 500;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff");
+}
+
+/** Semi Bold */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 600;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff");
+}
+
+/** Bold */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 700;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff");
+}
 
 body, html {
     width: 100%;
     height: 100%;
     margin: 0px;
     min-height: 100vh;
-    overflow: auto;
+    overflow:visible;
     position: relative;
     background-color: #fafafa;
 
-    font-family: Open Sans !important
+    font-family: "San Francisco" !important
 }
 
 .head {
     width: 100%;
-    height: 120px;
+    height: 12vh;
     overflow: hidden;
-    margin-bottom: 10px;
+    margin-bottom: 1vh;
     z-index: 101;
     background-color:white;
-    text-transform: uppercase
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
 }
 
 .head, .logo {
@@ -469,13 +509,18 @@ figure {
 .portItem {
     margin: 0!important;
     padding: 0!important;
-    position: relative
-}
+    position: relative;
 
+}
+.bubbleDiv {
+  height: 100%;
+  width: 100%;
+      transform: scale(0)!important;
+}
 .portItem:hover .bubbleDiv {
     transform: scale(1)!important;
     opacity: 1!important;
-    visibility: visible
+    visibility: visible !important;
 }
 
 .portItem>div {
@@ -503,10 +548,10 @@ figure {
 }
 
 #portWrapR {
-    min-width: 1200px;
+    min-width: 80vh;
     margin: 0 auto;
-    width: 1200px;
-    height: 860px;
+    width: 100vw;
+    height: 86vh;
     position: relative;
 }
 
@@ -588,6 +633,7 @@ button, button:active, button:focus {
   font-size: 30px;
   background-color: green;
   color: black;
+  font-family: "San Francisco";
   overflow: hidden;
   will-change: transform;
 
@@ -762,3 +808,18 @@ div:before {
     border-bottom: 30px solid white;
     border-left: 30px solid green;
 }*/
+.titleTextPort{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: Lora Bold;
+  }
+  .preTextPort {
+    width: 50%;
+    margin: 0 auto;
+      font-family: Lora Italic;
+      font-size: 20px;
+  }
