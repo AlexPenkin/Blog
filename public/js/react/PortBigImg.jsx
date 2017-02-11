@@ -10,9 +10,7 @@ var id = props.id.toLowerCase();
      return (
        <ReactCSSTransitionGroup className = 'portBigImg'    component="div"  transitionName="img" transitionLeave={true} transitionEnterTimeout={1000}  transitionLeaveTimeout={1000}>
          <div style = {{backgroundColor: portsDetailsObj[props.id.toLowerCase()].imgBackgroundColor }} className = 'portBigImgCh' key = {props.id + 'img'}>
-             <span className = 'nextButton' > <Link to = {'details/' + portsDetailsObj[id].next}>След</Link> </span>
-           <span className = 'prevButton' ><Link to = {'details/' + portsDetailsObj[id].prev}>Пред</Link> </span>
-           <div   className = 'portBigImgCh2'>{props.id}</div>
+          <div className = 'portBigImgCh2'>{props.id}</div>
          </div>
      </ReactCSSTransitionGroup>
      )

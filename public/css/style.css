@@ -1,43 +1,3 @@
-@font-face {
-  font-family: "San Francisco";
-  font-weight: 100;
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-ultralight-webfont.woff");
-}
-
-/** Thin */
-@font-face {
-  font-family: "San Francisco";
-  font-weight: 200;
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-thin-webfont.woff");
-}
-
-/** Regular */
-@font-face {
-  font-family: "San Francisco";
-  font-weight: 400;
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
-}
-
-/** Medium */
-@font-face {
-  font-family: "San Francisco";
-  font-weight: 500;
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff");
-}
-
-/** Semi Bold */
-@font-face {
-  font-family: "San Francisco";
-  font-weight: 600;
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff");
-}
-
-/** Bold */
-@font-face {
-  font-family: "San Francisco";
-  font-weight: 700;
-  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff");
-}
 
 body, html {
     width: 100%;
@@ -48,18 +8,20 @@ body, html {
     position: relative;
     background-color: #fafafa;
 
-    font-family: "San Francisco" !important
+    /*font-family: "San Francisco Display Regular" !important*/
 }
 
 .head {
     width: 100%;
-    height: 12vh;
+    height: 12.2%;
+    min-height: 120px;
     overflow: hidden;
-    margin-bottom: 1vh;
+
     z-index: 101;
     background-color:white;
     text-transform: uppercase;
     border-bottom: 1px solid rgba(0,0,0,0.15);
+    font-family: 'San Francisco Display Ultralight' !important;
 }
 
 .head, .logo {
@@ -68,8 +30,9 @@ body, html {
 }
 
 .logo {
-    font-size: 50px;
-    width: 330px;
+    font-size: 2.6vw !important;
+    width: 20%;
+    cursor: pointer;
     justify-content: center;
     font-family: SF Collegiate;
     transform: translateY(6px);
@@ -78,16 +41,31 @@ body, html {
     -ms-user-select: none;
     user-select: none
 }
-
+.ornamentLeft {
+  top: 3px;
+  left: 0;
+  position: absolute;
+}
+.ornamentRight {
+  right: 0;
+  position: absolute;
+  transform: rotateY(180deg);
+  top: 3px;
+}
+.ornamentMobile {
+  margin: 20px 0;
+height: 40px;
+}
 .nav {
     height: 50px;
     margin-bottom: 40px;
     border: 1px solid transparent;
-    min-width: 1200px;
+    min-width: 87%;
     margin: 0 auto;
     overflow: hidden;
     white-space: nowrap;
-    z-index: 100
+    z-index: 100;
+    font-size: 18px;
 }
 
 .menu, .nav {
@@ -100,8 +78,9 @@ body, html {
     max-height: 50px;
     align-items: center;
     justify-content: space-around;
-    width: 435px;
-    margin-right: auto;
+    width: 40%;
+    padding-left: 165px;
+    /*margin-right: auto;*/
     border-top: 1px solid #000;
     border-bottom: 1px solid #000
 }
@@ -113,13 +92,12 @@ body, html {
 
 .menu a {
     padding: 0 5%;
-    font-size: 18px;
     white-space: nowrap;
     color: #000;
     cursor: pointer;
     position: relative;
     display: inline-block;
-    font-family: Open Sans
+    /*font-family: Open Sans*/
 }
 
 .navbar-brand {
@@ -131,7 +109,8 @@ body, html {
 .userMenu {
     min-width: 1px;
     display: flex;
-    width: 435px;
+    width: 40%;
+    padding-right: 165px;
     flex-direction: row;
     justify-content: space-around;
     max-height: 50px;
@@ -142,13 +121,14 @@ body, html {
 }
 
 .userMenu a {
-    font-size: 18px;
+
     white-space: nowrap;
     color: #000;
     margin-left: 10px
 }
 
 .blogWrap {
+  margin-top: 10px;
     max-height: 100%
 }
 .blogPostWrap {
@@ -244,11 +224,14 @@ a {
         max-height: 100%!important;
         color: red!important;
         margin: 0;
-        width: auto;
+        padding-left: 0;
+        margin: 0 auto;
+        font-size: 22px;
+        /*width: auto;*/
         border: none
     }
     .menu a {
-        margin: 10px 0
+        margin: 15px 0
     }
     .userMenu {
         justify-content: center;
@@ -264,16 +247,26 @@ a {
         display: flex;
         align-items: center;
         color: #000;
-        justify-content: center
+        background-color: white;
+        justify-content: center;
+        border-bottom: 1px solid rgba(0,0,0,0.15);
     }
     .HeadName {
         font-size: 20px;
         text-decoration: none;
-        z-index: 10
+        z-index: 1;
+        background-color: transparent;
     }
     .logo {
-        font-family: SF Collegiate!important;
-        font-size: 40px
+        font-family: SF Collegiate !important;
+        font-size: 40px !important;
+    }
+    .portWrapReact {
+      flex-direction: column;
+    }
+    .portItem {
+        width: 100% !important;
+        margin: 10px 0 !important;
     }
     .HeadName:hover {
         color: #000;
@@ -285,7 +278,8 @@ a {
     .drawer drawer--top drawer-close {
         display: flex;
         justify-content: center;
-        align-items: center
+        align-items: center;
+
     }
     .drawer-hamburger {
         position: relative!important;
@@ -296,12 +290,18 @@ a {
         position: absolute
     }
     .drawer--top.drawer-open .drawer-nav {
-        z-index: 10000
+        z-index: 10000;
+        z-index: 11;
+        overflow: hidden;
     }
     .drawer--top .drawer-hamburger, .drawer--top.drawer-open .drawer-hamburger {
         top: 4px;
         z-index: 10001;
-        position: absolute!important
+        position: absolute!important;
+        overflow: hidden;
+    }
+    .drawer {
+      overflow: hidden;
     }
 }
 
@@ -499,19 +499,25 @@ figure {
 
 .portWrapReact {
     justify-content: center;
-    min-width: 1200px;
-    margin: 0 auto;
+    min-width: 88%;
+    margin: 0 6.5%;
     height: auto;
     display: flex;
     justify-content: space-between
 }
 
 .portItem {
-    margin: 0!important;
+    /*margin: 0!important;*/
     padding: 0!important;
     position: relative;
+    box-sizing: border-box;
+
+    /*margin-top: 15px !important;*/
 
 }
+/*.portItem:nth-child(3n+1) {
+    margin: 0!important;
+}*/
 .bubbleDiv {
   height: 100%;
   width: 100%;
@@ -548,10 +554,10 @@ figure {
 }
 
 #portWrapR {
-    min-width: 80vh;
+    /*min-width: 80vh;*/
     margin: 0 auto;
-    width: 100vw;
-    height: 86vh;
+    /*width: 87;*/
+    height: 87.8%;
     position: relative;
 }
 
@@ -604,6 +610,7 @@ button, button:active, button:focus {
   flex-direction: row;
   position: relative;
   overflow: hidden;
+  /*transform: translateY(-1vh);*/
 }
 .portWrapper > span {
   position: absolute;
@@ -629,11 +636,11 @@ button, button:active, button:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: white ;
   font-size: 30px;
   background-color: green;
-  color: black;
-  font-family: "San Francisco";
+
+  font-family: "Lora Bold";
   overflow: hidden;
   will-change: transform;
 
@@ -648,14 +655,12 @@ will-change: transform
 
 }
 .portTextCh {
-  height: 100%;
+  /*height: 100%;*/
   width: 100%;
   overflow: hidden;
   box-sizing: border-box;
   padding: 45px;
-
-
-
+  font-family: "Lora";
 }
 
 .prevButton, .nextButton {
@@ -664,18 +669,18 @@ will-change: transform
 
 }
 .prevButton {
-  left: 10px;
+  left: 40%;
   bottom: 80px;
   z-index: 2;
 }
 .nextButton {
-  right: 156px;
+  right: 40%;
   bottom: 80px;
  }
 .prevButton a {
   position: absolute;
-  color: black;
-  background-color: white;
+  color: white;
+  background-color: black;
   z-index: 2;
   font-size: 20px;
   border-radius: 2px;
@@ -735,7 +740,7 @@ will-change: transform
 .img-leave.img-leave-active {
     transform: translateY(2000px) translateZ(0);
     transition: all 1s;
-
+    position: absolute;
     /*width: 33%;*/
 }
 
@@ -752,7 +757,8 @@ will-change: transform
 
 }
 .text-leave {
-
+    position: absolute;
+    top: 0;
     transform: translateY(0px) translateZ(0);
 }
 
@@ -760,7 +766,7 @@ will-change: transform
     transform: translateY(0px) translateZ(0);
     transition: all 1s;
     position: absolute;
-    top: 0;
+    bottom: 0;
 
     /*width: 100%;*/
 }
@@ -775,8 +781,8 @@ will-change: transform
 .text-leave.text-leave-active {
     transition: all 1s;
     transform: translateY(-2000px) translateZ(0);
-    position: absolute;
-    bottom: 0;
+    position: absolute;;
+    top: 0;
     right: 0;
     /*width: 100%;*/
 
@@ -812,14 +818,20 @@ div:before {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    margin: 30px 0;
     font-size: 50px;
     font-weight: bold;
     font-family: Lora Bold;
   }
   .preTextPort {
-    width: 50%;
+    width: 65%;
     margin: 0 auto;
       font-family: Lora Italic;
       font-size: 20px;
+  }
+  .portTextCh {
+    font-family: 'Lora'
+  }
+  .middle3{
+    width: 32%;
   }

@@ -3,21 +3,25 @@ block header
     nav.nav
       //- a(href = '/').navbar-brand Alexander Penkin
       div.menu
+        img(src='./img/Swash_ornament.svg').ornamentLeft
         a(href = '/').menuLink Блог
         a(href = '/portfolio').menuLink Портфолио
-        a.menuLink Обо мне
+
 
       div.logo AlexPenkin
       div.userMenu
+
         if user && user.username == 'Admin'
           a(href = '/makePost').menuLink Add Post
         if user
           a().menuLink.userName#username #{user.username}
           a(href = '/logOut').menuLink Выйти
         else
-          a(href = '/login').menuLink Войти
+          //a(href = '/login').menuLink Войти
+          a.menuLink Обо мне
           a(href = '/login').menuLink Контакты
-          a(href = '/signUp').menuLink ???
+          //a(href = '/signUp').menuLink ???
+        img(src='./img/Swash_ornament.svg').ornamentRight
 
   div.drawer.drawer--top
     header(role="banner")
@@ -30,16 +34,18 @@ block header
         div.menu
           a(href = '/').menuLink Блог
           a(href = '/portfolio').menuLink Портфолио
-          a(href = '/chat').menuLink Чатик
           a.menuLink Обо мне
+          a().menuLink Контакты
+          img(src='./img/curvesOrnament2.png').ornamentMobile
+
           if user && user.username == 'Admin'
             a(href = '/makePost').menuLink Add Post
 
-        div.userMenu
-        if user
-          a().menuLink.userName#username #{user.username}
-          a(href = '/logOut').menuLink Выйти
-        else
-          a(href = '/login').menuLink Войти
-          a(href = '/signUp').menuLink Зарегистрироваться
+        //- div.userMenu
+        //- if user
+        //-   a().menuLink.userName#username #{user.username}
+        //-   a(href = '/logOut').menuLink Выйти
+        //- else
+        //-   a(href = '/login').menuLink Войти
+        //-   a(href = '/signUp').menuLink Зарегистрироваться
 script(type='text/javascript', src= '/js/drawerInit.js' defer)

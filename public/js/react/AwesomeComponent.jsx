@@ -42,7 +42,7 @@ class AwesomeComponent extends React.Component {
     render() {
 
         return (
-            <div className='portItem row col-md-3 col-xl-3 col-md-offset-3 col-xs-offset-3 col-sm-12'>
+            <div className='portItem  middle3 col-md-offset-0 col-xs-12 col-sm-12'>
                 <ImagePort source='/img/portfolio/megabitPort.jpg'/>
                 <BubbleDivStyle  title = {this.props.title} size={ReactDOM.findDOMNode(this)} defenition= {this.props.defenition} trigger={this.state}/>
             </div>

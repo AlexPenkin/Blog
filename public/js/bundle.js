@@ -67,7 +67,7 @@
 	
 	var _PortfolioDetails2 = _interopRequireDefault(_PortfolioDetails);
 	
-	var _NotFound = __webpack_require__(/*! ./NotFound.jsx */ 239);
+	var _NotFound = __webpack_require__(/*! ./NotFound.jsx */ 240);
 	
 	var _NotFound2 = _interopRequireDefault(_NotFound);
 	
@@ -20836,7 +20836,7 @@
 	
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'portItem row col-md-3 col-xl-3 col-md-offset-3 col-xs-offset-3 col-sm-12' },
+	                { className: 'portItem  middle3 col-md-offset-0 col-xs-12 col-sm-12' },
 	                _react2.default.createElement(_imgPort2.default, { source: '/img/portfolio/megabitPort.jpg' }),
 	                _react2.default.createElement(_bubbleDiv2.default, { title: this.props.title, size: _reactDom2.default.findDOMNode(this), defenition: this.props.defenition, trigger: this.state })
 	            );
@@ -26693,7 +26693,7 @@
 	
 	var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 	
-	var _PortfolioDetailsPro = __webpack_require__(/*! ./PortfolioDetailsPro.jsx */ 240);
+	var _PortfolioDetailsPro = __webpack_require__(/*! ./PortfolioDetailsPro.jsx */ 236);
 	
 	var _PortfolioDetailsPro2 = _interopRequireDefault(_PortfolioDetailsPro);
 	
@@ -29145,6 +29145,44 @@
 
 /***/ },
 /* 236 */
+/*!*************************************************!*\
+  !*** ./public/js/react/PortfolioDetailsPro.jsx ***!
+  \*************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = PortfolioDetailsPro;
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _PortText = __webpack_require__(/*! ./PortText.jsx */ 237);
+	
+	var _PortText2 = _interopRequireDefault(_PortText);
+	
+	var _PortBigImg = __webpack_require__(/*! ./PortBigImg.jsx */ 238);
+	
+	var _PortBigImg2 = _interopRequireDefault(_PortBigImg);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function PortfolioDetailsPro(props) {
+	  var id = props.id.toLowerCase();
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'portWrapper', style: {/*transform:'translateY(-1vh)'*/} },
+	    _react2.default.createElement(_PortBigImg2.default, { id: props.id }),
+	    _react2.default.createElement(_PortText2.default, { id: props.id })
+	  );
+	}
+
+/***/ },
+/* 237 */
 /*!**************************************!*\
   !*** ./public/js/react/PortText.jsx ***!
   \**************************************/
@@ -29173,7 +29211,7 @@
 	
 	var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 	
-	var _portsDetailsObj = __webpack_require__(/*! ./portsDetailsObj.jsx */ 237);
+	var _portsDetailsObj = __webpack_require__(/*! ./portsDetailsObj.jsx */ 239);
 	
 	var _portsDetailsObj2 = _interopRequireDefault(_portsDetailsObj);
 	
@@ -29186,7 +29224,28 @@
 	    { className: 'portText', component: 'div', transitionName: 'text', transitionLeave: true, transitionEnterTimeout: 1000, transitionLeaveTimeout: 1000 },
 	    _react2.default.createElement(
 	      'div',
-	      { key: props.id + 'text' },
+	      { key: props.id + 'text', style: { height: '100%' } },
+	      _react2.default.createElement(
+	        'span',
+	        { className: 'nextButton' },
+	        ' ',
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: 'details/' + _portsDetailsObj2.default[id].next },
+	          '\u0421\u043B\u0435\u0434'
+	        ),
+	        ' '
+	      ),
+	      _react2.default.createElement(
+	        'span',
+	        { className: 'prevButton' },
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: 'details/' + _portsDetailsObj2.default[id].prev },
+	          '\u041F\u0440\u0435\u0434'
+	        ),
+	        ' '
+	      ),
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'titleTextPort' },
@@ -29201,49 +29260,21 @@
 	        'div',
 	        { className: 'portTextCh' },
 	        _portsDetailsObj2.default[id].text
+	      ),
+	      _react2.default.createElement(
+	        'ul',
+	        { className: 'portList' },
+	        _portsDetailsObj2.default[id].list.map(function (n) {
+	          return _react2.default.createElement(
+	            'li',
+	            null,
+	            n
+	          );
+	        })
 	      )
 	    )
 	  );
 	}
-
-/***/ },
-/* 237 */
-/*!*********************************************!*\
-  !*** ./public/js/react/portsDetailsObj.jsx ***!
-  \*********************************************/
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = {
-	    megabit: {
-	        title: 'Megabit',
-	        projectDescription: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой"',
-	        imgBackgroundColor: '#fd5d34',
-	        text: "t had been set for four o'clock as it should have been; it certainly must have rung. Yes, but was it possible to quietly sleep through that furniture-rattling noise? True, he had not slept peacefully, but probably all the more deeply because of that. What should he do now? The next train went at seven; if he were to catch that he would have to rush.",
-	        next: 'Pronet',
-	        prev: 'CemRus'
-	    },
-	    pronet: {
-	        title: 'ProNet',
-	        projectDescription: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой"',
-	        imgBackgroundColor: '#009ee3',
-	        text: "t had been set for four o'clock as it should have been; it certainly must have rung. Yes, but was it possible to quietly sleep through that furniture-rattling noise? True, he had not slept peacefully, but probably all the more deeply because of that. What should he do now? The next train went at seven; if he were to catch that he would have to rush.",
-	        next: 'CemRus',
-	        prev: 'Megabit'
-	    },
-	    cemrus: {
-	        title: 'ЦемРус',
-	        projectDescription: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой"',
-	        imgBackgroundColor: '#53b306',
-	        text: "t had been set for four o'clock as it should have been; it certainly must have rung. Yes, but was it possible to quietly sleep through that furniture-rattling noise? True, he had not slept peacefully, but probably all the more deeply because of that. What should he do now? The next train went at seven; if he were to catch that he would have to rush.",
-	        next: 'Megabit',
-	        prev: 'Pronet'
-	    }
-	};
 
 /***/ },
 /* 238 */
@@ -29275,7 +29306,7 @@
 	
 	var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 	
-	var _portsDetailsObj = __webpack_require__(/*! ./portsDetailsObj.jsx */ 237);
+	var _portsDetailsObj = __webpack_require__(/*! ./portsDetailsObj.jsx */ 239);
 	
 	var _portsDetailsObj2 = _interopRequireDefault(_portsDetailsObj);
 	
@@ -29290,27 +29321,6 @@
 	      'div',
 	      { style: { backgroundColor: _portsDetailsObj2.default[props.id.toLowerCase()].imgBackgroundColor }, className: 'portBigImgCh', key: props.id + 'img' },
 	      _react2.default.createElement(
-	        'span',
-	        { className: 'nextButton' },
-	        ' ',
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: 'details/' + _portsDetailsObj2.default[id].next },
-	          '\u0421\u043B\u0435\u0434'
-	        ),
-	        ' '
-	      ),
-	      _react2.default.createElement(
-	        'span',
-	        { className: 'prevButton' },
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { to: 'details/' + _portsDetailsObj2.default[id].prev },
-	          '\u041F\u0440\u0435\u0434'
-	        ),
-	        ' '
-	      ),
-	      _react2.default.createElement(
 	        'div',
 	        { className: 'portBigImgCh2' },
 	        props.id
@@ -29321,6 +29331,48 @@
 
 /***/ },
 /* 239 */
+/*!*********************************************!*\
+  !*** ./public/js/react/portsDetailsObj.jsx ***!
+  \*********************************************/
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = {
+	    megabit: {
+	        title: 'Megabit',
+	        projectDescription: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой"',
+	        imgBackgroundColor: '#fd5d34',
+	        text: "t had been set for four o'clock as it should have been; it certainly must have rung. Yes, but was it possible to quietly sleep through that furniture-rattling noise? True, he had not slept peacefully, but probably all the more deeply because of that. What should he do now? The next train went at seven; if he were to catch that he would have to rush.",
+	        list: ['Fast', 'Furious', 'Bald'],
+	        next: 'Pronet',
+	        prev: 'CemRus'
+	    },
+	    pronet: {
+	        title: 'ProNet',
+	        projectDescription: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой"',
+	        imgBackgroundColor: '#009ee3',
+	        text: "t had been set for four o'clock as it should have been; it certainly must have rung. Yes, but was it possible to quietly sleep through that furniture-rattling noise? True, he had not slept peacefully, but probably all the more deeply because of that. What should he do now? The next train went at seven; if he were to catch that he would have to rush.",
+	        list: ['Fast', 'Furious', 'Bald'],
+	        next: 'CemRus',
+	        prev: 'Megabit'
+	    },
+	    cemrus: {
+	        title: 'ЦемРус',
+	        projectDescription: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой"',
+	        imgBackgroundColor: '#53b306',
+	        text: "t had been set for four o'clock as it should have been; it certainly must have rung. Yes, but was it possible to quietly sleep through that furniture-rattling noise? True, he had not slept peacefully, but probably all the more deeply because of that. What should he do now? The next train went at seven; if he were to catch that he would have to rush.",
+	        list: ['Fast', 'Furious', 'Bald'],
+	        next: 'Megabit',
+	        prev: 'Pronet'
+	    }
+	};
+
+/***/ },
+/* 240 */
 /*!**************************************!*\
   !*** ./public/js/react/NotFound.jsx ***!
   \**************************************/
@@ -29386,45 +29438,6 @@
 	}(_react.Component);
 	
 	exports.default = NotFound;
-
-/***/ },
-/* 240 */
-/*!*************************************************!*\
-  !*** ./public/js/react/PortfolioDetailsPro.jsx ***!
-  \*************************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = PortfolioDetailsPro;
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _PortText = __webpack_require__(/*! ./PortText.jsx */ 236);
-	
-	var _PortText2 = _interopRequireDefault(_PortText);
-	
-	var _PortBigImg = __webpack_require__(/*! ./PortBigImg.jsx */ 238);
-	
-	var _PortBigImg2 = _interopRequireDefault(_PortBigImg);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function PortfolioDetailsPro(props) {
-	  var id = props.id.toLowerCase();
-	  console.log(id);
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'portWrapper' },
-	    _react2.default.createElement(_PortBigImg2.default, { id: props.id }),
-	    _react2.default.createElement(_PortText2.default, { id: props.id })
-	  );
-	}
 
 /***/ }
 /******/ ]);
