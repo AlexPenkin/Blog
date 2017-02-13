@@ -1,6 +1,6 @@
 module.exports = function db() {
     const mongoose = require('mongoose');
-    mongoose.connect('mongodb://heroku_w6v45mg6:9jka96n0efivcu53cmg3a3krj9@ds147079.mlab.com:47079/heroku_w6v45mg6');
+    mongoose.connect('mongodb://'+process.env.MONGODB_PORT_27017_TCP_ADDR + ':' + process.env.MONGODB_PORT_27017_TCP_PORT + '/blog');
     var db = mongoose.connection;
     db.on('error', console.error.bind(console, 'connection error:'));
     db.once('open', function() {
