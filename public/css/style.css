@@ -679,10 +679,12 @@ will-change: transform
   left: 40%;
   bottom: 80px;
   z-index: 2;
+  font-family: 'San Francisco Display Ultralight';
 }
 .nextButton {
   right: 40%;
   bottom: 80px;
+  font-family: 'San Francisco Display Ultralight';
  }
 .prevButton a {
   position: absolute;
