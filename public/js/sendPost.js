@@ -50,7 +50,7 @@ function httpGet(url) {
         }
       })
       .done(function(data) {
-        alert('ok')
+        alert('ok, dont close the page until it loaded img')
         resolve("success");
       })
       .fail(function() {
@@ -72,6 +72,7 @@ function upload(file, name) {
       console.log(file.type);
       document.getElementById('headImg').value = '';
       console.log("success");
+      alert('pic loaded! move away!')
     } else {
       console.log("error " + this.status);
     }

@@ -26729,11 +26729,11 @@
 	                    transitionLeaveTimeout: 1000 },
 	                _react2.default.createElement(
 	                    'span',
-	                    { style: { position: 'absolute', top: '-33px' } },
+	                    null,
 	                    _react2.default.createElement(
 	                        _reactRouter.Link,
-	                        { to: '/' },
-	                        '\u041D\u0430\u0437\u0430\u0434'
+	                        { className: 'backToList', to: '/' },
+	                        '  Back to list '
 	                    )
 	                ),
 	                _react2.default.createElement(_PortfolioDetailsPro2.default, { id: this.props.params.portId })
@@ -29165,7 +29165,7 @@
 	
 	var _PortText2 = _interopRequireDefault(_PortText);
 	
-	var _PortBigImg = __webpack_require__(/*! ./PortBigImg.jsx */ 238);
+	var _PortBigImg = __webpack_require__(/*! ./PortBigImg.jsx */ 239);
 	
 	var _PortBigImg2 = _interopRequireDefault(_PortBigImg);
 	
@@ -29211,7 +29211,7 @@
 	
 	var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 	
-	var _portsDetailsObj = __webpack_require__(/*! ./portsDetailsObj.jsx */ 239);
+	var _portsDetailsObj = __webpack_require__(/*! ./portsDetailsObj.jsx */ 238);
 	
 	var _portsDetailsObj2 = _interopRequireDefault(_portsDetailsObj);
 	
@@ -29231,8 +29231,8 @@
 	        ' ',
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: 'details/' + _portsDetailsObj2.default[id].next },
-	          '\u0421\u043B\u0435\u0434'
+	          { style: { backgroundColor: _portsDetailsObj2.default[props.id.toLowerCase()].imgBackgroundColor }, to: 'details/' + _portsDetailsObj2.default[id].next },
+	          'Next'
 	        ),
 	        ' '
 	      ),
@@ -29241,8 +29241,8 @@
 	        { className: 'prevButton' },
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: 'details/' + _portsDetailsObj2.default[id].prev },
-	          '\u041F\u0440\u0435\u0434'
+	          { style: { backgroundColor: _portsDetailsObj2.default[props.id.toLowerCase()].imgBackgroundColor }, to: 'details/' + _portsDetailsObj2.default[id].prev },
+	          'Prev'
 	        ),
 	        ' '
 	      ),
@@ -29278,59 +29278,6 @@
 
 /***/ },
 /* 238 */
-/*!****************************************!*\
-  !*** ./public/js/react/PortBigImg.jsx ***!
-  \****************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.default = PortBigImg;
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactDom = __webpack_require__(/*! react-dom */ 28);
-	
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-	
-	var _reactRouter = __webpack_require__(/*! react-router */ 169);
-	
-	var _reactRouterTransition = __webpack_require__(/*! react-router-transition */ 230);
-	
-	var _reactAddonsCssTransitionGroup = __webpack_require__(/*! react-addons-css-transition-group */ 231);
-	
-	var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
-	
-	var _portsDetailsObj = __webpack_require__(/*! ./portsDetailsObj.jsx */ 239);
-	
-	var _portsDetailsObj2 = _interopRequireDefault(_portsDetailsObj);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function PortBigImg(props) {
-	  var id = props.id.toLowerCase();
-	  return _react2.default.createElement(
-	    _reactAddonsCssTransitionGroup2.default,
-	    { className: 'portBigImg', component: 'div', transitionName: 'img', transitionLeave: true, transitionEnterTimeout: 1000, transitionLeaveTimeout: 1000 },
-	    _react2.default.createElement(
-	      'div',
-	      { style: { backgroundColor: _portsDetailsObj2.default[props.id.toLowerCase()].imgBackgroundColor }, className: 'portBigImgCh', key: props.id + 'img' },
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'portBigImgCh2' },
-	        props.id
-	      )
-	    )
-	  );
-	}
-
-/***/ },
-/* 239 */
 /*!*********************************************!*\
   !*** ./public/js/react/portsDetailsObj.jsx ***!
   \*********************************************/
@@ -29370,6 +29317,59 @@
 	        prev: 'Pronet'
 	    }
 	};
+
+/***/ },
+/* 239 */
+/*!****************************************!*\
+  !*** ./public/js/react/PortBigImg.jsx ***!
+  \****************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = PortBigImg;
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(/*! react-dom */ 28);
+	
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+	
+	var _reactRouter = __webpack_require__(/*! react-router */ 169);
+	
+	var _reactRouterTransition = __webpack_require__(/*! react-router-transition */ 230);
+	
+	var _reactAddonsCssTransitionGroup = __webpack_require__(/*! react-addons-css-transition-group */ 231);
+	
+	var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
+	
+	var _portsDetailsObj = __webpack_require__(/*! ./portsDetailsObj.jsx */ 238);
+	
+	var _portsDetailsObj2 = _interopRequireDefault(_portsDetailsObj);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function PortBigImg(props) {
+	  var id = props.id.toLowerCase();
+	  return _react2.default.createElement(
+	    _reactAddonsCssTransitionGroup2.default,
+	    { className: 'portBigImg', component: 'div', transitionName: 'img', transitionLeave: true, transitionEnterTimeout: 1000, transitionLeaveTimeout: 1000 },
+	    _react2.default.createElement(
+	      'div',
+	      { style: { backgroundColor: _portsDetailsObj2.default[props.id.toLowerCase()].imgBackgroundColor }, className: 'portBigImgCh', key: props.id + 'img' },
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'portBigImgCh2' },
+	        props.id
+	      )
+	    )
+	  );
+	}
 
 /***/ },
 /* 240 */

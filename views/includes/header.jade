@@ -4,8 +4,8 @@ block header
       //- a(href = '/').navbar-brand Alexander Penkin
       div.menu
         img(src='./img/Swash_ornament.svg').ornamentLeft
-        a(href = '/').menuLink Блог
-        a(href = '/portfolio').menuLink Портфолио
+        a(href = '/').menuLink Blog
+        a(href = '/portfolio').menuLink Portfolio
 
 
       div.logo AlexPenkin
@@ -18,8 +18,8 @@ block header
           a(href = '/logOut').menuLink Выйти
         else
           //a(href = '/login').menuLink Войти
-          a.menuLink Обо мне
-          a(href = '/login').menuLink Контакты
+          a.menuLink About me
+          a(href = '/login').menuLink Contacts
           //a(href = '/signUp').menuLink ???
         img(src='./img/Swash_ornament.svg').ornamentRight
 
@@ -32,10 +32,10 @@ block header
 
       nav(role="navigation").drawer-nav
         div.menu
-          a(href = '/').menuLink Блог
-          a(href = '/portfolio').menuLink Портфолио
-          a.menuLink Обо мне
-          a().menuLink Контакты
+          a(href = '/').menuLink Blog
+          a(href = '/portfolio').menuLink Portfolio
+          a.menuLink About me
+          a().menuLink Contacts
           img(src='./img/curvesOrnament2.png').ornamentMobile
 
           if user && user.username == 'Admin'

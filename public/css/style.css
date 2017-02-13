@@ -21,7 +21,7 @@ body, html {
     background-color:white;
     text-transform: uppercase;
     border-bottom: 1px solid rgba(0,0,0,0.15);
-    font-family: 'San Francisco Display Ultralight' !important;
+    font-family: 'San Francisco Display Bold' !important;
 }
 
 .head, .logo {
@@ -92,6 +92,7 @@ height: 40px;
 
 .menu a {
     padding: 0 5%;
+    height: 20px;
     white-space: nowrap;
     color: #000;
     cursor: pointer;
@@ -124,7 +125,8 @@ height: 40px;
 
     white-space: nowrap;
     color: #000;
-    margin-left: 10px
+    margin-left: 10px;
+    height: 20px;
 }
 
 .blogWrap {
@@ -133,7 +135,6 @@ height: 40px;
 }
 .blogPostWrap {
     max-height: 100%;
-    background-color: white;
 
 }
 
@@ -232,6 +233,7 @@ a {
     }
     .menu a {
         margin: 15px 0
+
     }
     .userMenu {
         justify-content: center;
@@ -378,7 +380,7 @@ figure {
 
 .headWrap>div {
     will-change: transform;
-    transition: transform 0s
+    transition: transform;
 }
 
 .postTags {
@@ -500,7 +502,7 @@ figure {
 .portWrapReact {
     justify-content: center;
     min-width: 88%;
-    margin: 0 6.5%;
+    margin: 0 6%;
     height: auto;
     display: flex;
     justify-content: space-between
@@ -522,6 +524,11 @@ figure {
   height: 100%;
   width: 100%;
       transform: scale(0)!important;
+}
+.bubbleDiv > span:nth-child(1) > a {
+  color: white;
+  text-decoration: underline;
+  font-size: 20px;
 }
 .portItem:hover .bubbleDiv {
     transform: scale(1)!important;
@@ -834,4 +841,12 @@ div:before {
   }
   .middle3{
     width: 32%;
+  }
+  .backToList {
+    position: absolute;
+    color: black;
+    bottom: 46px;
+    left: 35%;
+    font-size: 20px;
+    z-index: 10;
   }

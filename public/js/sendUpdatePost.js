@@ -11,6 +11,7 @@ $(document).ready(function() {
     httpGet('/updatePost').then(res => {
       console.log('sasad');
       var file = document.getElementById('headImg').files[0];
+      alert('text sended, wait until pic load')
       console.log(file.name);
       upload(file, file.name)
     }).catch(res=> console.log(res));
@@ -73,6 +74,7 @@ function upload(file, name) {
       console.log(file.type);
       document.getElementById('headImg').value = '';
       console.log("success");
+      alert('pic loaded, pizduy!')
     } else {
       console.log("error " + this.status);
     }
