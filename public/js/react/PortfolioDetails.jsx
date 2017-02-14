@@ -19,7 +19,7 @@ export default class PortfolioDetails extends Component {
               transitionEnterTimeout={1000}
               transitionAppearTimeout={1000}
               transitionLeaveTimeout={1000}>
-                    <span ><Link className= 'backToList' to="/">  Back to list </Link></span>
+                  
                       <PortfolioDetailsPro id = {this.props.params.portId} />
                     </ReactCSSTransitionGroup>
         )

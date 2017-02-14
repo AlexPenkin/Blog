@@ -1,13 +1,11 @@
-
 body, html {
     width: 100%;
     height: 100%;
     margin: 0px;
     min-height: 100vh;
-    overflow:visible;
+    overflow: visible;
     position: relative;
     background-color: #fafafa;
-
     /*font-family: "San Francisco Display Regular" !important*/
 }
 
@@ -16,12 +14,11 @@ body, html {
     height: 12.2%;
     min-height: 120px;
     overflow: hidden;
-
     z-index: 101;
-    background-color:white;
+    background-color: white;
     text-transform: uppercase;
-    border-bottom: 1px solid rgba(0,0,0,0.15);
-    font-family: 'San Francisco Display Bold' !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    font-family: 'San Francisco Display Regular' !important;
 }
 
 .head, .logo {
@@ -41,21 +38,25 @@ body, html {
     -ms-user-select: none;
     user-select: none
 }
+
 .ornamentLeft {
-  top: 3px;
-  left: 0;
-  position: absolute;
+    top: 3px;
+    left: 0;
+    position: absolute;
 }
+
 .ornamentRight {
-  right: 0;
-  position: absolute;
-  transform: rotateY(180deg);
-  top: 3px;
+    right: 0;
+    position: absolute;
+    transform: rotateY(180deg);
+    top: 3px;
 }
+
 .ornamentMobile {
-  margin: 20px 0;
-height: 40px;
+    margin: 20px 0;
+    height: 40px;
 }
+
 .nav {
     height: 50px;
     margin-bottom: 40px;
@@ -122,7 +123,6 @@ height: 40px;
 }
 
 .userMenu a {
-
     white-space: nowrap;
     color: #000;
     margin-left: 10px;
@@ -130,12 +130,12 @@ height: 40px;
 }
 
 .blogWrap {
-  margin-top: 10px;
+    margin-top: 10px;
     max-height: 100%
 }
+
 .blogPostWrap {
     max-height: 100%;
-
 }
 
 .blogPost {
@@ -233,7 +233,6 @@ a {
     }
     .menu a {
         margin: 15px 0
-
     }
     .userMenu {
         justify-content: center;
@@ -251,7 +250,7 @@ a {
         color: #000;
         background-color: white;
         justify-content: center;
-        border-bottom: 1px solid rgba(0,0,0,0.15);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     }
     .HeadName {
         font-size: 20px;
@@ -264,7 +263,7 @@ a {
         font-size: 40px !important;
     }
     .portWrapReact {
-      flex-direction: column;
+        flex-direction: column;
     }
     .portItem {
         width: 100% !important;
@@ -281,7 +280,6 @@ a {
         display: flex;
         justify-content: center;
         align-items: center;
-
     }
     .drawer-hamburger {
         position: relative!important;
@@ -303,7 +301,7 @@ a {
         overflow: hidden;
     }
     .drawer {
-      overflow: hidden;
+        overflow: hidden;
     }
 }
 
@@ -513,23 +511,26 @@ figure {
     padding: 0!important;
     position: relative;
     box-sizing: border-box;
-
     /*margin-top: 15px !important;*/
-
 }
+
+
 /*.portItem:nth-child(3n+1) {
     margin: 0!important;
 }*/
+
 .bubbleDiv {
-  height: 100%;
-  width: 100%;
-      transform: scale(0)!important;
+    height: 100%;
+    width: 100%;
+    transform: scale(0)!important;
 }
-.bubbleDiv > span:nth-child(1) > a {
-  color: white;
-  text-decoration: underline;
-  font-size: 20px;
+
+.bubbleDiv>span:nth-child(1)>a {
+    color: white;
+    text-decoration: underline;
+    font-size: 20px;
 }
+
 .portItem:hover .bubbleDiv {
     transform: scale(1)!important;
     opacity: 1!important;
@@ -611,101 +612,135 @@ button, button:active, button:focus {
 }
 
 .portWrapper {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  position: relative;
-  overflow: hidden;
-  /*transform: translateY(-1vh);*/
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    overflow: hidden;
+    /*transform: translateY(-1vh);*/
 }
-.portWrapper > span {
-  position: absolute;
-  top: 15px;
-  right: 500px;
-  z-index: 2;
-}
-.portWrapper > span:nth-child(2) {
-  position: absolute;
 
-  right: 550px;
+.portWrapper>span {
+    position: absolute;
+    top: 15px;
+    right: 500px;
+    z-index: 2;
 }
+
+.portWrapper>span:nth-child(2) {
+    position: absolute;
+    right: 550px;
+}
+
 .portBigImg {
-  width: 33%;
-  height: 100%;
-  position: relative;
-  will-change: transform;
-
+    width: 33%;
+    height: 100%;
+    position: relative;
+    will-change: transform;
 }
+
 .portBigImgCh {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white ;
-  font-size: 30px;
-  background-color: green;
-
-  font-family: "Lora Bold";
-  overflow: hidden;
-  will-change: transform;
-
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 45px;
+    background-color: green;
+    text-transform: uppercase;
+    font-family: "San Francisco Display Ultralight";
+    overflow: hidden;
+    will-change: transform;
 }
-[data-reactroot]
-        {height: 100% !important; }
+
+[data-reactroot] {
+    height: 100% !important;
+}
+
 .portText {
-  height: 100%;
-  width: 67%;
-position: relative;
-will-change: transform
+    height: 100%;
+    width: 67%;
+    position: relative;
+    will-change: transform
+}
+
+.portTextCh {
+    /*height: 100%;*/
+    width: 75%;
+    margin: 0 12.5%;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 45px;
+    font-family: "Lora";
+    font-size: 16px;
+}
+.portList {
+  width: 75%;
+  min-height: 25%;
+  margin: 20px 12.5%;
+  font-family: "Lora";
+  padding-left: 75px;
+  font-size: 16px;
+  position: relative;
 
 }
-.portTextCh {
-  /*height: 100%;*/
-  width: 100%;
-  overflow: hidden;
-  box-sizing: border-box;
-  padding: 45px;
-  font-family: "Lora";
+
+.portList:before {
+  content: 'What i did and learned:';
+  position: absolute;
+  font-family: "Lora Bold";
+  top: -2em;
+  left: 53px;
+}
+
+.buttonsWrap {
+    position: relative;
+    bottom: -120px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .prevButton, .nextButton {
-  position: absolute;
-  z-index: 10;
+    position: relative;
+    z-index: 10;
+}
 
-}
 .prevButton {
-  left: 40%;
-  bottom: 80px;
-  z-index: 2;
-  font-family: 'San Francisco Display Ultralight';
+    /*left: 40%;*/
+    /*bottom: 80px;*/
+    z-index: 2;
+    font-family: 'San Francisco Display Ultralight';
+    margin-right: 15px;
 }
+
 .nextButton {
-  right: 40%;
-  bottom: 80px;
-  font-family: 'San Francisco Display Ultralight';
- }
+    /*right: 40%;*/
+    /*bottom: 80px;*/
+    font-family: 'San Francisco Display Ultralight';
+    margin-left: 15px;
+}
+
 .prevButton a {
-  position: absolute;
-  color: white;
-  background-color: black;
-  z-index: 2;
-  font-size: 20px;
-  border-radius: 2px;
-  text-decoration: none;
-  padding: 5px 50px;
+    color: white;
+    background-color: black;
+    z-index: 2;
+    font-size: 26px;
+    border-radius: 2px;
+    text-decoration: none;
+    padding: 5px 50px;
 }
 
 .nextButton a {
-  position: absolute;
-  color: white;
-  z-index: 2;
-  background-color: black;
-  text-decoration: none;
-  border-radius: 2px;
-  font-size: 20px;
-  padding: 5px 50px;
+    color: white;
+    z-index: 2;
+    background-color: black;
+    text-decoration: none;
+    border-radius: 2px;
+    font-size: 26px;
+    padding: 5px 50px;
 }
 
 
@@ -715,29 +750,29 @@ will-change: transform
 }*/
 
 .img-enter {
-  /*width: 33%;*/
-  will-change: transform;
-  transform: translateY(-2000px) translateZ(0);
-  backface-visibility: hidden;
-  position: absolute;
-
+    /*width: 33%;*/
+    will-change: transform;
+    transform: translateY(-2000px) translateZ(0);
+    backface-visibility: hidden;
+    position: absolute;
 }
+
 .img-leave {
     will-change: transform;
     /*width: 33%;*/
-
     visibility: visible;
     backface-visibility: hidden;
     transform: translateY(0px) translateZ(0);
     position: absolute;
 }
 
-.img-enter.img-enter-active{
+.img-enter.img-enter-active {
     transform: translateY(0px);
     transition: all 1s;
     position: absolute;
     backface-visibility: hidden;
 }
+
 
 /*.img-appear.img-appear-active {
     opacity: 1;
@@ -753,18 +788,18 @@ will-change: transform
     /*width: 33%;*/
 }
 
+
 /*.text-appear {
     opacity: 1;
     transform: translateY(1000px)
 }*/
 
 .text-enter {
-
     transform: translateY(2000px) translateZ(0);
     position: absolute;
     bottom: 0;
-
 }
+
 .text-leave {
     position: absolute;
     top: 0;
@@ -776,9 +811,9 @@ will-change: transform
     transition: all 1s;
     position: absolute;
     bottom: 0;
-
     /*width: 100%;*/
 }
+
 
 /*.text-appear.text-appear-active {
     opacity: 1;
@@ -790,12 +825,13 @@ will-change: transform
 .text-leave.text-leave-active {
     transition: all 1s;
     transform: translateY(-2000px) translateZ(0);
-    position: absolute;;
+    position: absolute;
+    ;
     top: 0;
     right: 0;
     /*width: 100%;*/
-
 }
+
 
 /*div {
     height: 200px;
@@ -823,7 +859,8 @@ div:before {
     border-bottom: 30px solid white;
     border-left: 30px solid green;
 }*/
-.titleTextPort{
+
+.titleTextPort {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -831,24 +868,140 @@ div:before {
     font-size: 50px;
     font-weight: bold;
     font-family: Lora Bold;
-  }
-  .preTextPort {
+}
+
+.preTextPort {
     width: 65%;
     margin: 0 auto;
-      font-family: Lora Italic;
-      font-size: 20px;
-  }
-  .portTextCh {
-    font-family: 'Lora'
-  }
-  .middle3{
-    width: 32%;
-  }
-  .backToList {
-    position: absolute;
-    color: black;
-    bottom: 46px;
-    left: 35%;
+    font-family: Lora Italic;
     font-size: 20px;
+    text-align: center;
+}
+
+.portTextCh {
+    font-family: 'Lora'
+}
+
+.middle3 {
+    width: 32%;
+}
+
+.backToList {
+    position: relative;
+    color: black;
+    /*bottom: 46px;
+    left: 35%;
+    font-size: 20px;*/
     z-index: 10;
-  }
+}
+
+.backToListWrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: -60px;
+    white-space: nowrap;
+    font-family: 'San Francisco Display Ultralight';
+}
+
+.backToList {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    line-height: 2em;
+    padding-left: 35px;
+    padding-right: 35px;
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+.backToList:hover {
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.5);
+    background-color: #252525;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+.backToList:hover:before {
+    -webkit-animation: shine 0.5s 0s linear;
+    -moz-animation: shine 0.5s 0s linear;
+    animation: shine 0.5s 0s linear;
+}
+
+.backToList:active {
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    -moz-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+}
+
+.backToList:before {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 86%;
+    position: absolute;
+    top: 7%;
+    left: 0%;
+    opacity: 0;
+    background: white;
+    box-shadow: 0 0 15px 3px white;
+    -webkit-transform: skewX(-20deg);
+    -moz-transform: skewX(-20deg);
+    -ms-transform: skewX(-20deg);
+    -o-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+}
+
+@-webkit-keyframes shine {
+    from {
+        opacity: 0;
+        left: 0%;
+    }
+    50% {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        left: 100%;
+    }
+}
+
+@-moz-keyframes shine {
+    from {
+        opacity: 0;
+        left: 0%;
+    }
+    50% {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        left: 100%;
+    }
+}
+
+@keyframes shine {
+    from {
+        opacity: 0;
+        left: 0%;
+    }
+    50% {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        left: 100%;
+    }
+}

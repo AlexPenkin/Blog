@@ -26727,15 +26727,6 @@
 	                    transitionEnterTimeout: 1000,
 	                    transitionAppearTimeout: 1000,
 	                    transitionLeaveTimeout: 1000 },
-	                _react2.default.createElement(
-	                    'span',
-	                    null,
-	                    _react2.default.createElement(
-	                        _reactRouter.Link,
-	                        { className: 'backToList', to: '/' },
-	                        '  Back to list '
-	                    )
-	                ),
 	                _react2.default.createElement(_PortfolioDetailsPro2.default, { id: this.props.params.portId })
 	            );
 	        }
@@ -29165,7 +29156,7 @@
 	
 	var _PortText2 = _interopRequireDefault(_PortText);
 	
-	var _PortBigImg = __webpack_require__(/*! ./PortBigImg.jsx */ 239);
+	var _PortBigImg = __webpack_require__(/*! ./PortBigImg.jsx */ 238);
 	
 	var _PortBigImg2 = _interopRequireDefault(_PortBigImg);
 	
@@ -29211,7 +29202,7 @@
 	
 	var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 	
-	var _portsDetailsObj = __webpack_require__(/*! ./portsDetailsObj.jsx */ 238);
+	var _portsDetailsObj = __webpack_require__(/*! ./portsDetailsObj.jsx */ 239);
 	
 	var _portsDetailsObj2 = _interopRequireDefault(_portsDetailsObj);
 	
@@ -29224,28 +29215,7 @@
 	    { className: 'portText', component: 'div', transitionName: 'text', transitionLeave: true, transitionEnterTimeout: 1000, transitionLeaveTimeout: 1000 },
 	    _react2.default.createElement(
 	      'div',
-	      { key: props.id + 'text', style: { height: '100%' } },
-	      _react2.default.createElement(
-	        'span',
-	        { className: 'nextButton' },
-	        ' ',
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { style: { backgroundColor: _portsDetailsObj2.default[props.id.toLowerCase()].imgBackgroundColor }, to: 'details/' + _portsDetailsObj2.default[id].next },
-	          'Next'
-	        ),
-	        ' '
-	      ),
-	      _react2.default.createElement(
-	        'span',
-	        { className: 'prevButton' },
-	        _react2.default.createElement(
-	          _reactRouter.Link,
-	          { style: { backgroundColor: _portsDetailsObj2.default[props.id.toLowerCase()].imgBackgroundColor }, to: 'details/' + _portsDetailsObj2.default[id].prev },
-	          'Prev'
-	        ),
-	        ' '
-	      ),
+	      { key: props.id + 'text', style: { height: '100%', width: '100%' } },
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'titleTextPort' },
@@ -29271,6 +29241,41 @@
 	            n
 	          );
 	        })
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'backToListWrap' },
+	        _react2.default.createElement('div', { className: 'ButtonsWrap' }),
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { className: 'backToList', to: '/' },
+	          '  Back to the list '
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'buttonsWrap' },
+	        _react2.default.createElement(
+	          'span',
+	          { className: 'prevButton' },
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { style: { backgroundColor: _portsDetailsObj2.default[props.id.toLowerCase()].imgBackgroundColor }, to: 'details/' + _portsDetailsObj2.default[id].prev },
+	            'Prev'
+	          ),
+	          ' '
+	        ),
+	        _react2.default.createElement(
+	          'span',
+	          { className: 'nextButton' },
+	          ' ',
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { style: { backgroundColor: _portsDetailsObj2.default[props.id.toLowerCase()].imgBackgroundColor }, to: 'details/' + _portsDetailsObj2.default[id].next },
+	            'Next'
+	          ),
+	          ' '
+	        )
 	      )
 	    )
 	  );
@@ -29278,48 +29283,6 @@
 
 /***/ },
 /* 238 */
-/*!*********************************************!*\
-  !*** ./public/js/react/portsDetailsObj.jsx ***!
-  \*********************************************/
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = {
-	    megabit: {
-	        title: 'Megabit',
-	        projectDescription: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой"',
-	        imgBackgroundColor: '#fd5d34',
-	        text: "t had been set for four o'clock as it should have been; it certainly must have rung. Yes, but was it possible to quietly sleep through that furniture-rattling noise? True, he had not slept peacefully, but probably all the more deeply because of that. What should he do now? The next train went at seven; if he were to catch that he would have to rush.",
-	        list: ['Fast', 'Furious', 'Bald'],
-	        next: 'Pronet',
-	        prev: 'CemRus'
-	    },
-	    pronet: {
-	        title: 'ProNet',
-	        projectDescription: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой"',
-	        imgBackgroundColor: '#009ee3',
-	        text: "t had been set for four o'clock as it should have been; it certainly must have rung. Yes, but was it possible to quietly sleep through that furniture-rattling noise? True, he had not slept peacefully, but probably all the more deeply because of that. What should he do now? The next train went at seven; if he were to catch that he would have to rush.",
-	        list: ['Fast', 'Furious', 'Bald'],
-	        next: 'CemRus',
-	        prev: 'Megabit'
-	    },
-	    cemrus: {
-	        title: 'ЦемРус',
-	        projectDescription: 'Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой"',
-	        imgBackgroundColor: '#53b306',
-	        text: "t had been set for four o'clock as it should have been; it certainly must have rung. Yes, but was it possible to quietly sleep through that furniture-rattling noise? True, he had not slept peacefully, but probably all the more deeply because of that. What should he do now? The next train went at seven; if he were to catch that he would have to rush.",
-	        list: ['Fast', 'Furious', 'Bald'],
-	        next: 'Megabit',
-	        prev: 'Pronet'
-	    }
-	};
-
-/***/ },
-/* 239 */
 /*!****************************************!*\
   !*** ./public/js/react/PortBigImg.jsx ***!
   \****************************************/
@@ -29348,7 +29311,7 @@
 	
 	var _reactAddonsCssTransitionGroup2 = _interopRequireDefault(_reactAddonsCssTransitionGroup);
 	
-	var _portsDetailsObj = __webpack_require__(/*! ./portsDetailsObj.jsx */ 238);
+	var _portsDetailsObj = __webpack_require__(/*! ./portsDetailsObj.jsx */ 239);
 	
 	var _portsDetailsObj2 = _interopRequireDefault(_portsDetailsObj);
 	
@@ -29370,6 +29333,66 @@
 	    )
 	  );
 	}
+
+/***/ },
+/* 239 */
+/*!*********************************************!*\
+  !*** ./public/js/react/portsDetailsObj.jsx ***!
+  \*********************************************/
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = {
+	    megabit: {
+	        title: 'Megabit',
+	        projectDescription: 'Support and development for big Russian federal web and retail market',
+	        imgBackgroundColor: '#fd5d34',
+	        text: 'I was working on this project almost whole my professional career at this moment. It was very interesting project, because this serious and mature project which gave me many professional skills that i am use today. Engaged with many serious tasks like develop checkout, main page and so on, which implies big responsibility. Here i learned well what is communication with team and importance of that.',
+	        list: ['Real big production web site', 'Leveraged only vanilla js', 'Implemented a lot web page, integrating new design', 'Adapt old code to new design', 'Learned commercial approach', 'Refactoring many old code', 'Cooperate with other team members', 'Help my team deploy git and using it by self afterwards'],
+	        next: 'Blog',
+	        prev: 'CemRus'
+	    },
+	    blog: {
+	        title: 'Blog',
+	        projectDescription: 'You here! Privite blog that i made for myself',
+	        imgBackgroundColor: '#000000',
+	        text: "This site i made from the beginning. No cms or something like that. Builded on Node JS, MongoDB and Express 4. Here i implement my simple React app which you can see right here (Portfolio created by React). In future i plan fill it this with articles and translates on my native laungage.",
+	        list: ['React', 'Tiny MCE text editor for articles', 'Node JS, Express and MongoDB', 'File transfering', 'Autorization', 'Awesome animations', 'English (which still bad ;) )'],
+	        next: 'Consulting',
+	        prev: 'Megabit'
+	    },
+	    consulting: {
+	        title: 'Consulting',
+	        projectDescription: 'Small web portal for local consulting company',
+	        imgBackgroundColor: '#113e59',
+	        text: 'Had been Done this site for one week. General work was after deploying. Infinite edits from customer. There i comprehended Zen :)',
+	        list: ['How to be calm with customer :)', 'How to be calm with customer :)'],
+	        next: 'ProNet',
+	        prev: 'Blog'
+	    },
+	    pronet: {
+	        title: 'ProNet',
+	        projectDescription: 'Web site for big distributor of computer equipment',
+	        imgBackgroundColor: '#009ee3',
+	        text: "Remained in developing (BackEnd). Developed it from from the beginning. Made layout and js of this site. I am tried make all this clear and understandable for those who will come after me",
+	        list: ['Build big shop from the beginning', 'JQuery, AJAX', 'Make conversation with customer', 'Make layout from InDesighn mock', 'Permanent revision', 'Communication with BackEnd Developer'],
+	        next: 'CemRus',
+	        prev: 'Consulting'
+	    },
+	    cemrus: {
+	        title: 'CemRus',
+	        projectDescription: 'Landing page for building company',
+	        imgBackgroundColor: '#53b306',
+	        text: "My first normal web site actually. I done this for one day. Also it was first work when i contacted with our designer. There i use php for fist time and made captcha by myself.",
+	        list: ['Very precise make up ', 'Php email sender', 'Google i`m not a robot', 'Jquery', 'small amount of Photoshop'],
+	        next: 'Megabit',
+	        prev: 'Pronet'
+	    }
+	};
 
 /***/ },
 /* 240 */
