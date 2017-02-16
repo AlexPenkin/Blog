@@ -77,6 +77,10 @@
 	
 	var _reactRouter = __webpack_require__(/*! react-router */ 169);
 	
+	var _portsDetailsObj = __webpack_require__(/*! ./portsDetailsObj.jsx */ 239);
+	
+	var _portsDetailsObj2 = _interopRequireDefault(_portsDetailsObj);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -87,40 +91,45 @@
 	
 	// ...
 	var App = function (_React$Component) {
-	    _inherits(App, _React$Component);
+	  _inherits(App, _React$Component);
 	
-	    function App() {
-	        _classCallCheck(this, App);
+	  function App() {
+	    _classCallCheck(this, App);
 	
-	        return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	  }
+	
+	  _createClass(App, [{
+	    key: 'render',
+	    value: function render() {
+	      var arr = [];
+	      for (var i = 0; i < Object.keys(_portsDetailsObj2.default).length; i++) {
+	        arr[i] = _portsDetailsObj2.default[Object.keys(_portsDetailsObj2.default)[i]];
+	      }
+	      console.log(arr);
+	      return _react2.default.createElement(
+	        _reactAddonsCssTransitionGroup2.default,
+	        { component: 'div', transitionAppear: true, transitionName: 'blog', transitionLeave: true, transitionEnterTimeout: 5000, transitionAppearTimeout: 5000, transitionLeaveTimeout: 5000 },
+	        _react2.default.createElement(
+	          'div',
+	          { key: 'two', className: 'portWrapReact row' },
+	          arr.map(function (item) {
+	            return _react2.default.createElement(_AwesomeComponent2.default, { title: item.title, defenition: item.projectDescription, back: item.imgBackgroundColor });
+	          })
+	        )
+	      );
 	    }
+	  }]);
 	
-	    _createClass(App, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                _reactAddonsCssTransitionGroup2.default,
-	                { component: 'div', transitionAppear: true, transitionName: 'blog', transitionLeave: true, transitionEnterTimeout: 5000, transitionAppearTimeout: 5000, transitionLeaveTimeout: 5000 },
-	                _react2.default.createElement(
-	                    'div',
-	                    { key: 'two', className: 'portWrapReact row' },
-	                    _react2.default.createElement(_AwesomeComponent2.default, { title: 'Megabit', defenition: 'Russian Federal Web Market Many work for that' }),
-	                    _react2.default.createElement(_AwesomeComponent2.default, { title: 'Pronet', defenition: 'Russian Federal Web Market Many work for that' }),
-	                    _react2.default.createElement(_AwesomeComponent2.default, { title: 'CemRus', defenition: 'Russian Federal Web Market Many work for that' })
-	                )
-	            );
-	        }
-	    }]);
-	
-	    return App;
+	  return App;
 	}(_react2.default.Component);
 	
 	_reactDom2.default.render(_react2.default.createElement(
-	    _reactRouter.Router,
-	    { history: _reactRouter.hashHistory },
-	    _react2.default.createElement(_reactRouter.Route, { path: '/', component: App }),
-	    _react2.default.createElement(_reactRouter.Route, { path: 'details/:portId', component: _PortfolioDetails2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: 'details', component: _PortfolioDetails2.default })
+	  _reactRouter.Router,
+	  { history: _reactRouter.hashHistory },
+	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: App }),
+	  _react2.default.createElement(_reactRouter.Route, { path: 'details/:portId', component: _PortfolioDetails2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: 'details', component: _PortfolioDetails2.default })
 	), document.getElementById('portWrapR'));
 
 /***/ },
@@ -20780,6 +20789,8 @@
 	
 	var _reactAddonsTransitionGroup2 = _interopRequireDefault(_reactAddonsTransitionGroup);
 	
+	var _reactRouter = __webpack_require__(/*! react-router */ 169);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -20835,10 +20846,14 @@
 	        value: function render() {
 	
 	            return _react2.default.createElement(
-	                'div',
-	                { className: 'portItem  middle3 col-md-offset-0 col-xs-12 col-sm-12' },
-	                _react2.default.createElement(_imgPort2.default, { source: '/img/portfolio/megabitPort.jpg' }),
-	                _react2.default.createElement(_bubbleDiv2.default, { title: this.props.title, size: _reactDom2.default.findDOMNode(this), defenition: this.props.defenition, trigger: this.state })
+	                _reactRouter.Link,
+	                { to: "/details/" + this.props.title, style: { backgroundColor: this.props.back }, className: 'portItem  middle3 col-md-offset-0 col-xs-12 col-sm-12' },
+	                _react2.default.createElement(
+	                    'span',
+	                    null,
+	                    this.props.title
+	                ),
+	                _react2.default.createElement(_bubbleDiv2.default, { size: _reactDom2.default.findDOMNode(this), defenition: this.props.defenition, trigger: this.state })
 	            );
 	        }
 	    }]);
@@ -21078,7 +21093,7 @@
 	                _react2.default.createElement('br', null),
 	                _react2.default.createElement(
 	                    'span',
-	                    null,
+	                    { style: { transform: 'translateY(40px)', fontSize: '21px' } },
 	                    this.props.defenition
 	                )
 	            );
@@ -29144,7 +29159,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	exports.default = PortfolioDetailsPro;
 	
@@ -29163,13 +29178,13 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function PortfolioDetailsPro(props) {
-	  var id = props.id.toLowerCase();
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'portWrapper', style: {/*transform:'translateY(-1vh)'*/} },
-	    _react2.default.createElement(_PortBigImg2.default, { id: props.id }),
-	    _react2.default.createElement(_PortText2.default, { id: props.id })
-	  );
+	    var id = props.id.toLowerCase();
+	    return _react2.default.createElement(
+	        'div',
+	        { className: 'portWrapper' },
+	        _react2.default.createElement(_PortBigImg2.default, { id: props.id }),
+	        _react2.default.createElement(_PortText2.default, { id: props.id })
+	    );
 	}
 
 /***/ },
@@ -29215,7 +29230,7 @@
 	    { className: 'portText', component: 'div', transitionName: 'text', transitionLeave: true, transitionEnterTimeout: 1000, transitionLeaveTimeout: 1000 },
 	    _react2.default.createElement(
 	      'div',
-	      { key: props.id + 'text', style: { height: '100%', width: '100%' } },
+	      { key: props.id + 'text', style: { minHeight: '100%', width: '100%' } },
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'titleTextPort' },
@@ -29241,6 +29256,11 @@
 	            n
 	          );
 	        })
+	      ),
+	      _portsDetailsObj2.default[id].github && _react2.default.createElement(
+	        'a',
+	        { className: 'gitLink', href: _portsDetailsObj2.default[id].github },
+	        _react2.default.createElement('img', { src: '/img/GitHub-Mark-120px-plus.png' })
 	      ),
 	      _react2.default.createElement(
 	        'div',
@@ -29363,7 +29383,8 @@
 	        text: "This site i made from the beginning. No cms or something like that. Builded on Node JS, MongoDB and Express 4. Here i implement my simple React app which you can see right here (Portfolio created by React). In future i plan fill it this with articles and translates on my native laungage.",
 	        list: ['React', 'Tiny MCE text editor for articles', 'Node JS, Express and MongoDB', 'File transfering', 'Autorization', 'Awesome animations', 'English (which still bad ;) )'],
 	        next: 'Consulting',
-	        prev: 'Megabit'
+	        prev: 'Megabit',
+	        github: 'https://github.com/AlexPenkin/Blog'
 	    },
 	    consulting: {
 	        title: 'Consulting',
@@ -29371,8 +29392,17 @@
 	        imgBackgroundColor: '#113e59',
 	        text: 'Had been Done this site for one week. General work was after deploying. Infinite edits from customer. There i comprehended Zen :)',
 	        list: ['How to be calm with customer :)', 'How to be calm with customer :)'],
-	        next: 'ProNet',
+	        next: 'OneClick',
 	        prev: 'Blog'
+	    },
+	    oneclick: {
+	        title: 'OneClick',
+	        projectDescription: 'Internet shop',
+	        imgBackgroundColor: '#2273bf',
+	        text: "Remained in developing (BackEnd). Developed it from from the beginning. Made layout and js of this site. I am tried make all this clear and understandable for those who will come after me",
+	        list: ['Build big shop from the beginning', 'Building big project', 'JQuery, AJAX', 'Make conversation with customer', 'Permanent revision', 'Communication with BackEnd Developer'],
+	        next: 'ProNet',
+	        prev: 'Consulting'
 	    },
 	    pronet: {
 	        title: 'ProNet',
@@ -29381,7 +29411,7 @@
 	        text: "Remained in developing (BackEnd). Developed it from from the beginning. Made layout and js of this site. I am tried make all this clear and understandable for those who will come after me",
 	        list: ['Build big shop from the beginning', 'JQuery, AJAX', 'Make conversation with customer', 'Make layout from InDesighn mock', 'Permanent revision', 'Communication with BackEnd Developer'],
 	        next: 'CemRus',
-	        prev: 'Consulting'
+	        prev: 'OneClick'
 	    },
 	    cemrus: {
 	        title: 'CemRus',

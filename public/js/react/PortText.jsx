@@ -9,7 +9,7 @@ export default function PortText (props){
   var id = props.id.toLowerCase();
   return (
     <ReactCSSTransitionGroup   className = 'portText'  component="div"  transitionName="text" transitionLeave={true} transitionEnterTimeout={1000}  transitionLeaveTimeout={1000}>
-      <div key = {props.id + 'text'} style = {{height: '100%', width: '100%'}}>
+      <div key = {props.id + 'text'} style = {{minHeight: '100%', width: '100%'}}>
 
         <div className = 'titleTextPort'>{portsDetailsObj[id].title}</div>
         <div className = 'preTextPort'>{portsDetailsObj[id].projectDescription}</div>
@@ -19,11 +19,15 @@ export default function PortText (props){
               return <li>{n}</li>
             })}
         </ul>
+        {portsDetailsObj[id].github &&
+          <a className= 'gitLink' href = {portsDetailsObj[id].github}>
+            <img src = '/img/GitHub-Mark-120px-plus.png'></img>
+          </a>}
         <div className= 'backToListWrap' >
           <div className= 'ButtonsWrap'></div>
           <Link className= 'backToList' to="/">  Back to the list </Link>
         </div>
-        <div className= 'buttonsWrap' >
+        <div className= 'buttonsWrap'>
           <span className = 'prevButton' ><Link style = {{backgroundColor: portsDetailsObj[props.id.toLowerCase()].imgBackgroundColor }}to = {'details/' + portsDetailsObj[id].prev}>Prev</Link> </span>
           <span  className = 'nextButton' > <Link style = {{backgroundColor: portsDetailsObj[props.id.toLowerCase()].imgBackgroundColor }} to = {'details/' + portsDetailsObj[id].next}>Next</Link> </span>
         </div>

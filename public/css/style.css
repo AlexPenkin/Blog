@@ -2,13 +2,15 @@ body, html {
     width: 100%;
     height: 100%;
     margin: 0px;
-    min-height: 100vh;
+    min-height: 100%;
     overflow: visible;
     position: relative;
     background-color: #fafafa;
     /*font-family: "San Francisco Display Regular" !important*/
 }
-
+html {
+  /*overflow: hidden;*/
+}
 .head {
     width: 100%;
     height: 12.2%;
@@ -213,98 +215,6 @@ a {
     margin-top: 20px
 }
 
-@media (max-width:768px) {
-    .head {
-        display: none!important
-    }
-    .drawer-nav, .menu {
-        display: flex;
-        flex-direction: column
-    }
-    .menu {
-        max-height: 100%!important;
-        color: red!important;
-        margin: 0;
-        padding-left: 0;
-        margin: 0 auto;
-        font-size: 22px;
-        /*width: auto;*/
-        border: none
-    }
-    .menu a {
-        margin: 15px 0
-    }
-    .userMenu {
-        justify-content: center;
-        flex-direction: column;
-        border: none
-    }
-    header {
-        text-align: center;
-        box-sizing: border-box
-    }
-    .HeadName, header {
-        height: 60px;
-        display: flex;
-        align-items: center;
-        color: #000;
-        background-color: white;
-        justify-content: center;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-    }
-    .HeadName {
-        font-size: 20px;
-        text-decoration: none;
-        z-index: 1;
-        background-color: transparent;
-    }
-    .logo {
-        font-family: SF Collegiate !important;
-        font-size: 40px !important;
-    }
-    .portWrapReact {
-        flex-direction: column;
-    }
-    .portItem {
-        width: 100% !important;
-        margin: 10px 0 !important;
-    }
-    .HeadName:hover {
-        color: #000;
-        text-decoration: none
-    }
-    .headWrap {
-        top: 60px!important
-    }
-    .drawer drawer--top drawer-close {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .drawer-hamburger {
-        position: relative!important;
-        float: right;
-        margin-right: 10px
-    }
-    .drawer-toggle {
-        position: absolute
-    }
-    .drawer--top.drawer-open .drawer-nav {
-        z-index: 10000;
-        z-index: 11;
-        overflow: hidden;
-    }
-    .drawer--top .drawer-hamburger, .drawer--top.drawer-open .drawer-hamburger {
-        top: 4px;
-        z-index: 10001;
-        position: absolute!important;
-        overflow: hidden;
-    }
-    .drawer {
-        overflow: hidden;
-    }
-}
-
 @media (min-width:769px) and (max-width:5000px) {
     .drawer {
         display: none!important
@@ -501,8 +411,9 @@ figure {
     justify-content: center;
     min-width: 88%;
     margin: 0 6%;
+    padding-top: 2%;
     height: auto;
-    display: flex;
+    /*display: flex;*/
     justify-content: space-between
 }
 
@@ -511,7 +422,32 @@ figure {
     padding: 0!important;
     position: relative;
     box-sizing: border-box;
+    margin: auto;
+    width: 25%;
+    min-height: 200px;
+    height: 36vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none !important;
+    font-family: 'San Francisco Display Ultralight';
     /*margin-top: 15px !important;*/
+}
+
+.portItem>span {
+    color: white;
+    font-size: 40px;
+    text-decoration: none;
+    z-index: 123123;
+}
+
+.portItem:nth-child(6n+1) {
+    width: 50%;
+}
+
+.portItem:nth-child(6n) {
+    width: 50%;
 }
 
 
@@ -525,10 +461,9 @@ figure {
     transform: scale(0)!important;
 }
 
-.bubbleDiv>span:nth-child(1)>a {
-    color: white;
-    text-decoration: underline;
-    font-size: 20px;
+.bubbleDiv>span {
+    white-space: normal;
+    text-align: center;
 }
 
 .portItem:hover .bubbleDiv {
@@ -617,7 +552,7 @@ button, button:active, button:focus {
     display: flex;
     flex-direction: row;
     position: relative;
-    overflow: hidden;
+    /*overflow: hidden;*/
     /*transform: translateY(-1vh);*/
 }
 
@@ -638,6 +573,7 @@ button, button:active, button:focus {
     height: 100%;
     position: relative;
     will-change: transform;
+    overflow: hidden;
 }
 
 .portBigImgCh {
@@ -663,7 +599,8 @@ button, button:active, button:focus {
     height: 100%;
     width: 67%;
     position: relative;
-    will-change: transform
+    will-change: transform;
+    overflow: hidden;
 }
 
 .portTextCh {
@@ -676,31 +613,32 @@ button, button:active, button:focus {
     font-family: "Lora";
     font-size: 16px;
 }
-.portList {
-  width: 75%;
-  min-height: 25%;
-  margin: 20px 12.5%;
-  font-family: "Lora";
-  padding-left: 75px;
-  font-size: 16px;
-  position: relative;
 
+.portList {
+    width: 75%;
+    /*min-height: 25%;*/
+    margin: 40px 12.5% 75px;
+    font-family: "Lora";
+    padding-left: 75px;
+    font-size: 16px;
+    position: relative;
 }
 
 .portList:before {
-  content: 'What i did and learned:';
-  position: absolute;
-  font-family: "Lora Bold";
-  top: -2em;
-  left: 53px;
+    content: 'What i did and learned:';
+    position: absolute;
+    font-family: "Lora Bold";
+    top: -2em;
+    left: 53px;
 }
 
 .buttonsWrap {
     position: relative;
-    bottom: -120px;
+    margin-top: 45px;
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 .prevButton, .nextButton {
@@ -810,7 +748,7 @@ button, button:active, button:focus {
     transform: translateY(0px) translateZ(0);
     transition: all 1s;
     position: absolute;
-    bottom: 0;
+    top: 0;
     /*width: 100%;*/
 }
 
@@ -882,9 +820,10 @@ div:before {
     font-family: 'Lora'
 }
 
-.middle3 {
+
+/*.middle3 {
     width: 32%;
-}
+}*/
 
 .backToList {
     position: relative;
@@ -900,7 +839,7 @@ div:before {
     display: flex;
     justify-content: center;
     position: relative;
-    bottom: -60px;
+    margin: 20px 0;
     white-space: nowrap;
     font-family: 'San Francisco Display Ultralight';
 }
@@ -933,6 +872,16 @@ div:before {
     transition: all 0.2s ease-out;
 }
 
+.logo:hover {
+    /*color: white;*/
+    text-decoration: none;
+    /*box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.5);*/
+    /*background-color: #252525;*/
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
 .backToList:hover:before {
     -webkit-animation: shine 0.5s 0s linear;
     -moz-animation: shine 0.5s 0s linear;
@@ -944,6 +893,37 @@ div:before {
     -webkit-transition: box-shadow 0.2s ease-in;
     -moz-transition: box-shadow 0.2s ease-in;
     transition: box-shadow 0.2s ease-in;
+}
+
+.logo:hover:before {
+    -webkit-animation: shine 0.5s 0s linear;
+    -moz-animation: shine 0.5s 0s linear;
+    animation: shine 0.5s 0s linear;
+}
+
+.logo:active {
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    -moz-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+}
+
+.logo:before {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 86%;
+    position: absolute;
+    top: 7%;
+    left: 0%;
+    opacity: 0;
+    background: white;
+    box-shadow: 0 0 15px 6px white;
+    -webkit-transform: skewX(-20deg);
+    -moz-transform: skewX(-20deg);
+    -ms-transform: skewX(-20deg);
+    -o-transform: skewX(-20deg);
+    transform: skewX(-20deg);
 }
 
 .backToList:before {
@@ -962,6 +942,18 @@ div:before {
     -ms-transform: skewX(-20deg);
     -o-transform: skewX(-20deg);
     transform: skewX(-20deg);
+}
+
+.gitLink {
+    width: 64px;
+    height: 64px;
+    position: relative;
+    left: calc(50% - 32px);
+}
+
+.gitLink>img {
+    width: 64px;
+    height: 64px;
 }
 
 @-webkit-keyframes shine {
@@ -1003,5 +995,224 @@ div:before {
     to {
         opacity: 0;
         left: 100%;
+    }
+}
+
+@media (max-width:768px) {
+    .head {
+        display: none!important
+    }
+    .drawer-nav, .menu {
+        display: flex;
+        flex-direction: column
+    }
+    .menu {
+        max-height: 100%!important;
+        color: red!important;
+        margin: 0;
+        padding-left: 0;
+        margin: 0 auto;
+        font-size: 22px;
+        /*width: auto;*/
+        border: none
+    }
+    .menu a {
+        margin: 15px 0
+    }
+    .userMenu {
+        justify-content: center;
+        flex-direction: column;
+        border: none
+    }
+    header {
+        text-align: center;
+        box-sizing: border-box
+    }
+    .HeadName, header {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        color: #000;
+        background-color: white;
+        justify-content: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    }
+    .HeadName {
+        font-size: 20px;
+        text-decoration: none;
+        z-index: 1;
+        background-color: transparent;
+    }
+    .logo {
+        font-family: SF Collegiate !important;
+        font-size: 40px !important;
+    }
+    .portWrapReact {
+        flex-direction: column;
+    }
+    .portItem {
+        width: 100% !important;
+        margin: 10px 0 !important;
+    }
+    .HeadName:hover {
+        color: #000;
+        text-decoration: none
+    }
+    .headWrap {
+        top: 60px!important
+    }
+    .drawer drawer--top drawer-close {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .drawer-hamburger {
+        position: relative!important;
+        float: right;
+        margin-right: 10px
+    }
+    .drawer-toggle {
+        position: absolute
+    }
+    .drawer--top.drawer-open .drawer-nav {
+        z-index: 10000;
+        z-index: 11;
+        overflow: hidden;
+    }
+    .drawer--top .drawer-hamburger, .drawer--top.drawer-open .drawer-hamburger {
+        top: 4px;
+        z-index: 10001;
+        position: absolute!important;
+        overflow: hidden;
+    }
+    .drawer {
+        overflow: hidden;
+    }
+    .portWrapper {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        /*overflow: hidden;*/
+        /*transform: translateY(-1vh);*/
+    }
+    .portBigImg {
+        min-height: 300px;
+        height: 300px;
+        width: 100%;
+        will-change: transform;
+        overflow: visible;
+    }
+
+    .portText {
+        width: 100%;
+        overflow: visible;
+
+    }
+    .portTextCh {
+        width: 100%;
+        margin: 0;
+        padding: 25px 20px 35px;
+    }
+    .portList {
+      min-height: 0;
+      margin-bottom: 40px;
+      height: auto;
+        /*min-height: 25%;*/
+        /* margin: 20px 12.5%; */
+        /* padding-left: 75px; */
+        position: relative;
+    }
+    .img-enter {
+        /*width: 33%;*/
+        width: 100%;
+        will-change: transform;
+        transform: translateX(-2000px) translateZ(0);
+        backface-visibility: hidden;
+        position: absolute;
+        overflow: hidden;
+
+    }
+    .img-leave {
+        will-change: transform;
+        /*width: 33%;*/
+        overflow: hidden;
+        top: 0;
+        backface-visibility: hidden;
+        transform: translateX(0px) translateZ(0);
+        position: absolute;
+    }
+    .img-enter.img-enter-active {
+        transform: translateX(0px);
+        transition: all 1s;
+        position: absolute;
+        backface-visibility: hidden;
+
+    }
+    /*.img-appear.img-appear-active {
+    opacity: 1;
+    transform: translateY(0px);
+    transition: all 1s ease-in;
+      position: absolute;
+}*/
+    .img-leave.img-leave-active {
+        transform: translateX(0) translateX(2000px) translateZ(0);
+        transition: all 1s;
+        position: absolute;
+
+        /*width: 33%;*/
+    }
+    /*.text-appear {
+    opacity: 1;
+    transform: translateY(1000px)
+}*/
+    .text-enter {
+        transform: translateX(2000px) translateZ(0);
+        position: absolute;
+        right: 0;
+        top:0px;
+    }
+    .text-leave {
+        position: absolute;
+        left: 0;
+        transform: translateX(0px) translateZ(0);
+    }
+    .text-enter.text-enter-active {
+        transform: translateX(0px) translateZ(0);
+        transition: all 1s;
+        position: absolute;
+
+    }
+    /*.text-appear.text-appear-active {
+    opacity: 1;
+    transform: translateY(0px);
+    transition: all 1s ease-in;
+      position: absolute;
+}*/
+    .text-leave.text-leave-active {
+        transition: all 1s;
+        display: inline-block;
+        transform: translateX(-2000px) translateZ(0);
+        position: absolute;
+        /*width: 100%;*/
+    }
+    .portWrapper {
+      overflow-x: hidden;
+
+    }
+    .portList {
+      margin: 40px 0 60px;
+      padding-left: 40px;
+    }
+    .portList:before {
+        content: 'What i did and learned:';
+        position: absolute;
+        font-family: "Lora Bold";
+        top: -2em;
+        left: 40px;
+    }
+    #portWrapR {
+      height: 100%;
     }
 }

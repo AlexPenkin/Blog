@@ -119,7 +119,7 @@ class BubbleDiv extends React.Component {
             <div className='bubbleDiv' style={this.state.bubbleDivStyle}>
                 <span><Link to={"/details/" + this.props.title}>{this.props.title}</Link></span>
                 <br></br>
-                <span>{this.props.defenition}</span>
+                <span style= {{transform :'translateY(40px)', fontSize: '21px'}}>{this.props.defenition}</span>
             </div>
 
         )

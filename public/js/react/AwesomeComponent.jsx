@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import ImagePort from './imgPort.jsx';
 import BubbleDivStyle from './bubbleDiv.jsx';
 import TransitionGroup from 'react-addons-transition-group';
+import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router'
 class AwesomeComponent extends React.Component {
 
     constructor(props) {
@@ -42,10 +43,10 @@ class AwesomeComponent extends React.Component {
     render() {
 
         return (
-            <div className='portItem  middle3 col-md-offset-0 col-xs-12 col-sm-12'>
-                <ImagePort source='/img/portfolio/megabitPort.jpg'/>
-                <BubbleDivStyle  title = {this.props.title} size={ReactDOM.findDOMNode(this)} defenition= {this.props.defenition} trigger={this.state}/>
-            </div>
+            <Link to={"/details/" + this.props.title} style = {{backgroundColor: this.props.back}} className='portItem  middle3 col-md-offset-0 col-xs-12 col-sm-12'>
+              <span >{this.props.title}</span>
+                <BubbleDivStyle  size={ReactDOM.findDOMNode(this)} defenition= {this.props.defenition} trigger={this.state}/>
+            </Link>
         );
     }
 

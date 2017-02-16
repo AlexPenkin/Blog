@@ -15,7 +15,8 @@ export default {
         text: "This site i made from the beginning. No cms or something like that. Builded on Node JS, MongoDB and Express 4. Here i implement my simple React app which you can see right here (Portfolio created by React). In future i plan fill it this with articles and translates on my native laungage.",
         list: ['React', 'Tiny MCE text editor for articles', 'Node JS, Express and MongoDB', 'File transfering', 'Autorization', 'Awesome animations', 'English (which still bad ;) )'],
         next: 'Consulting',
-        prev: 'Megabit'
+        prev: 'Megabit',
+        github: 'https://github.com/AlexPenkin/Blog'
     },
     consulting: {
         title: 'Consulting',
@@ -23,8 +24,17 @@ export default {
         imgBackgroundColor: '#113e59',
         text: 'Had been Done this site for one week. General work was after deploying. Infinite edits from customer. There i comprehended Zen :)',
         list: ['How to be calm with customer :)','How to be calm with customer :)'],
-        next: 'ProNet',
+        next: 'OneClick',
         prev: 'Blog'
+    },
+    oneclick: {
+        title: 'OneClick',
+        projectDescription: 'Internet shop',
+        imgBackgroundColor: '#2273bf',
+        text: "Remained in developing (BackEnd). Developed it from from the beginning. Made layout and js of this site. I am tried make all this clear and understandable for those who will come after me",
+        list: ['Build big shop from the beginning', 'Building big project', 'JQuery, AJAX', 'Make conversation with customer','Permanent revision', 'Communication with BackEnd Developer'],
+        next: 'ProNet',
+        prev: 'Consulting'
     },
     pronet: {
         title: 'ProNet',
@@ -33,7 +43,7 @@ export default {
         text: "Remained in developing (BackEnd). Developed it from from the beginning. Made layout and js of this site. I am tried make all this clear and understandable for those who will come after me",
         list: ['Build big shop from the beginning', 'JQuery, AJAX', 'Make conversation with customer', 'Make layout from InDesighn mock', 'Permanent revision', 'Communication with BackEnd Developer'],
         next: 'CemRus',
-        prev: 'Consulting'
+        prev: 'OneClick'
     },
     cemrus: {
         title: 'CemRus',
