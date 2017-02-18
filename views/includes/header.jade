@@ -18,8 +18,9 @@ block header
           a(href = '/logOut').menuLink Выйти
         else
           //a(href = '/login').menuLink Войти
-          a.menuLink About me
-          a(href = '/login').menuLink Contacts
+          a(href = '/contacts').menuLink Contacts
+          a(href = 'https://github.com/AlexPenkin').gitLogo
+            <img src = '/img/GitHub-Mark-120px-plus.png'></img>
           //a(href = '/signUp').menuLink ???
         img(src='./img/Swash_ornament.svg').ornamentRight
 
@@ -34,8 +35,9 @@ block header
         div.menu
           a(href = '/').menuLink Blog
           a(href = '/portfolio').menuLink Portfolio
-          a.menuLink About me
           a().menuLink Contacts
+          a(href = 'https://github.com/AlexPenkin').gitLogo
+            <img src = '/img/GitHub-Mark-120px-plus.png'></img>
           img(src='./img/curvesOrnament2.png').ornamentMobile
 
           if user && user.username == 'Admin'

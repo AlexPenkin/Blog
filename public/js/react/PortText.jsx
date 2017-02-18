@@ -11,7 +11,7 @@ export default function PortText (props){
     <ReactCSSTransitionGroup   className = 'portText'  component="div"  transitionName="text" transitionLeave={true} transitionEnterTimeout={1000}  transitionLeaveTimeout={1000}>
       <div key = {props.id + 'text'} style = {{minHeight: '100%', width: '100%'}}>
 
-        <div className = 'titleTextPort'>{portsDetailsObj[id].title}</div>
+        <a className = 'aTitle'href={portsDetailsObj[id].href} target="_blank"><div  className = 'titleTextPort'> <img className ='titleLink' src='./img/link.png'></img> {portsDetailsObj[id].title}</div></a>
         <div className = 'preTextPort'>{portsDetailsObj[id].projectDescription}</div>
         <div className = 'portTextCh'>{portsDetailsObj[id].text}</div>
         <ul className = 'portList'>{
