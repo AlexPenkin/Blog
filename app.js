@@ -1,5 +1,6 @@
-'use strict'
-//modules
+'use strict';
+
+// modules
 const express = require('express');
 const path = require('path');
 const db = require('./modules/db');
@@ -10,24 +11,27 @@ const passport = require('./modules/passport.js');
 const compression = require('compression');
 const fs = require('fs');
 const mkdirp = require('mkdirp');
+
 module.exports.mkdirp = mkdirp;
 module.exports.fs = fs;
 var port = process.env.PORT || 3000
 
-String.prototype.capitalizeFirstLetter = function() {
+String.prototype.capitalizeFirstLetter = function () {
     return this.charAt(0).toUpperCase() + this.slice(1);
-}
+};
+
 // database
-//db();
+// db();
+
 var mongo = new db();
 module.exports.mongo = mongo;
 
 function getAllPosts(model) {
     model.find({}).sort({
         _id: -1
-    }).exec(function(err, postsdb) {
+    }).exec(function (err, postsdb) {
         posts = [];
-        postsdb.forEach(function(post) {
+        postsdb.forEach(function (post) {
             posts.push(post);
         });
     })
@@ -108,7 +112,7 @@ var posts = getAllPosts(mongo.Blog);
 //
 
 app.route('/')
-    .get(function(req, res, next) {
+    .get(function (req, res, next) {
         console.log(req.user);
         getAllPosts(mongo.Blog);
         var testObj = {
@@ -121,17 +125,17 @@ app.route('/')
     })
 
 app.route('/contacts')
-    .get(function(req, res, next) {
+    .get(function (req, res, next) {
         res.render('contact.jade');
     })
 
 app.route('/makePost')
-    .get(function(req, res, next) {
+    .get(function (req, res, next) {
         res.render('makePost.jade', {
             user: req.user
         });
     })
-    .post(function(req, res, next) {
+    .post(function (req, res, next) {
         let arrOfTags = req.body.tags.split(/,\s*/);
         console.log(req.body);
         var blogPost = new mongo.Blog({
@@ -143,7 +147,7 @@ app.route('/makePost')
             autor: req.body.autor,
             text: req.body.text
         });
-        blogPost.save(function(err) {
+        blogPost.save(function (err) {
             if (err) {
                 console.log(err)
             } else {
@@ -157,14 +161,14 @@ app.route('/makePost')
 
     })
 app.route('/updatePost')
-    .get(function(req, res, next) {
+    .get(function (req, res, next) {
         var reqId = {
             _id: req.query.urlPost
         };
-        var findPost = new Promise(function(resolve, reject) {
+        var findPost = new Promise(function (resolve, reject) {
             mongo.Blog.findOne({
                 '_id': req.query.urlPost
-            }, function(err, post) {
+            }, function (err, post) {
                 if (err) {
                     reject(err);
                 } else {
@@ -185,7 +189,7 @@ app.route('/updatePost')
         }).catch(err => console.log(err))
 
     })
-    .post(function(req, res, next) {
+    .post(function (req, res, next) {
         let arrOfTags = req.body.tags.split(/,\s*/);
         console.log(req.body);
         mongo.Blog.update({
@@ -200,7 +204,7 @@ app.route('/updatePost')
                 autor: req.body.autor,
                 text: req.body.text
             }
-        }, function(err, upd) {
+        }, function (err, upd) {
             if (err) console.log(err);
             else console.log(upd);
             res.status(200).send('ok');
@@ -216,7 +220,7 @@ var obj = {};
 
 //route of full info post
 app.route('/loadPost')
-    .get(function(req, res, next) {
+    .get(function (req, res, next) {
         var reqId = {
             _id: req.query.urlPost
         };
@@ -224,9 +228,9 @@ app.route('/loadPost')
             $inc: {
                 viewsNum: 1
             }
-        }, function() {});
+        }, function () {});
         var query = mongo.Blog.findOne(reqId);
-        var queryExec = query.exec(function(err, post) {
+        var queryExec = query.exec(function (err, post) {
             if (err) {
                 console.log(err)
             } else {}
@@ -240,7 +244,7 @@ app.route('/loadPost')
 
 // route login page
 app.route('/login')
-    .get(function(req, res, next) {
+    .get(function (req, res, next) {
         var backURL = req.header('Referer') || '/';
         console.log('test');
         console.log(backURL);
@@ -250,17 +254,17 @@ app.route('/login')
     .post(passport.authenticate('local', {
         successRedirect: '/',
         failureRedirect: '/login'
-    }), function(req, res, next) {
+    }), function (req, res, next) {
         res.status(200);
         //res.redirect('/login');
     });
 
 //likes
 app.route('/addLike')
-    .get(function(req, res, next) {
+    .get(function (req, res, next) {
 
     })
-    .post(function(req, res, next) {
+    .post(function (req, res, next) {
 
         var reqId = {
             _id: req.body.postId
@@ -273,8 +277,8 @@ app.route('/addLike')
             $inc: {
                 'likes.numOfLikes': 1
             }
-        }, function() {});
-        mongo.Blog.findOne(reqId, function(err, post) {
+        }, function () {});
+        mongo.Blog.findOne(reqId, function (err, post) {
             console.log(post);
             res.send({
                 likes: post.likes.numOfLikes
@@ -285,10 +289,10 @@ app.route('/addLike')
     });
 
 app.route('/removeLike')
-    .get(function(req, res, next) {
+    .get(function (req, res, next) {
 
     })
-    .post(function(req, res, next) {
+    .post(function (req, res, next) {
         var reqId = {
             _id: req.body.postId
         };
@@ -302,8 +306,8 @@ app.route('/removeLike')
             $inc: {
                 'likes.numOfLikes': -1
             }
-        }, function() {});
-        mongo.Blog.findOne(reqId, function(err, post) {
+        }, function () {});
+        mongo.Blog.findOne(reqId, function (err, post) {
             console.log(post);
             res.send({
                 likes: post.likes.numOfLikes
@@ -317,11 +321,11 @@ app.route('/removeLike')
 // route sign up pagebreak
 
 app.route('/signUp')
-    .get(function(req, res, next) {
+    .get(function (req, res, next) {
         res.render('signUp.jade', {});
     })
 
-    .post(function(req, res, next) {
+    .post(function (req, res, next) {
         console.log("sign");
         var newUser = new mongo.User({
             username: req.body.username,
@@ -331,7 +335,7 @@ app.route('/signUp')
             gender: req.body.gender
         });
 
-        newUser.save(function(err) {
+        newUser.save(function (err) {
             if (err) {
                 console.log(err)
             } else {
@@ -345,14 +349,14 @@ app.route('/signUp')
     });
 
 app.route('/logOut')
-    .get(function(req, res, next) {
+    .get(function (req, res, next) {
         req.logout();
         res.redirect('/');
     });
 
 //tags
 app.route('/tags')
-    .get(function(req, res, next) {
+    .get(function (req, res, next) {
         let tag = req.query.tag;
         var query = mongo.Blog.find({
             tags: {
@@ -361,7 +365,7 @@ app.route('/tags')
         }).sort({
             _id: -1
         });
-        var queryExec = query.exec(function(err, posts) {
+        var queryExec = query.exec(function (err, posts) {
             if (err) {
                 console.log(err)
             } else {}
@@ -392,11 +396,11 @@ app.route('/tags')
 //Portfolio
 
 app.route('/portfolio')
-    .get(function(req, res, next) {
+    .get(function (req, res, next) {
         res.render('portfolio.jade');
     })
 var uploadHeader = require(__dirname + '/routes/uploadHeader.js');
-app.get("/:page?", function(req, res) {
+app.get("/:page?", function (req, res) {
     var page = req.params.page;
     if (page != undefined) res.redirect("/");
 });

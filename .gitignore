@@ -2,3 +2,5 @@ node_modules/
 posts/
 .vscode/
 .eslintrc.json
+gulpfile.js
+Procfile
