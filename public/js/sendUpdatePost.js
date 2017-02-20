@@ -31,7 +31,7 @@ if (minutes < 10) {
 if (month  < 10) {
   month  = '0' + month ;
 }
-var formattedDate = `Опубликовано ${day}.${month}.${year} в ${hours}:${minutes}`;
+var formattedDate = `Published ${day}.${month}.${year} в ${hours}:${minutes}`;
 function httpGet(url) {
 
   return new Promise(function(resolve, reject) {

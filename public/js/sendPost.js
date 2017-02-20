@@ -8,10 +8,8 @@ $(document).ready(function() {
     //alert(text);
     $('#test').append(text);
     var b;
-    httpGet('/makePost').then(res => {
-      console.log('sasad');
+    httpGet('/makePost').then(res => {  
       var file = document.getElementById('headImg').files[0];
-      console.log(file.name);
       upload(file, file.name)
     }).catch(res=> console.log(res + 'err'));
 
@@ -30,7 +28,7 @@ if (minutes < 10) {
 if (month  < 10) {
   month  = '0' + month ;
 }
-var formattedDate = `Опубликовано ${day}.${month}.${year} в ${hours}:${minutes}`;
+var formattedDate = `Published ${day}.${month}.${year} в ${hours}:${minutes}`;
 function httpGet(url) {
 
   return new Promise(function(resolve, reject) {
