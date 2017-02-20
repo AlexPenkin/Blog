@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
     width: 100%;
     height: 100%;
     margin: 0px;
@@ -6,9 +7,7 @@ body, html {
     background-color: #fafafa;
     /*font-family: "San Francisco Display Regular" !important*/
 }
-html {
-  /*overflow: hidden;*/
-}
+
 .head {
     width: 100%;
     height: 12.2%;
@@ -21,7 +20,8 @@ html {
     font-family: 'San Francisco Display Regular' !important;
 }
 
-.head, .logo {
+.head,
+.logo {
     display: flex;
     align-items: center
 }
@@ -72,7 +72,8 @@ html {
     font-size: 18px;
 }
 
-.menu, .nav {
+.menu,
+.nav {
     position: relative;
     display: flex;
     flex-direction: row
@@ -366,7 +367,8 @@ figure {
     background: red
 }
 
-.liked, .notLiked {
+.liked,
+.notLiked {
     width: 40px;
     height: 40px;
     border-radius: 50px;
@@ -505,12 +507,15 @@ figure {
     position: relative;
 }
 
-button, button:active, button:focus {
+button,
+button:active,
+button:focus {
     outline: none
 }
 
 @media only screen and (min-device-width:768px) and (max-device-width:1024px) and (orientation:landscape) and (-webkit-min-device-pixel-ratio:1) {
-    .menu, .userMenu {
+    .menu,
+    .userMenu {
         width: 335px;
         margin: 0
     }
@@ -642,7 +647,8 @@ button, button:active, button:focus {
     margin-bottom: 20px;
 }
 
-.prevButton, .nextButton {
+.prevButton,
+.nextButton {
     position: relative;
     z-index: 10;
 }
@@ -704,15 +710,14 @@ button, button:active, button:focus {
     backface-visibility: hidden;
     transform: translateY(0px) translateZ(0);
     position: relative;
-    top:0px;
+    top: 0px;
 }
 
 .img-enter.img-enter-active {
     transform: translateY(0px);
     transition: all 1s;
     position: absolute;
-    top:0;
-
+    top: 0;
 }
 
 
@@ -760,10 +765,8 @@ button, button:active, button:focus {
 .text-leave.text-leave-active {
     transition: all 1s;
     transform: translateY(-2000px) translateZ(0);
-    position:relative;
-
+    position: relative;
     top: -2000px;
-
     /*width: 100%;*/
 }
 
@@ -999,12 +1002,13 @@ div:before {
     .head {
         display: none!important
     }
-    .drawer-nav, .menu {
+    .drawer-nav,
+    .menu {
         display: flex;
         flex-direction: column
     }
     .drawer-nav {
-      height: 300px !important;
+        height: 300px !important;
     }
     .menu {
         max-height: 100%!important;
@@ -1028,7 +1032,8 @@ div:before {
         text-align: center;
         box-sizing: border-box
     }
-    .HeadName, header {
+    .HeadName,
+    header {
         height: 60px;
         display: flex;
         align-items: center;
@@ -1044,15 +1049,15 @@ div:before {
         background-color: transparent;
     }
     .logo {
-    font-family: SF Collegiate !important;
-    font-size: 40px !important;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    alignment-baseline: after-edge;
-    line-height: 70px;
-    display: block;
-    text-align: center;
+        font-family: SF Collegiate !important;
+        font-size: 40px !important;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        alignment-baseline: after-edge;
+        line-height: 70px;
+        display: block;
+        text-align: center;
     }
     .portWrapReact {
         flex-direction: column;
@@ -1087,7 +1092,8 @@ div:before {
         height: 60px;
         overflow: hidden;
     }
-    .drawer--top .drawer-hamburger, .drawer--top.drawer-open .drawer-hamburger {
+    .drawer--top .drawer-hamburger,
+    .drawer--top.drawer-open .drawer-hamburger {
         top: 4px;
         z-index: 10001;
         position: absolute!important;
@@ -1112,11 +1118,9 @@ div:before {
         will-change: transform;
         overflow: visible;
     }
-
     .portText {
         width: 100%;
         overflow: visible;
-
     }
     .portTextCh {
         width: 100%;
@@ -1124,9 +1128,9 @@ div:before {
         padding: 25px 20px 35px;
     }
     .portList {
-      min-height: 0;
-      margin-bottom: 40px;
-      height: auto;
+        min-height: 0;
+        margin-bottom: 40px;
+        height: auto;
         /*min-height: 25%;*/
         /* margin: 20px 12.5%; */
         /* padding-left: 75px; */
@@ -1140,13 +1144,13 @@ div:before {
         backface-visibility: hidden;
         position: absolute;
         overflow: hidden;
-        top:0px
+        top: 0px
     }
     .img-leave {
         will-change: transform;
         /*width: 33%;*/
         overflow: hidden;
-        top:0px;
+        top: 0px;
         backface-visibility: hidden;
         transform: translateX(0px) translateZ(0);
         position: absolute;
@@ -1156,7 +1160,7 @@ div:before {
         transition: all 1s;
         position: absolute;
         backface-visibility: hidden;
-        top:0px
+        top: 0px
     }
     /*.img-appear.img-appear-active {
     opacity: 1;
@@ -1165,10 +1169,10 @@ div:before {
       position: absolute;
 }*/
     .img-leave.img-leave-active {
-        transform:translateX(2000px) translateZ(0);
+        transform: translateX(2000px) translateZ(0);
         transition: all 1s;
         position: absolute;
-        top:0px
+        top: 0px
         /*width: 33%;*/
     }
     /*.text-appear {
@@ -1178,21 +1182,19 @@ div:before {
     .text-enter {
         transform: translateX(2000px) translateZ(0);
         position: absolute;
-        top:0px;
+        top: 0px;
     }
     .text-leave {
         position: absolute;
         transform: translateX(0px) translateZ(0);
-
     }
     .text-enter.text-enter-active {
         transform: translateX(0px) translateZ(0);
         transition: all 1s;
         position: absolute;
-        top:0px;
-        left:0;
+        top: 0px;
+        left: 0;
     }
-
     /*.text-appear.text-appear-active {
     opacity: 1;
     transform: translateY(0px);
@@ -1201,19 +1203,15 @@ div:before {
 }*/
     .text-leave.text-leave-active {
         transition: all 1s;
-        top:0px;
+        top: 0px;
         right: 0;
         transform: translateX(-2000px) translateZ(0);
         position: relative;
-        /*width: 100%;*/
-    }
-    .portWrapper {
-      /*overflow-x: hidden;*/
-
+        /* width: 100%;*/
     }
     .portList {
-      margin: 40px 0 60px;
-      padding-left: 40px;
+        margin: 40px 0 60px;
+        padding-left: 40px;
     }
     .portList:before {
         content: 'What i did and learned:';
@@ -1223,75 +1221,86 @@ div:before {
         left: 40px;
     }
     #portWrapR {
-      height: 100%;
+        height: 100%;
     }
 }
+
 .titleLink {
-  height: 32px;
-  width: 32px;
-  margin-right: 15px;
+    height: 32px;
+    width: 32px;
+    margin-right: 15px;
 }
+
 .aTitle {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
+
 .gitLogo {
-  height: 40px !important;
-  width: auto;
+    height: 40px !important;
+    width: auto;
 }
+
 .gitLogo img {
-  height: 100%;
-  max-width: 100%;
+    height: 100%;
+    max-width: 100%;
 }
+
 .contacts {
-  height: 87%;
-  width: 87%;
-
-  margin: 0 auto;
+    height: 87%;
+    width: 87%;
+    margin: 0 auto;
 }
+
 .textContacts {
-  margin-top: 80px;
-  display: block;
-  white-space: pre;
-  font-size: 91px;
-  font-family: "Lora";
-}
-.wrapperContacts  {
-  margin-top: 100px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-.contactsInfo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-family: 'San Francisco Display Regular';
-}
-.rotatedHead {
-  transform: rotate(90deg);
-  font-size: 75px;
-  color: #9adede;
-}
-.contactEntry {
-  font-size: 25px;
-  color: black;
-  text-decoration: none;
-}
-@media (max-width:768px) {
-  .textContacts {
-    margin-top: 40px;
+    margin-top: 80px;
     display: block;
-    white-space: normal;
-    font-size: 45px;
+    white-space: pre;
+    font-size: 91px;
     font-family: "Lora";
-  }
-  .contactsInfo {margin-bottom: 50px;}
-  .wrapperContacts  {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
+}
 
+.wrapperContacts {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.contactsInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'San Francisco Display Regular';
+}
+
+.rotatedHead {
+    transform: rotate(90deg);
+    font-size: 75px;
+    color: #9adede;
+}
+
+.contactEntry {
+    font-size: 25px;
+    color: black;
+    text-decoration: none;
+}
+
+@media (max-width:768px) {
+    .textContacts {
+        margin-top: 40px;
+        display: block;
+        white-space: normal;
+        font-size: 45px;
+        font-family: "Lora";
+    }
+    .contactsInfo {
+        margin-bottom: 50px;
+    }
+    .wrapperContacts {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
 }

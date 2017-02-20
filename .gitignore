@@ -4,3 +4,4 @@ posts/
 .eslintrc.json
 gulpfile.js
 Procfile
+modules/crypt.js
