@@ -35,7 +35,7 @@ app.app.route('/uploadHeader')
         }, function (err, a) {
           console.log(a);
         })
-      }
+      
       res.status(200).send('ok')
     }).catch(err => console.log(err));
-  });
+    }});
