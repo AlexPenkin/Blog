@@ -42,7 +42,7 @@ function httpGet(url) {
         data: {
           id: _id,
           title: $("#title").val(),
-          date: formattedDate,
+          date: $("#data").val(),
           tags: $("#tags").val(),
           preText: $("#preText").val(),
           autor: $("#autor").val() || "Alexander Penkin",
