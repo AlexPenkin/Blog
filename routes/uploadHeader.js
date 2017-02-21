@@ -7,7 +7,7 @@ var path = require('path');
 app.app.route('/uploadHeader')
   .post(function (req, res, err) {
     var saveTo = `./public/posts/${decodeURIComponent(req.headers.autor)}/${decodeURIComponent(req.headers.title)}/`;
-
+     if (req.headers.name) {
     console.log(saveTo);
     console.log(decodeURIComponent(req.headers.name));
     var filename = req.headers.fileName;
@@ -22,7 +22,7 @@ app.app.route('/uploadHeader')
       });
     });
     pro.then(resp => {
-      if (req.headers.name) {
+     
         req.pipe(app.fs.createWriteStream(saveTo + 'header' + path.extname(decodeURIComponent(req.headers.name))));
 
 
