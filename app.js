@@ -171,8 +171,7 @@ app.route('/updatePost')
             }, function (err, post) {
                 if (err) {
                     reject(err);
-                } else {
-                    console.log(req.query);
+                } else {               
                     resolve(post);
                 }
             })
@@ -190,8 +189,7 @@ app.route('/updatePost')
 
     })
     .post(function (req, res, next) {
-        let arrOfTags = req.body.tags.split(/,\s*/);
-        console.log(req.body);
+        let arrOfTags = req.body.tags.split(/,\s*/);       
         mongo.Blog.update({
             _id: req.body.id
         }, {
@@ -199,14 +197,12 @@ app.route('/updatePost')
                 title: req.body.title,
                 date: req.body.date,
                 tags: arrOfTags,
-                preText: req.body.preText,
-                headImg: `undefined`,
+                preText: req.body.preText,                
                 autor: req.body.autor,
                 text: req.body.text
             }
         }, function (err, upd) {
-            if (err) console.log(err);
-            else console.log(upd);
+            if (err) console.log(err);        
             res.status(200).send('ok');
         });
 
