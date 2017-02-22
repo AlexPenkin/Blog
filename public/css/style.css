@@ -281,6 +281,9 @@ figure {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 18px;
 }
+.fullText:not(code) > p {
+    text-indent: 10px;
+}
 
 .fullText code {
     font-size: 14px;
