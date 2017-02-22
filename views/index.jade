@@ -27,7 +27,8 @@ block blog
           div#root
 script. 
   DISQUSWIDGETS = undefined;
-script#dsq-count-scr(src= "http://allai.disqus.com/count.js?ver<%=DateTime.Now.Ticks.ToString()%>")
+script#dsq-count-scr(src="//http-alexpenkin-world.disqus.com/count.js")
+//- "http://allai.disqus.com/count.js?ver<%=DateTime.Now.Ticks.ToString()%>"
 script.
   if (DISQUSWIDGETS){
     DISQUSWIDGETS.getCount({reset:true});
