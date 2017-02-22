@@ -310,7 +310,7 @@ figure {
     border-radius: 50px;
     padding: 10px 30px;
     display: inline-block;
-    margin: 0 10px;
+    margin: 0 10px 10px;
     color: #7cde9c;
     transition: background .7s, color .1s
 }
@@ -321,7 +321,7 @@ figure {
 }
 
 .awesomeTag:active {
-    background: #7cae9c;
+    background: #7cde9c;
     color: #fff
 }
 

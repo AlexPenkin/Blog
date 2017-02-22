@@ -3,9 +3,7 @@
 var headPost = document.querySelector('#headPost');
 var wrapperHead = document.querySelector('.headWrap');
 var postTitleself = document.querySelector('.postTitle');
-
 var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
 
 function throttle(f, awaitingTime) {
     // Set variable for value which stores that
@@ -44,14 +42,16 @@ function throttle(f, awaitingTime) {
         }, awaitingTime);
     }
 }
-var throttled = throttle(move, 16)
-
 function move() {
     headPost.style.transform = `translate3d(0px, ${window.scrollY / 6}px, 0px)`;
     wrapperHead.style.transform = `translate3d(0px, ${-window.scrollY / 6}px, 0px)`;
     postTitleself.style.transform = `translate3d(0px, ${-window.scrollY / 6}px, 0px)`;
     headPost.style.filter = `brightness(33%) blur(${window.scrollY / 100}px)`;
 }
+
+var throttled = throttle(move, 16);
+
+
 if (!isMobile) {
     window.onscroll = throttled;
 }

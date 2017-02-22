@@ -7,7 +7,7 @@ block blog
         div.title.col-lg-12.col-md-12.col-sm-12.col-xs-12
           a.titleText(href= '/loadPost?urlPost=#{val._id}'):  span.titleText !{val.title}
         div.autorAndDate.col-lg-12.col-md-12.col-sm-12.col-xs-12
-          a(href = '/aboutMe').titleAutor Автор: !{val.autor}
+          a(href = '/aboutMe').titleAutor Autor: !{val.autor}
           p.titleData= val.date
         div.tags.col-lg-12.col-md-12.col-sm-12.col-xs-12
 
@@ -25,8 +25,7 @@ block blog
               if (tag)
                 a(href= '/tags?tag=#{tag}')  #!{tag}
           div#root
-script.
-  console.log(#{val})
+script. 
   DISQUSWIDGETS = undefined;
 script#dsq-count-scr(src= "http://allai.disqus.com/count.js?ver<%=DateTime.Now.Ticks.ToString()%>")
 script.
