@@ -43,9 +43,9 @@ function throttle(f, awaitingTime) {
     }
 }
 function move() {
-    headPost.style.transform = `translate3d(0px, ${window.scrollY / 6}px, 0px)`;
-    wrapperHead.style.transform = `translate3d(0px, ${-window.scrollY / 6}px, 0px)`;
-    postTitleself.style.transform = `translate3d(0px, ${-window.scrollY / 6}px, 0px)`;
+    headPost.style.transform = `translate3d(0px, ${window.scrollY / 8}px, 0px)`;
+    wrapperHead.style.transform = `translate3d(0px, ${-window.scrollY / 8}px, 0px)`;
+    postTitleself.style.transform = `translate3d(0px, ${-window.scrollY / 8}px, 0px)`;
     headPost.style.filter = `brightness(33%) blur(${window.scrollY / 100}px)`;
 }
 
