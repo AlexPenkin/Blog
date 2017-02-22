@@ -288,7 +288,7 @@ figure {
 }
 
 .headWrap {
-    transform: all;
+    transition: all;
     height: 400px;
     width: 100%;
     position: absolute;
