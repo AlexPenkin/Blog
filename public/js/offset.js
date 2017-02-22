@@ -49,7 +49,7 @@ function move() {
     // headPost.style.filter = `brightness(33%) blur(${window.scrollY / 100}px)`;
 }
 
-var throttled = throttle(move, 14);
+var throttled = throttle(move, 100);
 
 
 if (!isMobile) {
