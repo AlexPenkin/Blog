@@ -1,6 +1,7 @@
 include ./includes/mainInfo.jade
 include ./includes/header.jade
-
+script(type='text/javascript', src='./js/highlight.pack.js')
+link(rel= 'stylesheet',href= '/css/atom-one-dark.css')
 div.headWrap
   div(style={background: "url('.#{headImg}') no-repeat scroll center center/cover"}).headPost#headPost
 div.blogPostWrap.col-lg-6.col-md-6.col-sm-12.col-xs-12.col-md-offset-3.col-lg-offset-3
@@ -8,16 +9,15 @@ div.blogPostWrap.col-lg-6.col-md-6.col-sm-12.col-xs-12.col-md-offset-3.col-lg-of
     p !{title}
     p.offset
     p.dateAutor #{autor} | #{date}
-    p.views Прсмотров: #{viewsNum}
+    p.views Views: #{viewsNum}
   div.fullText.col-lg-12.col-md-12.col-sm-12.col-xs-12
     | !{text}
-    hr
-    p Может понравится:
-    hr
+    hr   
   div.postTags.fullText.col-lg-12.col-md-12.col-sm-12.col-xs-12    tags:
 
     each tag in tags
-      a(href= '/tags?tag=#{tag}'): div.awesomeTag= tag
+      if tag != ''
+        a(href= '/tags?tag=#{tag}'): div.awesomeTag= tag
     hr
   if user && user.username == 'Admin'
     a(href="/updatePost?urlPost=#{id}") Править
@@ -27,6 +27,7 @@ div.blogPostWrap.col-lg-6.col-md-6.col-sm-12.col-xs-12.col-md-offset-3.col-lg-of
 
 
 script.
+  hljs.initHighlightingOnLoad();
   var postId = "#{_id}";
   var likeUsers = '#{likes.users}'.split(','),
   title = '#{title}',
@@ -46,7 +47,8 @@ script.
   })();
 
 
-script(type='text/javascript', src='./js/offset.js')
+script(type='text/javascript', src='./js/offset.js' async)
+
 
 
 
