@@ -629,6 +629,7 @@ button:focus {
     padding: 45px;
     font-family: "Lora";
     font-size: 16px;
+    will-change: transform;
 }
 
 .portList {
