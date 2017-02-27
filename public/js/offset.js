@@ -54,5 +54,5 @@ var throttled = throttle(move, 15);
 
 
 if (!isMobile) {
-    window.onscroll = move;
+    window.onscroll = throttled;
 }
