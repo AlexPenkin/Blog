@@ -1300,3 +1300,19 @@ div:before {
     text-decoration: none;
 }
 
+@media (max-width:1570px) {
+.textContacts {
+    margin-top: 80px;
+    display: block;
+    white-space: normal;
+    font-size: 40px;
+    font-family: "Lora";
+}
+.wrapperContacts {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+}
