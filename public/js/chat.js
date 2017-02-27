@@ -10,8 +10,7 @@ if (document.getElementById('username')) {
   user = "Гость";
 }
 
-send.addEventListener("click", function(event) {
-  console.log(input.value);
+send.addEventListener("click", function(event) {  
   if (input.value != '') {
     socket.emit('sendOnServer', {
       message: input.value,

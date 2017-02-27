@@ -49,9 +49,9 @@ function move() {
     // headPost.style.filter = `brightness(33%) blur(${window.scrollY / 100}px)`;
 }
 
-var throttled = throttle(move, 17);
+var throttled = throttle(move, 15);
 
 
 if (!isMobile) {
-    window.onscroll = throttled;
+    window.onscroll = move;
 }

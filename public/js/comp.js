@@ -1,4 +1,4 @@
-console.log('aa');
+
 class Component extends React.Component {
   constructor() {
     super();

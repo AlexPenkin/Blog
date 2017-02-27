@@ -66,10 +66,8 @@ function upload(file, name) {
   // если status == 200, то это успех, иначе ошибка
 
   xhr.onload = xhr.onerror = function() {
-    if (this.status == 200) {
-      console.log(file.type);
-      document.getElementById('headImg').value = '';
-      console.log("success");
+    if (this.status == 200) {   
+      document.getElementById('headImg').value = '';    
       alert('pic loaded! move away!')
     } else {
       console.log("error " + this.status);

@@ -248,7 +248,7 @@ a {
     justify-content: flex-end;
     flex-direction: column;
     z-index: 3;
-    transition: all;
+    /*transition: all;*/
 }
 
 .postTitle p {
@@ -288,7 +288,7 @@ figure {
 }
 
 .headWrap {
-    transition: all;
+   
     height: 400px;
     width: 100%;
     position: absolute;
@@ -298,8 +298,8 @@ figure {
 }
 
 .headWrap>div {
-    will-change: transform;
-    transition: transform;
+    /*will-change: transform;
+    transition: transform;*/
 }
 
 .postTags {

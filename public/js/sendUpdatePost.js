@@ -8,11 +8,9 @@ $(document).ready(function() {
     //alert(text);
     $('#test').append(text);
     var b;
-    httpGet('/updatePost').then(res => {
-      console.log('sasad');
+    httpGet('/updatePost').then(res => {     
       var file = document.getElementById('headImg').files[0];
-      alert('text sended, wait until pic load')
-      console.log(file.name);
+      alert('text sended, wait until pic load');     
       upload(file, file.name)
     }).catch(res=> console.log(res));
 
@@ -34,8 +32,7 @@ if (month  < 10) {
 var formattedDate = `Published ${day}.${month}.${year} в ${hours}:${minutes}`;
 function httpGet(url) {
 
-  return new Promise(function(resolve, reject) {
-      console.log(_id);
+  return new Promise(function(resolve, reject) {   
     $.ajax({
         url: url,
         method: "POST",
@@ -70,11 +67,9 @@ function upload(file, name) {
   // если status == 200, то это успех, иначе ошибка
 
   xhr.onload = xhr.onerror = function() {
-    if (this.status == 200) {
-      console.log(file.type);
-      document.getElementById('headImg').value = '';
-      console.log("success");
-      alert('pic loaded, pizduy!')
+    if (this.status == 200) {     
+      document.getElementById('headImg').value = '';     
+      alert('pic loaded, go back!')
     } else {
       console.log("error " + this.status);
     }

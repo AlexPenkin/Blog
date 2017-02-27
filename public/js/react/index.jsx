@@ -13,8 +13,7 @@ class App extends React.Component {
       var arr = [];
       for (var i = 0; i < Object.keys(portsDetailsObj).length; i++) {
         arr[i] = portsDetailsObj[Object.keys(portsDetailsObj)[i]];
-      }
-      console.log(arr);
+      }     
         return (
             <ReactCSSTransitionGroup   component="div" transitionAppear={true} transitionName="blog" transitionLeave={true} transitionEnterTimeout={5000} transitionAppearTimeout={5000} transitionLeaveTimeout={5000}>
                 <div key = 'two' className='portWrapReact row'>
