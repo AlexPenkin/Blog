@@ -730,7 +730,7 @@ button:focus {
     transform: translateY(0px);
     transition: all 1s;
     position: absolute;
-    /*top: 0;*/
+    top: 0;
 }
 
 
