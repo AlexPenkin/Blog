@@ -203,7 +203,9 @@ a {
     align-items: center;
     flex-direction: column
 }
-
+.comments {
+    width: 200px;
+}
 .commentsAndTags {
     display: flex;
     justify-content: space-between
