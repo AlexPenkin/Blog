@@ -713,7 +713,7 @@ button:focus {
     transform: translateY(-2000px) translateZ(0);
     backface-visibility: hidden;
     position: absolute;
-    top: -2000px;
+    /*top: -2000px;*/
 }
 
 .img-leave {
@@ -729,8 +729,8 @@ button:focus {
 .img-enter.img-enter-active {
     transform: translateY(0px);
     transition: all 1s;
-    position: relative;
-    top: 0;
+    position: absolute;
+    /*top: 0;*/
 }
 
 
