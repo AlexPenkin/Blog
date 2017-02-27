@@ -43,9 +43,10 @@ function throttle(f, awaitingTime) {
     }
 }
 function move() {
-    headPost.style.transform = `translate3d(0px, ${window.scrollY / 5}px, 0px)`;
-    wrapperHead.style.transform = `translate3d(0px, ${-window.scrollY / 5}px, 0px)`;
-    postTitleself.style.transform = `translate3d(0px, ${-window.scrollY / 5}px, 0px)`;
+    var scroll = window.scrollY / 5;
+    headPost.style.transform = `translate3d(0px, ${scroll}px, 0px)`;
+    wrapperHead.style.transform = `translate3d(0px, ${-scroll}px, 0px)`;
+    postTitleself.style.transform = `translate3d(0px, ${-scroll}px, 0px)`;
     // headPost.style.filter = `brightness(33%) blur(${window.scrollY / 100}px)`;
 }
 
