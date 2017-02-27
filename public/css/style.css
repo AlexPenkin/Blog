@@ -729,7 +729,7 @@ button:focus {
 .img-enter.img-enter-active {
     transform: translateY(0px);
     transition: all 1s;
-    position: absolute;
+    position: relative;
     top: 0;
 }
 
