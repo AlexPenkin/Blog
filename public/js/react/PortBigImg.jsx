@@ -8,7 +8,7 @@ import portsDetailsObj from './portsDetailsObj.jsx';
 export default function PortBigImg (props) {
 var id = props.id.toLowerCase();
      return (
-       <ReactCSSTransitionGroup className = 'portBigImg'    component="div"  transitionName="img" transitionLeave={true} transitionEnterTimeout={1000}  transitionLeaveTimeout={1000}>
+       <ReactCSSTransitionGroup className = 'portBigImg'    component="div"  transitionName="img" transitionLeave={true} transitionEnterTimeout={1001}  transitionLeaveTimeout={1001}>
          <div style = {{backgroundColor: portsDetailsObj[props.id.toLowerCase()].imgBackgroundColor }} className = 'portBigImgCh' key = {props.id + 'img'}>
           <div className = 'portBigImgCh2'>{props.id}</div>
          </div>

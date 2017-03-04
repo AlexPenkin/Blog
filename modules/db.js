@@ -1,7 +1,7 @@
 module.exports = function db() {
     const mongoose = require('mongoose');
-      // mongoose.connect('mongodb://localhost:27017/blog');
-    mongoose.connect('mongodb://'+process.env.MONGODB_PORT_27017_TCP_ADDR + ':' + process.env.MONGODB_PORT_27017_TCP_PORT + '/blog');
+       mongoose.connect('mongodb://localhost:27017/blog');
+    //  mongoose.connect('mongodb://'+process.env.MONGODB_PORT_27017_TCP_ADDR + ':' + process.env.MONGODB_PORT_27017_TCP_PORT + '/blog');
     var db = mongoose.connection;
     db.on('error', console.error.bind(console, 'connection error:'));
     db.once('open', function() {

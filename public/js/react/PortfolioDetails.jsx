@@ -13,12 +13,9 @@ export default class PortfolioDetails extends Component {
         return (
           <ReactCSSTransitionGroup
               component="div"
-              transitionName="blog"
-              transitionAppear={true}
-              transitionLeave={true}
-              transitionEnterTimeout={1000}
-              transitionAppearTimeout={1000}
-              transitionLeaveTimeout={1000}>
+              transitionName="blog"      
+              transitionEnterTimeout={1001}
+        >
                   
                       <PortfolioDetailsPro id = {this.props.params.portId} />
                     </ReactCSSTransitionGroup>

@@ -2,6 +2,7 @@ body,
 html {
     width: 100%;
     min-height: 100%;
+    height: 100%;
     margin: 0px;
     position: relative;
     background-color: #fafafa;
@@ -535,7 +536,7 @@ button:focus {
 
 .blog-appear {
     opacity: .01;
-    transform: translateX(0)
+
 }
 
 .blog-enter {
@@ -549,19 +550,18 @@ button:focus {
 
 .blog-appear.blog-appear-active {
     opacity: 1;
-    transform: translateX(0);
+  
     transition: all 1s ease-in
 }
 
 .blog-leave {
-    opacity: 1;
-    transform: translateX(500px);
+    opacity: 1;   
     transition: all 1s ease-in
 }
 
 .blog-leave.blog-leave-active {
     opacity: .01;
-    transform: translateX(500px)
+   
 }
 
 .portWrapper {
@@ -590,7 +590,7 @@ button:focus {
     width: 33%;
     height: initial;
     position: relative;
-    will-change: transform;
+   
     overflow: hidden;
 }
 
@@ -606,7 +606,7 @@ button:focus {
     text-transform: uppercase;
     font-family: "San Francisco Display Ultralight";
     overflow: hidden;
-    will-change: transform;
+    
 }
 
 [data-reactroot] {
@@ -617,7 +617,7 @@ button:focus {
     height: 100%;
     width: 67%;
     position: relative;
-    will-change: transform;
+ 
     overflow: hidden;
 }
 
@@ -630,7 +630,7 @@ button:focus {
     padding: 45px;
     font-family: "Lora";
     font-size: 16px;
-    will-change: transform;
+
 }
 
 .portList {
@@ -709,7 +709,7 @@ button:focus {
 
 .img-enter {
     /*width: 33%;*/
-    will-change: transform;
+ 
     transform: translateY(-2000px) translateZ(0);
     backface-visibility: hidden;
     position: absolute;
@@ -717,7 +717,7 @@ button:focus {
 }
 
 .img-leave {
-    will-change: transform;
+  
     /*width: 33%;*/
     visibility: visible;
     backface-visibility: hidden;
@@ -1128,7 +1128,7 @@ div:before {
         min-height: 300px;
         height: 300px;
         width: 100%;
-        will-change: transform;
+       
         overflow: visible;
     }
     .portText {
@@ -1152,7 +1152,7 @@ div:before {
     .img-enter {
         /*width: 33%;*/
         width: 100%;
-        will-change: transform;
+
         transform: translateX(-2000px) translateZ(0);
         backface-visibility: hidden;
         position: absolute;
@@ -1160,7 +1160,7 @@ div:before {
         top: 0px
     }
     .img-leave {
-        will-change: transform;
+   
         /*width: 33%;*/
         overflow: hidden;
         top: 0px;

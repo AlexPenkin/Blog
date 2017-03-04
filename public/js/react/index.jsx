@@ -15,7 +15,7 @@ class App extends React.Component {
         arr[i] = portsDetailsObj[Object.keys(portsDetailsObj)[i]];
       }     
         return (
-            <ReactCSSTransitionGroup   component="div" transitionAppear={true} transitionName="blog" transitionLeave={true} transitionEnterTimeout={5000} transitionAppearTimeout={5000} transitionLeaveTimeout={5000}>
+            <ReactCSSTransitionGroup   component="div" transitionAppear={true} transitionName="blog" >
                 <div key = 'two' className='portWrapReact row'>
                   {arr.map((item)=>{
                     return <AwesomeComponent title= {item.title} defenition={item.projectDescription} back = {item.imgBackgroundColor}/>

@@ -8,7 +8,7 @@ import portsDetailsObj from './portsDetailsObj.jsx';
 export default function PortText (props){
   var id = props.id.toLowerCase();
   return (
-    <ReactCSSTransitionGroup   className = 'portText'  component="div"  transitionName="text" transitionLeave={true} transitionEnterTimeout={1000}  transitionLeaveTimeout={1000}>
+    <ReactCSSTransitionGroup   className = 'portText'  component="div"  transitionName="text" transitionLeave={true} transitionEnterTimeout={1001}  transitionLeaveTimeout={1001}>
       <div key = {props.id + 'text'} style = {{minHeight: '100%', width: '100%'}}>
 
         <a className = 'aTitle'href={portsDetailsObj[id].href} target="_blank"><div  className = 'titleTextPort'> <img className ='titleLink' src='./img/link.png'></img> {portsDetailsObj[id].title}</div></a>
