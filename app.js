@@ -36,10 +36,6 @@ function getAllPosts(model) {
         });
     })
 }
-var options = {
-    key: fs.readFileSync('./public/server.key'),
-    cert: fs.readFileSync('./public/server.crt')
-};
 
 const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
